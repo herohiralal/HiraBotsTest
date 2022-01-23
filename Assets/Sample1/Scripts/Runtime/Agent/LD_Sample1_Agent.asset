@@ -1,0 +1,150 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627e8d2093ba4dd4a6cea6c43a281bec, type: 3}
+  m_Name: LD_Sample1_Agent
+  m_EditorClassIdentifier: 
+  m_Backends: 1
+  m_Blackboard: {fileID: 11400000, guid: 6751d1823c6f6bc47ac195866a695740, type: 2}
+  m_TopLayer:
+    m_FallbackGoal: 0000
+    m_Goals:
+    - {fileID: 1819908513114570989}
+    m_MaxPlanSize: 1
+  m_IntermediateLayers: []
+  m_BottomLayer:
+    m_FallbackPlan: 0000
+    m_Tasks:
+    - {fileID: 4337811996622993081}
+    m_MaxPlanSize: 5
+--- !u!114 &1575581134759199800
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f02, type: 3}
+  m_Name: AlwaysFailDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Target
+  m_Description: Always fail. Used to disable a goal/task for debugging purposes.
+--- !u!114 &1819908513114570989
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c884b2306cc04a2ea7bb379c81e7aefa, type: 3}
+  m_Name: Default Goal
+  m_EditorClassIdentifier: 
+  m_Insistence:
+    m_Insistence:
+    - {fileID: 2211031891720349160}
+  m_Target:
+    m_Target:
+    - {fileID: 1575581134759199800}
+  <blackboard>k__BackingField: {fileID: 11400000, guid: 6751d1823c6f6bc47ac195866a695740,
+    type: 2}
+--- !u!114 &2211031891720349160
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f0c, type: 3}
+  m_Name: BaseScoreScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Insistence
+  m_Description: +5.
+  score: 5
+--- !u!114 &3180284393298234108
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebceb737b94b435882755991814c8590, type: 3}
+  m_Name: PatrolTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 2
+  m_Description: Customize this description by overriding UpdateDescription().
+  m_PatrolPointCollection: {fileID: 11400000, guid: ba1ea3ae45a3dfb4b9619b1524fcaa3b,
+    type: 2}
+  m_MoveSpeed: 3
+  m_StopDistance: 0.1
+  m_WaitTime: 6
+--- !u!114 &4337811996622993081
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcba4340a034f9e83fbb967f661bb5d, type: 3}
+  m_Name: Patrol
+  m_EditorClassIdentifier: 
+  m_Action:
+    m_Precondition:
+    - {fileID: 6789510257365027756}
+    m_Cost:
+    - {fileID: 5877648548785623709}
+    m_Effect: []
+  m_Target:
+    m_Target: []
+  m_TaskProviders:
+  - {fileID: 3180284393298234108}
+  m_ServiceProviders: []
+  <blackboard>k__BackingField: {fileID: 11400000, guid: 6751d1823c6f6bc47ac195866a695740,
+    type: 2}
+  <canBeAbstract>k__BackingField: 0
+--- !u!114 &5877648548785623709
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f0c, type: 3}
+  m_Name: BaseScoreScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Cost
+  m_Description: +10000.
+  score: 10000
+--- !u!114 &6789510257365027756
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f02, type: 3}
+  m_Name: AlwaysFailDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Precondition
+  m_Description: Always fail. Used to disable a goal/task for debugging purposes.

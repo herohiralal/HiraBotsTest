@@ -1,0 +1,18 @@
+{
+    "name": "AIEngineTest.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:69a7872e25ff956489d7ae2cf478296d"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
