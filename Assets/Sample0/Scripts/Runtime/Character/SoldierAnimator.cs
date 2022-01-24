@@ -4,7 +4,7 @@ using UnityEngine.Scripting;
 
 namespace AIEngineTest
 {
-    public class SoldierAnimatorEventsListener : MonoBehaviour
+    public class SoldierAnimator : MonoBehaviour
     {
         [SerializeField] private UnityEvent m_OnFootL;
         [SerializeField] private UnityEvent m_OnFootR;
