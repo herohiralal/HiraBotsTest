@@ -86,10 +86,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c58ae3814f87470ebd76fca156ca98b8, type: 3}
   m_Name: UpdateSpeedServiceProvider
   m_EditorClassIdentifier: 
-  m_TickInterval: 0.1
+  m_TickInterval: 0
   m_Description: Customize this description by overriding UpdateDescription().
   m_MinSpeed: 0
-  m_MaxSpeed: 3
+  m_MaxSpeed: 1.79
 --- !u!114 &3180284393298234108
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -106,9 +106,9 @@ MonoBehaviour:
   m_Description: Customize this description by overriding UpdateDescription().
   m_PatrolPointCollection: {fileID: 11400000, guid: ba1ea3ae45a3dfb4b9619b1524fcaa3b,
     type: 2}
-  m_MoveSpeed: 3
-  m_StopDistance: 0.1
-  m_WaitTime: 6
+  m_MoveSpeed: 1.79
+  m_StopDistance: 0.25
+  m_WaitTime: 5
 --- !u!114 &4337811996622993081
 MonoBehaviour:
   m_ObjectHideFlags: 3

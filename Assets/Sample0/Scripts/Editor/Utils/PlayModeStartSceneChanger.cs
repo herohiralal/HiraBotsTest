@@ -10,10 +10,9 @@ namespace AIEngineTest.Editor
     {
         static PlayModeStartSceneChanger()
         {
-            EditorSceneManager.playModeStartScene = null;
-            // s_NumberOfPersistentScenesOnLastUpdate = -1;
-            // EditorApplication.update -= OnEditorUpdate;
-            // EditorApplication.update += OnEditorUpdate;
+            s_NumberOfPersistentScenesOnLastUpdate = -1;
+            EditorApplication.update -= OnEditorUpdate;
+            EditorApplication.update += OnEditorUpdate;
         }
 
         private static int s_NumberOfPersistentScenesOnLastUpdate;
