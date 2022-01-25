@@ -18,7 +18,7 @@ namespace AIEngineTest
         public void Begin()
         {
             m_Waiting = true;
-            m_TimeSpentWaiting = 0f;
+            m_TimeSpentWaiting = m_WaitTime - 0.1f;
         }
 
         public HiraBotsTaskResult Execute(float deltaTime)
