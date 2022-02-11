@@ -10,19 +10,9 @@ namespace AIEngineTest
 
         public IEnumerator Blend(bool target)
         {
-            var a = m_CanvasBlenderForPauseButton.Blend(!target);
-            var b = m_CanvasBlenderForPauseMenu.Blend(target);
-
-            var aMoveNext = a.MoveNext();
-            var bMoveNext = b.MoveNext();
-
-            while (aMoveNext || bMoveNext)
-            {
-                aMoveNext = a.MoveNext();
-                bMoveNext = b.MoveNext();
-
-                yield return null;
-            }
+            return InterpolationHelper.Parallel(
+                m_CanvasBlenderForPauseButton.Blend(!target),
+                m_CanvasBlenderForPauseMenu.Blend(target));
         }
     }
 }
