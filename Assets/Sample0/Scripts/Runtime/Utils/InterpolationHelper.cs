@@ -180,6 +180,15 @@ namespace AIEngineTest
 
     public static class InterpolationHelper
     {
+        public static IEnumerator Parallel(this MonoBehaviour m, IEnumerator a, IEnumerator b)
+        {
+            var ac = m.StartCoroutine(a);
+            var bc = m.StartCoroutine(b);
+
+            yield return ac;
+            yield return bc;
+        }
+
         public static IEnumerator TweenAlpha<TInterpolator, TDeltaTimeProvider>(this CanvasGroup canvasGroup, float start, float end, float time)
             where TInterpolator : unmanaged, IInterpolator
             where TDeltaTimeProvider : unmanaged, IDeltaTimeProvider

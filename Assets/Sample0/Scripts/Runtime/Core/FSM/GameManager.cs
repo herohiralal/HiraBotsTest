@@ -182,8 +182,9 @@ public class GameManager : MonoBehaviour
     private static IEnumerator PauseCoroutine()
     {
         locked = true;
-        s_Instance.StartCoroutine(currentPauseScreen.Blend(true, 3f));
-        yield return s_Instance.StartCoroutine(InterpolationHelper.TweenTimescale<EaseOutQuintInterpolator>(1f, 0f, 3f));
+        yield return s_Instance.Parallel(
+            currentPauseScreen.Blend(true, 3f),
+            InterpolationHelper.TweenTimescale<EaseOutQuintInterpolator>(1f, 0f, 3f));
         locked = false;
     }
 
@@ -205,8 +206,9 @@ public class GameManager : MonoBehaviour
     private static IEnumerator ResumeCoroutine()
     {
         locked = true;
-        s_Instance.StartCoroutine(currentPauseScreen.Blend(false, 3f));
-        yield return s_Instance.StartCoroutine(InterpolationHelper.TweenTimescale<EaseOutQuintInterpolator>(0f, 1f, 3f));
+        yield return s_Instance.Parallel(
+            currentPauseScreen.Blend(false, 3f),
+            InterpolationHelper.TweenTimescale<EaseInQuintInterpolator>(0f, 1f, 3f));
         locked = false;
     }
 

@@ -10,8 +10,9 @@ namespace AIEngineTest
 
         public IEnumerator Blend(bool target, float? blendTime = null)
         {
-            StartCoroutine(m_CanvasBlenderForPauseButton.Blend(!target, blendTime));
-            yield return StartCoroutine(m_CanvasBlenderForPauseMenu.Blend(target, blendTime));
+            return this.Parallel(
+                m_CanvasBlenderForPauseButton.Blend(!target, blendTime),
+                m_CanvasBlenderForPauseMenu.Blend(target, blendTime));
         }
     }
 }
