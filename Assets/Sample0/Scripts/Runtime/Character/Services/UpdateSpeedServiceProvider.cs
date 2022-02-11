@@ -26,6 +26,11 @@ namespace AIEngineTest.Services
 
         public void Tick(float deltaTime)
         {
+            if (deltaTime < 0.002f)
+            {
+                return;
+            }
+
             var newPos = m_Transform.position;
             var diff = newPos - m_Position;
             var velocity = diff / deltaTime;
