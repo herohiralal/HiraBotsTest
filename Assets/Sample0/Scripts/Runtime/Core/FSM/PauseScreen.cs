@@ -8,11 +8,10 @@ namespace AIEngineTest
         [SerializeField] private CanvasBlender m_CanvasBlenderForPauseButton;
         [SerializeField] private CanvasBlender m_CanvasBlenderForPauseMenu;
 
-        public IEnumerator Blend(bool target)
+        public IEnumerator Blend(bool target, float? blendTime = null)
         {
-            return InterpolationHelper.Parallel(
-                m_CanvasBlenderForPauseButton.Blend(!target),
-                m_CanvasBlenderForPauseMenu.Blend(target));
+            StartCoroutine(m_CanvasBlenderForPauseButton.Blend(!target, blendTime));
+            yield return StartCoroutine(m_CanvasBlenderForPauseMenu.Blend(target, blendTime));
         }
     }
 }

@@ -14,14 +14,14 @@ namespace AIEngineTest
             gameObject.SetActive(!m_StartDisabled);
         }
 
-        public IEnumerator Blend(bool enable)
+        public IEnumerator Blend(bool enable, float? blendTime = null)
         {
             if (enable)
             {
                 gameObject.SetActive(true);
             }
 
-            yield return m_CanvasGroup.TweenAlpha<LinearInterpolator, UnscaledTime>(enable ? 0f : 1f, enable ? 1f : 0f, m_BlendTime);
+            yield return m_CanvasGroup.TweenAlpha<LinearInterpolator, UnscaledTime>(enable ? 0f : 1f, enable ? 1f : 0f, blendTime ?? m_BlendTime);
 
             if (!enable)
             {
