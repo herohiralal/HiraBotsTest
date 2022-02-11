@@ -192,25 +192,7 @@ namespace AIEngineTest
             } while (aMoveNext || bMoveNext);
         }
 
-        public static IEnumerator TimescaleLerp<TInterpolator>(bool state, float unscaledTime)
-            where TInterpolator : unmanaged, IInterpolator
-        {
-            var interpolator = new TInterpolator();
-
-            var start = state ? 0f : 1f;
-            var end = state ? 1f : 0f;
-
-            for (var timeElapsed = 0f; timeElapsed < unscaledTime; timeElapsed += Time.unscaledDeltaTime)
-            {
-                var t = interpolator.Modify(timeElapsed / unscaledTime);
-                Time.timeScale = Mathf.Lerp(start, end, t);
-                yield return null;
-            }
-
-            Time.timeScale = end;
-        }
-
-        public static IEnumerator PositionLerp<TInterpolator, TDeltaTimeProvider>(Transform transform, Vector3 start, Vector3 end, float time)
+        public static IEnumerator TweenAlpha<TInterpolator, TDeltaTimeProvider>(this CanvasGroup canvasGroup, float start, float end, float time)
             where TInterpolator : unmanaged, IInterpolator
             where TDeltaTimeProvider : unmanaged, IDeltaTimeProvider
         {
@@ -220,7 +202,40 @@ namespace AIEngineTest
             for (var timeElapsed = 0f; timeElapsed < time; timeElapsed += deltaTimeProvider.currentValue)
             {
                 var t = interpolator.Modify(timeElapsed / time);
-                transform.position = Vector3.Lerp(start, end, t);
+                canvasGroup.alpha = Mathf.LerpUnclamped(start, end, t);
+                yield return null;
+            }
+
+            canvasGroup.alpha = end;
+        }
+
+        public static IEnumerator TweenTimescale<TInterpolator>(float start, float end, float unscaledTime)
+            where TInterpolator : unmanaged, IInterpolator
+        {
+            var interpolator = new TInterpolator();
+            var deltaTimeProvider = new UnscaledTime();
+
+            for (var timeElapsed = 0f; timeElapsed < unscaledTime; timeElapsed += deltaTimeProvider.currentValue)
+            {
+                var t = interpolator.Modify(timeElapsed / unscaledTime);
+                Time.timeScale = Mathf.LerpUnclamped(start, end, t);
+                yield return null;
+            }
+
+            Time.timeScale = end;
+        }
+
+        public static IEnumerator TweenPosition<TInterpolator, TDeltaTimeProvider>(this Transform transform, Vector3 start, Vector3 end, float time)
+            where TInterpolator : unmanaged, IInterpolator
+            where TDeltaTimeProvider : unmanaged, IDeltaTimeProvider
+        {
+            var interpolator = new TInterpolator();
+            var deltaTimeProvider = new TDeltaTimeProvider();
+
+            for (var timeElapsed = 0f; timeElapsed < time; timeElapsed += deltaTimeProvider.currentValue)
+            {
+                var t = interpolator.Modify(timeElapsed / time);
+                transform.position = Vector3.LerpUnclamped(start, end, t);
                 yield return null;
             }
 
