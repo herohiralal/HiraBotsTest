@@ -64,7 +64,11 @@ namespace AIEngineTest
 
         public void Abort()
         {
-            m_NavMeshAgent.isStopped = true;
+            if (m_NavMeshAgent.isActiveAndEnabled && m_NavMeshAgent.isOnNavMesh)
+            {
+                m_NavMeshAgent.isStopped = true;
+            }
+
             m_NavMeshAgent = null;
 
             m_PatrolPointCollection = null;
