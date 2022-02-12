@@ -22,6 +22,29 @@ MonoBehaviour:
       m_KeyTypes: 1
       m_IsValid: 1
   operationType: 1
+--- !u!114 &-6086921647091285747
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72829e80747749d69538555c2733c206, type: 3}
+  m_Name: SetTargetLocationAsPatrolPointTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0
+  m_Description: Customize this description by overriding UpdateDescription().
+  m_Key:
+    m_Value:
+      m_Key: {fileID: -3202358372231938240, guid: 6751d1823c6f6bc47ac195866a695740,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: 6751d1823c6f6bc47ac195866a695740, type: 2}
+      m_KeyTypes: 64
+      m_IsValid: 1
+  m_PatrolPointCollection: {fileID: 11400000, guid: ba1ea3ae45a3dfb4b9619b1524fcaa3b,
+    type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,6 +90,29 @@ MonoBehaviour:
     - {fileID: 3764228096948279716}
   <blackboard>k__BackingField: {fileID: 11400000, guid: 6751d1823c6f6bc47ac195866a695740,
     type: 2}
+--- !u!114 &2014978866732633530
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24aa5b80e95740efa69e4fca8cbb8db1, type: 3}
+  m_Name: MoveToTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 2
+  m_Description: Navigate agent to 0.25 units around TargetLocation at 1.79.
+  m_Target:
+    m_Value:
+      m_Key: {fileID: -3202358372231938240, guid: 6751d1823c6f6bc47ac195866a695740,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: 6751d1823c6f6bc47ac195866a695740, type: 2}
+      m_KeyTypes: 64
+      m_IsValid: 1
+  m_Tolerance: 0.25
+  m_Speed: 1.79
 --- !u!114 &2211031891720349160
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -98,25 +144,6 @@ MonoBehaviour:
   m_Description: Customize this description by overriding UpdateDescription().
   m_MinSpeed: 0
   m_MaxSpeed: 1.79
---- !u!114 &3180284393298234108
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebceb737b94b435882755991814c8590, type: 3}
-  m_Name: PatrolTaskProvider
-  m_EditorClassIdentifier: 
-  m_TickInterval: 2
-  m_Description: Customize this description by overriding UpdateDescription().
-  m_PatrolPointCollection: {fileID: 11400000, guid: ba1ea3ae45a3dfb4b9619b1524fcaa3b,
-    type: 2}
-  m_MoveSpeed: 1.79
-  m_StopDistance: 0.25
-  m_WaitTime: 5
 --- !u!114 &3764228096948279716
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -159,8 +186,11 @@ MonoBehaviour:
     - {fileID: -7363326694719253677}
   m_Target:
     m_Target: []
+  m_Loop: 1
   m_TaskProviders:
-  - {fileID: 3180284393298234108}
+  - {fileID: -6086921647091285747}
+  - {fileID: 2014978866732633530}
+  - {fileID: 9038539106002477906}
   m_ServiceProviders:
   - {fileID: 2458438174803153262}
   <blackboard>k__BackingField: {fileID: 11400000, guid: 6751d1823c6f6bc47ac195866a695740,
@@ -181,3 +211,19 @@ MonoBehaviour:
   m_Subtitle: Cost
   m_Description: +99.
   score: 99
+--- !u!114 &9038539106002477906
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c5ebb570bbb4f9384fef65361ab5388, type: 3}
+  m_Name: WaitTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 2
+  m_Description: "Wait for 5 \xB1 3 second(s)."
+  m_Timer: 5
+  m_RandomDeviation: 3
