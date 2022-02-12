@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private LoadingScreen m_LoadingScreenPrefab = null;
     [SerializeField] private PauseScreen m_PauseScreenPrefab;
 
+    [SerializeField] private float m_PauseTime = 0.5f;
+
     [System.NonSerialized] private LoadingScreen m_CurrentLoadingScreen;
     [System.NonSerialized] private PauseScreen m_CurrentPauseScreen;
 
@@ -22,6 +24,8 @@ public class GameManager : MonoBehaviour
     public new static Camera camera => s_Instance.m_MainCamera;
     public static LoadingScreen currentLoadingScreen => s_Instance.m_CurrentLoadingScreen;
     public static PauseScreen currentPauseScreen => s_Instance.m_CurrentPauseScreen;
+
+    public static float pauseTime => s_Instance.m_PauseTime;
 
     public static ref bool locked => ref s_Instance.m_Locked;
 
@@ -183,8 +187,8 @@ public class GameManager : MonoBehaviour
     {
         locked = true;
         yield return s_Instance.Parallel(
-            currentPauseScreen.Blend(true, 3f),
-            InterpolationHelper.TweenTimescale<EaseOutQuintInterpolator>(1f, 0f, 3f));
+            currentPauseScreen.Blend(true, pauseTime),
+            InterpolationHelper.TweenTimescale<EaseOutQuintInterpolator>(1f, 0f, pauseTime));
         locked = false;
     }
 
@@ -207,8 +211,8 @@ public class GameManager : MonoBehaviour
     {
         locked = true;
         yield return s_Instance.Parallel(
-            currentPauseScreen.Blend(false, 3f),
-            InterpolationHelper.TweenTimescale<EaseInQuintInterpolator>(0f, 1f, 3f));
+            currentPauseScreen.Blend(false, pauseTime),
+            InterpolationHelper.TweenTimescale<EaseInQuintInterpolator>(0f, 1f, pauseTime));
         locked = false;
     }
 
