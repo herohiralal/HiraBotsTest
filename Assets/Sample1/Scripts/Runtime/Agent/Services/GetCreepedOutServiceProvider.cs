@@ -4,11 +4,6 @@ using UnityEngine.AI;
 
 namespace AIEngineTest
 {
-    public struct FanGreetingMessage
-    {
-        public GameObject m_Fan;
-    }
-
     public class GetCreepedOutService : IHiraBotsService, IMessageListener<FanGreetingMessage>
     {
         public BlackboardComponent m_Blackboard;
