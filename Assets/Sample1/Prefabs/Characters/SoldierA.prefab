@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1178820189808050337}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94f013d3cc2f4d4096f802a204dac67c, type: 3}
+  m_Script: {fileID: 11500000, guid: b41326adeb3d48e088ea945c8201b2c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_StimulusMask:
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4022407653864771034}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2e3aff0ca4648cfb5334f525c91f173, type: 3}
+  m_Script: {fileID: 11500000, guid: b1dd13863f2c4d719d64cc4d96e981a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_StimulusMask:
@@ -222,6 +222,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Animator: {fileID: 3976838195640394138}
   m_NavMeshAgent: {fileID: 6011689323261803175}
+  m_SightSensor: {fileID: 2066030677184141938}
+  m_SoundSensor: {fileID: 8395487454236927093}
 --- !u!114 &6011689323261803169
 MonoBehaviour:
   m_ObjectHideFlags: 0
