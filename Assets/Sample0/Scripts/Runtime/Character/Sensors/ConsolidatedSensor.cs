@@ -25,7 +25,14 @@ namespace AIEngineTest
         {
             if (m_Objects.Add(o))
             {
-                m_OnNewObjectPerceived.Invoke(o);
+                try
+                {
+                    m_OnNewObjectPerceived.Invoke(o);
+                }
+                catch (System.Exception e)
+                {
+                    Debug.LogException(e);
+                }
             }
         }
 
@@ -33,7 +40,14 @@ namespace AIEngineTest
         {
             if (m_Objects.Remove(o))
             {
-                m_OnObjectStoppedPerceiving.Invoke(o);
+                try
+                {
+                    m_OnObjectStoppedPerceiving.Invoke(o);
+                }
+                catch (System.Exception e)
+                {
+                    Debug.LogException(e);
+                }
             }
         }
     }
