@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-namespace AIEngineTest.Services
+namespace AIEngineTest
 {
     public class UpdateSpeedService : IHiraBotsService
     {

@@ -1,9 +1,9 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace Sample0.Scripts.Editor.GUI
+namespace AIEngineTest.Editor
 {
-    [CustomPropertyDrawer(typeof(TagPropertyAttributePropertyDrawer))]
+    [CustomPropertyDrawer(typeof(TagPropertyAttribute))]
     public class TagPropertyAttributePropertyDrawer : PropertyDrawer
     {
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
