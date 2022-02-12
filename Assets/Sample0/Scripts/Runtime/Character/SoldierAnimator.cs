@@ -8,6 +8,7 @@ namespace AIEngineTest
     {
         [SerializeField] private UnityEvent m_OnFootL;
         [SerializeField] private UnityEvent m_OnFootR;
+        [SerializeField] private UnityEvent m_OnBow;
 
         [Preserve]
         public void FootL()
@@ -19,6 +20,12 @@ namespace AIEngineTest
         public void FootR()
         {
             m_OnFootR.Invoke();
+        }
+
+        [Preserve]
+        public void Bow()
+        {
+            m_OnBow.Invoke();
         }
     }
 }
