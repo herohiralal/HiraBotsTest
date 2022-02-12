@@ -224,6 +224,7 @@ MonoBehaviour:
   m_NavMeshAgent: {fileID: 6011689323261803175}
   m_SightSensor: {fileID: 2066030677184141938}
   m_SoundSensor: {fileID: 8395487454236927093}
+  m_Brain: {fileID: 6011689323261803169}
 --- !u!114 &6011689323261803169
 MonoBehaviour:
   m_ObjectHideFlags: 0
