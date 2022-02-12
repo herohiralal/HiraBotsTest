@@ -96,12 +96,12 @@ namespace AIEngineTest
 
             if (!m_CelebrityGameObject.Validate(in keySet, BlackboardKeyType.Object))
             {
-                reportError("no celebrity tracked transform key");
+                reportError("no celebrity game object key");
             }
 
             if (!m_CelebrityLocation.Validate(in keySet, BlackboardKeyType.Vector))
             {
-                reportError("no celebrity tracked transform key");
+                reportError("no celebrity location");
             }
         }
 
