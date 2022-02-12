@@ -26,7 +26,7 @@ namespace AIEngineTest
 
         public void Tick(float deltaTime)
         {
-            if (deltaTime < 0.002f)
+            if (deltaTime < 0.005f)
             {
                 return;
             }
