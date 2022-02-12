@@ -4,6 +4,14 @@ using Object = UnityEngine.Object;
 
 namespace AIEngineTest
 {
+    [ExposedToHiraBots("BE612AB4-2AF3-4902-9820-D1B034C433C3")]
+    public enum CelebrityStatus : byte
+    {
+        Unknown,
+        Known,
+        Lost
+    }
+
     public class LookOutForCelebrityService : IHiraBotsService
     {
         private bool m_Created = false;
