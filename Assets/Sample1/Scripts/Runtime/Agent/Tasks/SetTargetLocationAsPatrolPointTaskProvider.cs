@@ -22,7 +22,7 @@ namespace AIEngineTest
                 destination = m_PatrolPointCollection.GetRandom();
             } while (destination == current);
 
-            m_Blackboard.SetVectorValue(m_Key, destination);
+            m_Blackboard.SetVectorValue(m_Key, destination, true);
 
             return HiraBotsTaskResult.Succeeded;
         }
