@@ -111,6 +111,7 @@ MonoBehaviour:
       m_Template: {fileID: 11400000, guid: 6751d1823c6f6bc47ac195866a695740, type: 2}
       m_KeyTypes: 64
       m_IsValid: 1
+  m_TrackMovingTarget: 0
   m_Tolerance: 0.25
   m_Speed: 1.79
 --- !u!114 &2211031891720349160
@@ -143,7 +144,7 @@ MonoBehaviour:
   m_TickInterval: 0
   m_Description: Customize this description by overriding UpdateDescription().
   m_MinSpeed: 0
-  m_MaxSpeed: 1.79
+  m_MaxSpeed: 4.197
 --- !u!114 &3764228096948279716
 MonoBehaviour:
   m_ObjectHideFlags: 3
