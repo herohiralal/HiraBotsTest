@@ -1,0 +1,523 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7363326694719253677
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf5cce8d3ca6458bbcf415de101c99e1, type: 3}
+  m_Name: BooleanIsSetEffector
+  m_EditorClassIdentifier: 
+  m_Subtitle: Effect
+  m_Description: Unset DoneIdling.
+  key:
+    m_Value:
+      m_Key: {fileID: 3728205780240856743, guid: 6751d1823c6f6bc47ac195866a695740,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: 4cd6b8a52bf50a349a8c56dfef8c8252, type: 2}
+      m_KeyTypes: 1
+      m_IsValid: 1
+  operationType: 1
+--- !u!114 &-6086921647091285747
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72829e80747749d69538555c2733c206, type: 3}
+  m_Name: SetTargetLocationAsPatrolPointTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0
+  m_Description: Customize this description by overriding UpdateDescription().
+  m_Key:
+    m_Value:
+      m_Key: {fileID: -3202358372231938240, guid: 6751d1823c6f6bc47ac195866a695740,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: 4cd6b8a52bf50a349a8c56dfef8c8252, type: 2}
+      m_KeyTypes: 64
+      m_IsValid: 1
+  m_PatrolPointCollection: {fileID: 11400000, guid: ba1ea3ae45a3dfb4b9619b1524fcaa3b,
+    type: 2}
+--- !u!114 &-6028367559204142247
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24aa5b80e95740efa69e4fca8cbb8db1, type: 3}
+  m_Name: MoveToTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0
+  m_Description: Navigate agent to 1.5 units around TargetLocation at 4.2.
+  m_Target:
+    m_Value:
+      m_Key: {fileID: -3202358372231938240, guid: 6751d1823c6f6bc47ac195866a695740,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: 4cd6b8a52bf50a349a8c56dfef8c8252, type: 2}
+      m_KeyTypes: 64
+      m_IsValid: 1
+  m_TrackMovingTarget: 0
+  m_Tolerance: 1.5
+  m_Speed: 4.2
+--- !u!114 &-5215534195388576581
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841fea4ba9b94948b9b5ff847474ea5c, type: 3}
+  m_Name: BooleanIsSetScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Insistence
+  m_Description: -10. if Shy is not set.
+  invert: 1
+  key:
+    m_Value:
+      m_Key: {fileID: -158959164166478104, guid: 4cd6b8a52bf50a349a8c56dfef8c8252,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: 4cd6b8a52bf50a349a8c56dfef8c8252, type: 2}
+      m_KeyTypes: 1
+      m_IsValid: 1
+  score: -10
+--- !u!114 &-5158344740232609299
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ecc27574ca4a030ff85de39d096ccb, type: 3}
+  m_Name: ObjectEqualsDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Precondition
+  m_Description: CreepedOutBy must not be set to null.
+  invert: 1
+  key:
+    m_Value:
+      m_Key: {fileID: 4194817829169562265, guid: 4cd6b8a52bf50a349a8c56dfef8c8252,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: 4cd6b8a52bf50a349a8c56dfef8c8252, type: 2}
+      m_KeyTypes: 16
+      m_IsValid: 1
+  value: {fileID: 0}
+--- !u!114 &-4196659805797885754
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da5818b29555439cb0a6adc4d0937280, type: 3}
+  m_Name: ObjectEqualsEffector
+  m_EditorClassIdentifier: 
+  m_Subtitle: Effect
+  m_Description: Set CreepedOutBy to null.
+  key:
+    m_Value:
+      m_Key: {fileID: 4194817829169562265, guid: 4cd6b8a52bf50a349a8c56dfef8c8252,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: 4cd6b8a52bf50a349a8c56dfef8c8252, type: 2}
+      m_KeyTypes: 16
+      m_IsValid: 1
+  value: {fileID: 0}
+--- !u!114 &-4083052035697991789
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72829e80747749d69538555c2733c206, type: 3}
+  m_Name: SetTargetLocationAsPatrolPointTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0
+  m_Description: Customize this description by overriding UpdateDescription().
+  m_Key:
+    m_Value:
+      m_Key: {fileID: -3202358372231938240, guid: 6751d1823c6f6bc47ac195866a695740,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: 4cd6b8a52bf50a349a8c56dfef8c8252, type: 2}
+      m_KeyTypes: 64
+      m_IsValid: 1
+  m_PatrolPointCollection: {fileID: 11400000, guid: b6dc20efe3fe17041b3424835f24e5ea,
+    type: 2}
+--- !u!114 &-3854929696335003388
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e162664876948bc98ad33363ca32b41, type: 3}
+  m_Name: GetCreepedOutServiceProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 1000
+  m_Description: Customize this description by overriding UpdateDescription().
+  m_CreepedOutBy:
+    m_Value:
+      m_Key: {fileID: 4194817829169562265, guid: 4cd6b8a52bf50a349a8c56dfef8c8252,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: 4cd6b8a52bf50a349a8c56dfef8c8252, type: 2}
+      m_KeyTypes: 16
+      m_IsValid: 1
+  m_TimesGreetedBeforeCreepedOut: 3
+--- !u!114 &-3366126613219744117
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f0c, type: 3}
+  m_Name: BaseScoreScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Cost
+  m_Description: +5.
+  score: 5
+--- !u!114 &-2462741936687389622
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ecc27574ca4a030ff85de39d096ccc, type: 3}
+  m_Name: ObjectEqualsScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Insistence
+  m_Description: +10. if CreepedOutBy is not set to null.
+  invert: 1
+  key:
+    m_Value:
+      m_Key: {fileID: 4194817829169562265, guid: 4cd6b8a52bf50a349a8c56dfef8c8252,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: 4cd6b8a52bf50a349a8c56dfef8c8252, type: 2}
+      m_KeyTypes: 16
+      m_IsValid: 1
+  value: {fileID: 0}
+  score: 10
+--- !u!114 &-1872699840746621286
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c58ae3814f87470ebd76fca156ca98b8, type: 3}
+  m_Name: UpdateSpeedServiceProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0
+  m_Description: Customize this description by overriding UpdateDescription().
+  m_MinSpeed: 0
+  m_MaxSpeed: 4.197
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627e8d2093ba4dd4a6cea6c43a281bec, type: 3}
+  m_Name: LD_Sample1_Celebrity
+  m_EditorClassIdentifier: 
+  m_Backends: 1
+  m_Blackboard: {fileID: 11400000, guid: 4cd6b8a52bf50a349a8c56dfef8c8252, type: 2}
+  m_TopLayer:
+    m_FallbackGoal: 0000
+    m_Goals:
+    - {fileID: 1819908513114570989}
+    - {fileID: 6868102814374482892}
+    m_MaxPlanSize: 1
+  m_IntermediateLayers: []
+  m_BottomLayer:
+    m_FallbackPlan: 0000
+    m_Tasks:
+    - {fileID: 4337811996622993081}
+    - {fileID: 2203872635209627014}
+    m_MaxPlanSize: 5
+--- !u!114 &1371361204641800883
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ecc27574ca4a030ff85de39d096ccb, type: 3}
+  m_Name: ObjectEqualsDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Target
+  m_Description: CreepedOutBy must be set to null.
+  invert: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 4194817829169562265, guid: 4cd6b8a52bf50a349a8c56dfef8c8252,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: 4cd6b8a52bf50a349a8c56dfef8c8252, type: 2}
+      m_KeyTypes: 16
+      m_IsValid: 1
+  value: {fileID: 0}
+--- !u!114 &1819908513114570989
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c884b2306cc04a2ea7bb379c81e7aefa, type: 3}
+  m_Name: Idle
+  m_EditorClassIdentifier: 
+  m_Insistence:
+    m_Insistence:
+    - {fileID: 2211031891720349160}
+  m_Target:
+    m_Target:
+    - {fileID: 3764228096948279716}
+  <blackboard>k__BackingField: {fileID: 11400000, guid: 4cd6b8a52bf50a349a8c56dfef8c8252,
+    type: 2}
+--- !u!114 &2014978866732633530
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24aa5b80e95740efa69e4fca8cbb8db1, type: 3}
+  m_Name: MoveToTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 2
+  m_Description: Navigate agent to 1 units around TargetLocation at 1.79.
+  m_Target:
+    m_Value:
+      m_Key: {fileID: -3202358372231938240, guid: 6751d1823c6f6bc47ac195866a695740,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: 4cd6b8a52bf50a349a8c56dfef8c8252, type: 2}
+      m_KeyTypes: 64
+      m_IsValid: 1
+  m_TrackMovingTarget: 0
+  m_Tolerance: 1
+  m_Speed: 1.79
+--- !u!114 &2203872635209627014
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcba4340a034f9e83fbb967f661bb5d, type: 3}
+  m_Name: Escape
+  m_EditorClassIdentifier: 
+  m_Action:
+    m_Precondition:
+    - {fileID: -5158344740232609299}
+    m_Cost:
+    - {fileID: -3366126613219744117}
+    m_Effect:
+    - {fileID: -4196659805797885754}
+  m_Target:
+    m_Target: []
+  m_Loop: 0
+  m_TaskProviders:
+  - {fileID: -4083052035697991789}
+  - {fileID: -6028367559204142247}
+  - {fileID: 7325109109469253101}
+  m_ServiceProviders:
+  - {fileID: -1872699840746621286}
+  <blackboard>k__BackingField: {fileID: 11400000, guid: 4cd6b8a52bf50a349a8c56dfef8c8252,
+    type: 2}
+  <canBeAbstract>k__BackingField: 0
+--- !u!114 &2211031891720349160
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f0c, type: 3}
+  m_Name: BaseScoreScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Insistence
+  m_Description: +5.
+  score: 5
+--- !u!114 &2458438174803153262
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c58ae3814f87470ebd76fca156ca98b8, type: 3}
+  m_Name: UpdateSpeedServiceProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0
+  m_Description: Customize this description by overriding UpdateDescription().
+  m_MinSpeed: 0
+  m_MaxSpeed: 4.197
+--- !u!114 &3764228096948279716
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841fea4ba9b94948b9b5ff847474ea57, type: 3}
+  m_Name: BooleanIsSetDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Target
+  m_Description: DoneIdling must be set.
+  invert: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 3728205780240856743, guid: 6751d1823c6f6bc47ac195866a695740,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: 4cd6b8a52bf50a349a8c56dfef8c8252, type: 2}
+      m_KeyTypes: 1
+      m_IsValid: 1
+--- !u!114 &4337811996622993081
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcba4340a034f9e83fbb967f661bb5d, type: 3}
+  m_Name: Patrol
+  m_EditorClassIdentifier: 
+  m_Action:
+    m_Precondition: []
+    m_Cost:
+    - {fileID: 5877648548785623709}
+    m_Effect:
+    - {fileID: -7363326694719253677}
+  m_Target:
+    m_Target: []
+  m_Loop: 1
+  m_TaskProviders:
+  - {fileID: -6086921647091285747}
+  - {fileID: 2014978866732633530}
+  - {fileID: 9038539106002477906}
+  m_ServiceProviders:
+  - {fileID: 2458438174803153262}
+  - {fileID: -3854929696335003388}
+  <blackboard>k__BackingField: {fileID: 11400000, guid: 4cd6b8a52bf50a349a8c56dfef8c8252,
+    type: 2}
+  <canBeAbstract>k__BackingField: 0
+--- !u!114 &5877648548785623709
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f0c, type: 3}
+  m_Name: BaseScoreScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Cost
+  m_Description: +99.
+  score: 99
+--- !u!114 &6868102814374482892
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c884b2306cc04a2ea7bb379c81e7aefa, type: 3}
+  m_Name: Escape
+  m_EditorClassIdentifier: 
+  m_Insistence:
+    m_Insistence:
+    - {fileID: -2462741936687389622}
+    - {fileID: -5215534195388576581}
+  m_Target:
+    m_Target:
+    - {fileID: 1371361204641800883}
+  <blackboard>k__BackingField: {fileID: 11400000, guid: 4cd6b8a52bf50a349a8c56dfef8c8252,
+    type: 2}
+--- !u!114 &7325109109469253101
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4387aabf65ce424db7500d43aff38c32, type: 3}
+  m_Name: WaitUntilEscapedFanTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0
+  m_Description: Customize this description by overriding UpdateDescription().
+  m_CreepedOutBy:
+    m_Value:
+      m_Key: {fileID: 4194817829169562265, guid: 4cd6b8a52bf50a349a8c56dfef8c8252,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: 4cd6b8a52bf50a349a8c56dfef8c8252, type: 2}
+      m_KeyTypes: 16
+      m_IsValid: 1
+  m_Distance: 5
+  m_WaitFor: 5
+--- !u!114 &9038539106002477906
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c5ebb570bbb4f9384fef65361ab5388, type: 3}
+  m_Name: WaitTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 2
+  m_Description: "Wait for 5 \xB1 3 second(s)."
+  m_Timer: 5
+  m_RandomDeviation: 3

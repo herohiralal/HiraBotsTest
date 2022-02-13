@@ -7,6 +7,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3976838195636084540, guid: e7a50dcd40290c94fbfb75cd1262f35d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bcaa4f37939a5bf42b5fb1a833c5714e, type: 2}
+    - target: {fileID: 3976838195636084542, guid: e7a50dcd40290c94fbfb75cd1262f35d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bcaa4f37939a5bf42b5fb1a833c5714e, type: 2}
     - target: {fileID: 4132951677877494848, guid: e7a50dcd40290c94fbfb75cd1262f35d,
         type: 3}
       propertyPath: m_RootOrder
@@ -72,10 +82,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6011689323261803169, guid: e7a50dcd40290c94fbfb75cd1262f35d,
+        type: 3}
+      propertyPath: m_Domain
+      value: 
+      objectReference: {fileID: 11400000, guid: 1e6865192ae960347b62c355d0d66473,
+        type: 2}
     - target: {fileID: 6011689323261803173, guid: e7a50dcd40290c94fbfb75cd1262f35d,
         type: 3}
       propertyPath: m_Name
-      value: SoldierA_Celebrity_Basic
+      value: SoldierA_Celebrity
       objectReference: {fileID: 0}
     - target: {fileID: 6011689323261803173, guid: e7a50dcd40290c94fbfb75cd1262f35d,
         type: 3}
