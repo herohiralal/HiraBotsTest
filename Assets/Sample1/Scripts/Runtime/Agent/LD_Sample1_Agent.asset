@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Name: MoveToTaskProvider
   m_EditorClassIdentifier: 
   m_TickInterval: 2
-  m_Description: Navigate agent to 0.25 units around TargetLocation at 1.79.
+  m_Description: Navigate agent to 1 units around TargetLocation at 1.79.
   m_Target:
     m_Value:
       m_Key: {fileID: -3202358372231938240, guid: 6751d1823c6f6bc47ac195866a695740,
@@ -112,7 +112,7 @@ MonoBehaviour:
       m_KeyTypes: 64
       m_IsValid: 1
   m_TrackMovingTarget: 0
-  m_Tolerance: 0.25
+  m_Tolerance: 1
   m_Speed: 1.79
 --- !u!114 &2211031891720349160
 MonoBehaviour:

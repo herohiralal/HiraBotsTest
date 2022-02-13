@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StimulusMask:
     m_Value: 1
-  m_TimeToStimulusDecay: 0.1
+  m_TimeToStimulusDecay: 2
   m_OnNewObjectPerceived:
     m_PersistentCalls:
       m_Calls:
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StimulusMask:
     m_Value: 2
-  m_TimeToStimulusDecay: 0.1
+  m_TimeToStimulusDecay: 2
   m_OnNewObjectPerceived:
     m_PersistentCalls:
       m_Calls:
@@ -197,6 +197,54 @@ MonoBehaviour:
     m_SensorNotOnNavMeshAction: 1
     m_StimulusNotOnNavMeshAction: 1
   m_Radius: 8
+--- !u!1 &4981685520681972770
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4132951677877494848}
+  - component: {fileID: 7577223689646751751}
+  m_Layer: 0
+  m_Name: SoundStimulus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4132951677877494848
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4981685520681972770}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6011689323261803168}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7577223689646751751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4981685520681972770}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241497170f5e43a481cefe196db70a7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Type:
+    m_Value: 1
+  m_AssociatedObjectOverride: {fileID: 6011689323261803173}
+  m_TickInterval: 0
 --- !u!1 &6011689323261803173
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,6 +280,8 @@ Transform:
   - {fileID: 3976838195648073330}
   - {fileID: 7257968503413880955}
   - {fileID: 8884514243348916533}
+  - {fileID: 5954974377770890902}
+  - {fileID: 4132951677877494848}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -275,6 +325,7 @@ MonoBehaviour:
   m_OnObjectStoppedPerceiving:
     m_PersistentCalls:
       m_Calls: []
+  m_PerceivedObjects: []
 --- !u!114 &6011689323261803174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,6 +342,8 @@ MonoBehaviour:
   m_NavMeshAgent: {fileID: 6011689323261803175}
   m_Sensor: {fileID: 6271251692379380023}
   m_Brain: {fileID: 6011689323261803169}
+  m_SightStimulus: {fileID: 259171074725408322}
+  m_SoundStimulus: {fileID: 7577223689646751751}
 --- !u!114 &6011689323261803169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,6 +361,54 @@ MonoBehaviour:
   m_TickInterval: 0
   m_ExecutableTickIntervalMultiplier: 1
   m_RunPlannerSynchronously: 0
+--- !u!1 &8962795852725892937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5954974377770890902}
+  - component: {fileID: 259171074725408322}
+  m_Layer: 0
+  m_Name: SightStimulus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5954974377770890902
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8962795852725892937}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6011689323261803168}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &259171074725408322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8962795852725892937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e2cbdbf50545f7ad7b79f9eef47769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Type:
+    m_Value: 0
+  m_AssociatedObjectOverride: {fileID: 6011689323261803173}
+  m_TickInterval: 0
 --- !u!1001 &6011689324647252570
 PrefabInstance:
   m_ObjectHideFlags: 0
