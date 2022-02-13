@@ -8,7 +8,7 @@ namespace AIEngineTest
         public GameObject m_Fan;
     }
 
-    public class BowToCelebrityTask : IHiraBotsTask
+    public class GreetCelebrityTask : IHiraBotsTask
     {
         public Animator m_Animator;
         public float m_AnimationTime;
@@ -58,7 +58,7 @@ namespace AIEngineTest
         }
     }
 
-    public class BowToCelebrityTaskProvider : HiraBotsTaskProvider
+    public class GreetCelebrityTaskProvider : HiraBotsTaskProvider
     {
         [SerializeField] private float m_AnimationTime = 3f;
         [SerializeField] private BlackboardTemplate.KeySelector m_CelebrityGameObject;
@@ -89,7 +89,7 @@ namespace AIEngineTest
         {
             if (archetype is IHiraBotArchetype<Animator> animator)
             {
-                return new BowToCelebrityTask
+                return new GreetCelebrityTask
                 {
                     m_Animator = animator.component,
                     m_AnimationTime = m_AnimationTime,
