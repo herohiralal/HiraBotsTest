@@ -14,7 +14,7 @@ namespace AIEngineTest
 
     public class LookOutForCelebrityService : IHiraBotsService
     {
-        private bool m_Created = false;
+        private bool m_Bound = false;
         public BlackboardComponent m_Blackboard;
         public string m_CelebrityStatusKey;
         public string m_CelebrityGameObjectKey;
@@ -23,9 +23,19 @@ namespace AIEngineTest
 
         public void Start()
         {
+            foreach (var o in m_Sensor.perceivedObjects)
+            {
+                if (o != null && o is GameObject go && go.CompareTag(m_CelebrityTag))
+                {
+                    m_Blackboard.SetEnumValue<CelebrityStatus>(m_CelebrityStatusKey, CelebrityStatus.Known);
+                    m_Blackboard.SetObjectValue(m_CelebrityGameObjectKey, go);
+                    return;
+                }
+            }
+
             m_Sensor.newObjectPerceived.AddListener(OnObjectFound);
 
-            m_Created = true;
+            m_Bound = true;
         }
 
         public void Tick(float deltaTime)
@@ -34,9 +44,12 @@ namespace AIEngineTest
 
         public void Stop()
         {
-            m_Created = false;
+            if (m_Bound)
+            {
+                m_Sensor.newObjectPerceived.RemoveListener(OnObjectFound);
+            }
 
-            m_Sensor.newObjectPerceived.RemoveListener(OnObjectFound);
+            m_Bound = false;
 
             m_Blackboard = default;
             m_Sensor = null;
@@ -44,7 +57,7 @@ namespace AIEngineTest
 
         private void OnObjectFound(Object o)
         {
-            if (!m_Created)
+            if (!m_Bound)
             {
                 Debug.LogError("This shouldn't have happened.");
                 return;

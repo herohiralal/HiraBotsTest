@@ -5,7 +5,7 @@ namespace AIEngineTest
 {
     public class TrackCelebrityLocationService : IHiraBotsService
     {
-        private bool m_Created = false;
+        private bool m_Bound = false;
         private bool m_DoNotTick;
         public BlackboardComponent m_Blackboard;
         public string m_CelebrityStatusKey;
@@ -16,10 +16,26 @@ namespace AIEngineTest
 
         public void Start()
         {
+            var found = false;
+            foreach (var o in m_Sensor.perceivedObjects)
+            {
+                if (o != null && o is GameObject go && go.CompareTag(m_CelebrityTag))
+                {
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+            {
+                Lost();
+                return;
+            }
+
             m_Sensor.objectStoppedPerceiving.AddListener(OnObjectLost);
 
             m_DoNotTick = false;
-            m_Created = true;
+            m_Bound = true;
         }
 
         public void Tick(float deltaTime)
@@ -42,16 +58,20 @@ namespace AIEngineTest
 
         public void Stop()
         {
-            m_Created = false;
+            if (m_Bound)
+            {
+                m_Sensor.objectStoppedPerceiving.RemoveListener(OnObjectLost);
+            }
 
-            m_Sensor.objectStoppedPerceiving.RemoveListener(OnObjectLost);
+            m_Bound = false;
+
             m_Blackboard = default;
             m_Sensor = null;
         }
 
         private void OnObjectLost(Object o)
         {
-            if (!m_Created)
+            if (!m_Bound)
             {
                 Debug.LogError("This shouldn't have happened.");
                 return;
