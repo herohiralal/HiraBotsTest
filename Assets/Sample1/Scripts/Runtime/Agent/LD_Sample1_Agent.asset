@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f02, type: 3}
-  m_Name: AlwaysFailDecorator
+  m_Name: Never succeed
   m_EditorClassIdentifier: 
   m_Subtitle: Target
   m_Description: Always fail. Used to disable a goal/task for debugging purposes.
@@ -24,7 +24,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72829e80747749d69538555c2733c206, type: 3}
-  m_Name: SetTargetLocationAsPatrolPointTaskProvider
+  m_Name: Set target to a patrol point
   m_EditorClassIdentifier: 
   m_TickInterval: 0
   m_Description: Customize this description by overriding UpdateDescription().
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24aa5b80e95740efa69e4fca8cbb8db1, type: 3}
-  m_Name: MoveToTaskProvider
+  m_Name: Move to target
   m_EditorClassIdentifier: 
   m_TickInterval: 2
   m_Description: Navigate agent to 1 units around TargetLocation at 1.79.
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f0c, type: 3}
-  m_Name: BaseScoreScoreCalculator
+  m_Name: Base
   m_EditorClassIdentifier: 
   m_Subtitle: Insistence
   m_Description: +5.
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c58ae3814f87470ebd76fca156ca98b8, type: 3}
-  m_Name: UpdateSpeedServiceProvider
+  m_Name: Update speed on animator
   m_EditorClassIdentifier: 
   m_TickInterval: 0
   m_Description: Customize this description by overriding UpdateDescription().
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f02, type: 3}
-  m_Name: AlwaysFailDecorator
+  m_Name: Only for fallback
   m_EditorClassIdentifier: 
   m_Subtitle: Precondition
   m_Description: Always fail. Used to disable a goal/task for debugging purposes.
@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c5ebb570bbb4f9384fef65361ab5388, type: 3}
-  m_Name: WaitTaskProvider
+  m_Name: Wait at target
   m_EditorClassIdentifier: 
   m_TickInterval: 2
   m_Description: "Wait for 5 \xB1 3 second(s)."
