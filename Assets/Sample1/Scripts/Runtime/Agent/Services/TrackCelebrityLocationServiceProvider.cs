@@ -8,7 +8,6 @@ namespace AIEngineTest
         private bool m_Bound = false;
         private bool m_DoNotTick;
         public BlackboardComponent m_Blackboard;
-        public string m_CelebrityStatusKey;
         public string m_CelebrityGameObjectKey;
         public string m_CelebrityLocationKey;
         public string m_CelebrityTag;
@@ -86,7 +85,6 @@ namespace AIEngineTest
         private void Lost()
         {
             m_Blackboard.SetObjectValue(m_CelebrityGameObjectKey, null);
-            m_Blackboard.SetEnumValue<CelebrityStatus>(m_CelebrityStatusKey, CelebrityStatus.Lost);
             m_DoNotTick = true;
         }
     }
@@ -94,7 +92,6 @@ namespace AIEngineTest
     public class TrackCelebrityLocationServiceProvider : HiraBotsServiceProvider
     {
         [SerializeField, TagProperty] private string m_CelebrityTag;
-        [SerializeField] private BlackboardTemplate.KeySelector m_CelebrityStatus;
         [SerializeField] private BlackboardTemplate.KeySelector m_CelebrityGameObject;
         [SerializeField] private BlackboardTemplate.KeySelector m_CelebrityLocation;
 
@@ -102,18 +99,12 @@ namespace AIEngineTest
 
         protected override void OnValidateCallback()
         {
-            m_CelebrityStatus.keyTypesFilter = BlackboardKeyType.Enum;
             m_CelebrityGameObject.keyTypesFilter = BlackboardKeyType.Object;
             m_CelebrityLocation.keyTypesFilter = BlackboardKeyType.Vector;
         }
 
         protected override void Validate(System.Action<string> reportError, in BlackboardTemplate.KeySet keySet)
         {
-            if (!m_CelebrityStatus.Validate(in keySet, BlackboardKeyType.Enum))
-            {
-                reportError("no celebrity status key");
-            }
-
             if (!m_CelebrityGameObject.Validate(in keySet, BlackboardKeyType.Object))
             {
                 reportError("no celebrity game object key");
@@ -127,7 +118,6 @@ namespace AIEngineTest
 
         protected override void OnTargetBlackboardTemplateChanged(BlackboardTemplate template, in BlackboardTemplate.KeySet keySet)
         {
-            m_CelebrityStatus.OnTargetBlackboardTemplateChanged(template, in keySet);
             m_CelebrityGameObject.OnTargetBlackboardTemplateChanged(template, in keySet);
             m_CelebrityLocation.OnTargetBlackboardTemplateChanged(template, in keySet);
         }
@@ -141,7 +131,6 @@ namespace AIEngineTest
                 return new TrackCelebrityLocationService
                 {
                     m_Blackboard = blackboard,
-                    m_CelebrityStatusKey = m_CelebrityStatus.selectedKey.name,
                     m_CelebrityGameObjectKey = m_CelebrityGameObject.selectedKey.name,
                     m_CelebrityLocationKey = m_CelebrityLocation.selectedKey.name,
                     m_CelebrityTag = m_CelebrityTag,

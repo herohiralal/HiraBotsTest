@@ -4,19 +4,11 @@ using Object = UnityEngine.Object;
 
 namespace AIEngineTest
 {
-    [ExposedToHiraBots("BE612AB4-2AF3-4902-9820-D1B034C433C3")]
-    public enum CelebrityStatus : byte
-    {
-        Unknown,
-        Known,
-        Lost
-    }
-
     public class LookOutForCelebrityService : IHiraBotsService
     {
         private bool m_Bound = false;
         public BlackboardComponent m_Blackboard;
-        public string m_CelebrityStatusKey;
+        public string m_ExcitementKey;
         public string m_CelebrityGameObjectKey;
         public string m_CelebrityTag;
         public ConsolidatedSensor m_Sensor;
@@ -27,7 +19,7 @@ namespace AIEngineTest
             {
                 if (o != null && o is GameObject go && go.CompareTag(m_CelebrityTag))
                 {
-                    m_Blackboard.SetEnumValue<CelebrityStatus>(m_CelebrityStatusKey, CelebrityStatus.Known);
+                    m_Blackboard.SetFloatValue(m_ExcitementKey, 100f);
                     m_Blackboard.SetObjectValue(m_CelebrityGameObjectKey, go);
                     return;
                 }
@@ -65,7 +57,7 @@ namespace AIEngineTest
 
             if (o != null && o is GameObject go && go.CompareTag(m_CelebrityTag))
             {
-                m_Blackboard.SetEnumValue<CelebrityStatus>(m_CelebrityStatusKey, CelebrityStatus.Known);
+                m_Blackboard.SetFloatValue(m_ExcitementKey, 100f);
                 m_Blackboard.SetObjectValue(m_CelebrityGameObjectKey, go);
             }
         }
@@ -79,22 +71,22 @@ namespace AIEngineTest
         }
 
         [SerializeField, TagProperty] private string m_CelebrityTag;
-        [SerializeField] private BlackboardTemplate.KeySelector m_CelebrityStatus;
+        [SerializeField] private BlackboardTemplate.KeySelector m_ExcitementKey;
         [SerializeField] private BlackboardTemplate.KeySelector m_CelebrityGameObject;
 
         #region Validation Boilerplate
 
         protected override void OnValidateCallback()
         {
-            m_CelebrityStatus.keyTypesFilter = BlackboardKeyType.Enum;
+            m_ExcitementKey.keyTypesFilter = BlackboardKeyType.Float;
             m_CelebrityGameObject.keyTypesFilter = BlackboardKeyType.Object;
         }
 
         protected override void Validate(System.Action<string> reportError, in BlackboardTemplate.KeySet keySet)
         {
-            if (!m_CelebrityStatus.Validate(in keySet, BlackboardKeyType.Enum))
+            if (!m_ExcitementKey.Validate(in keySet, BlackboardKeyType.Enum))
             {
-                reportError("no celebrity status key");
+                reportError("no excitement key");
             }
 
             if (!m_CelebrityGameObject.Validate(in keySet, BlackboardKeyType.Object))
@@ -105,7 +97,7 @@ namespace AIEngineTest
 
         protected override void OnTargetBlackboardTemplateChanged(BlackboardTemplate template, in BlackboardTemplate.KeySet keySet)
         {
-            m_CelebrityStatus.OnTargetBlackboardTemplateChanged(template, in keySet);
+            m_ExcitementKey.OnTargetBlackboardTemplateChanged(template, in keySet);
             m_CelebrityGameObject.OnTargetBlackboardTemplateChanged(template, in keySet);
         }
 
@@ -118,7 +110,7 @@ namespace AIEngineTest
                 return new LookOutForCelebrityService
                 {
                     m_Blackboard = blackboard,
-                    m_CelebrityStatusKey = m_CelebrityStatus.selectedKey.name,
+                    m_ExcitementKey = m_ExcitementKey.selectedKey.name,
                     m_CelebrityGameObjectKey = m_CelebrityGameObject.selectedKey.name,
                     m_CelebrityTag = m_CelebrityTag,
                     m_Sensor = sensor.component

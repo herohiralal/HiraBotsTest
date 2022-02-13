@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7363326694719253677
+--- !u!114 &-7404854091742133293
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,20 +9,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf5cce8d3ca6458bbcf415de101c99e1, type: 3}
-  m_Name: BooleanIsSetEffector
+  m_Script: {fileID: 11500000, guid: 89af0e100fac43f1ba83126b2d7c87de, type: 3}
+  m_Name: FloatOperatorEffector
   m_EditorClassIdentifier: 
   m_Subtitle: Effect
-  m_Description: Unset DoneIdling.
+  m_Description: Set ExcitementAtSeeingCelebrity to 0.
   key:
     m_Value:
-      m_Key: {fileID: 3728205780240856743, guid: 6751d1823c6f6bc47ac195866a695740,
+      m_Key: {fileID: 6338071397192291863, guid: f4882f8cd8aca30449f405793df5a032,
         type: 2}
       m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
-      m_KeyTypes: 1
+      m_KeyTypes: 4
       m_IsValid: 1
-  operationType: 1
---- !u!114 &-6739807534233941176
+  operationType: 0
+  value: 0
+--- !u!114 &-7178176467997642272
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -31,48 +32,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c6644, type: 3}
-  m_Name: EnumEqualsDecorator
+  m_Script: {fileID: 11500000, guid: e1ecc27574ca4a030ff85de39d096ccb, type: 3}
+  m_Name: ObjectEqualsDecorator
   m_EditorClassIdentifier: 
-  m_Subtitle: Target
-  m_Description: CelebrityStatus must be equal to the selected value.
-  invert: 0
-  key:
-    m_Value:
-      m_Key: {fileID: 3307320711875789767, guid: f4882f8cd8aca30449f405793df5a032,
-        type: 2}
-      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
-      m_KeyTypes: 2
-      m_IsValid: 1
-  value:
-    m_TypeIdentifier: BE612AB4-2AF3-4902-9820-D1B034C433C3
-    m_Value: 0
---- !u!114 &-6120568511870590837
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c664c, type: 3}
-  m_Name: EnumEqualsScoreCalculator
-  m_EditorClassIdentifier: 
-  m_Subtitle: Insistence
-  m_Description: +10. if CelebrityStatus is not equal to the selected value.
+  m_Subtitle: Precondition
+  m_Description: CelebrityGameObject must not be set to null.
   invert: 1
   key:
     m_Value:
-      m_Key: {fileID: 3307320711875789767, guid: f4882f8cd8aca30449f405793df5a032,
+      m_Key: {fileID: 4717763473453229441, guid: f4882f8cd8aca30449f405793df5a032,
         type: 2}
       m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
-      m_KeyTypes: 2
+      m_KeyTypes: 16
       m_IsValid: 1
-  value:
-    m_TypeIdentifier: BE612AB4-2AF3-4902-9820-D1B034C433C3
-    m_Value: 0
-  score: 10
+  value: {fileID: 0}
+--- !u!114 &-7039009398051181830
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b6d337fe0fa4b269f145171ef4871cd, type: 3}
+  m_Name: FloatComparisonDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Precondition
+  m_Description: ExcitementAtSeeingCelebrity must be greater than 5.
+  invert: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 6338071397192291863, guid: f4882f8cd8aca30449f405793df5a032,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
+      m_KeyTypes: 4
+      m_IsValid: 1
+  secondValue: 5
+  equalityTolerance: 0
+  comparisonType: 1
 --- !u!114 &-6086921647091285747
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -96,7 +94,7 @@ MonoBehaviour:
       m_IsValid: 1
   m_PatrolPointCollection: {fileID: 11400000, guid: ba1ea3ae45a3dfb4b9619b1524fcaa3b,
     type: 2}
---- !u!114 &-6079941100862730502
+--- !u!114 &-5783673660744780982
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,22 +103,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad6818e4de9846adba80edd01785671e, type: 3}
-  m_Name: EnumOperatorEffector
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f02, type: 3}
+  m_Name: AlwaysFailDecorator
   m_EditorClassIdentifier: 
-  m_Subtitle: Effect
-  m_Description: Set CelebrityStatus to this value.
-  key:
-    m_Value:
-      m_Key: {fileID: 3307320711875789767, guid: f4882f8cd8aca30449f405793df5a032,
-        type: 2}
-      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
-      m_KeyTypes: 2
-      m_IsValid: 1
-  operationType: 0
-  value:
-    m_TypeIdentifier: BE612AB4-2AF3-4902-9820-D1B034C433C3
-    m_Value: 0
+  m_Subtitle: Precondition
+  m_Description: Always fail. Used to disable a goal/task for debugging purposes.
+--- !u!114 &-5120434723721966000
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f02, type: 3}
+  m_Name: AlwaysFailDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: 
+  m_Description: 
 --- !u!114 &-4243317203649551708
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -137,6 +138,32 @@ MonoBehaviour:
   m_Description: Customize this description by overriding UpdateDescription().
   m_MinSpeed: 0
   m_MaxSpeed: 4.197
+--- !u!114 &-4108876938673565556
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b6d337fe0fa4b269f145171ef4871cc, type: 3}
+  m_Name: FloatComparisonScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Insistence
+  m_Description: +10. if ExcitementAtSeeingCelebrity is greater than 5.
+  invert: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 6338071397192291863, guid: f4882f8cd8aca30449f405793df5a032,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
+      m_KeyTypes: 4
+      m_IsValid: 1
+  secondValue: 5
+  equalityTolerance: 0
+  comparisonType: 1
+  score: 10
 --- !u!114 &-4005283229290012659
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -152,12 +179,12 @@ MonoBehaviour:
   m_TickInterval: 1000
   m_Description: Customize this description by overriding UpdateDescription().
   m_CelebrityTag: Celebrity
-  m_CelebrityStatus:
+  m_ExcitementKey:
     m_Value:
-      m_Key: {fileID: 3307320711875789767, guid: f4882f8cd8aca30449f405793df5a032,
+      m_Key: {fileID: 6338071397192291863, guid: f4882f8cd8aca30449f405793df5a032,
         type: 2}
-      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
-      m_KeyTypes: 2
+      m_Template: {fileID: 0}
+      m_KeyTypes: 4
       m_IsValid: 1
   m_CelebrityGameObject:
     m_Value:
@@ -180,11 +207,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Action:
     m_Precondition:
-    - {fileID: 4464990508491180101}
+    - {fileID: 131191448060844302}
+    - {fileID: -666235997366936549}
     m_Cost:
     - {fileID: 4970845706236792912}
     m_Effect:
-    - {fileID: 665133896923576194}
+    - {fileID: -484435032166583738}
   m_Target:
     m_Target: []
   m_TaskProviders:
@@ -196,6 +224,52 @@ MonoBehaviour:
   <blackboard>k__BackingField: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032,
     type: 2}
   <canBeAbstract>k__BackingField: 0
+--- !u!114 &-666235997366936549
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ecc27574ca4a030ff85de39d096ccb, type: 3}
+  m_Name: ObjectEqualsDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Precondition
+  m_Description: CelebrityGameObject must be set to null.
+  invert: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 4717763473453229441, guid: f4882f8cd8aca30449f405793df5a032,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
+      m_KeyTypes: 16
+      m_IsValid: 1
+  value: {fileID: 0}
+--- !u!114 &-484435032166583738
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89af0e100fac43f1ba83126b2d7c87de, type: 3}
+  m_Name: FloatOperatorEffector
+  m_EditorClassIdentifier: 
+  m_Subtitle: Effect
+  m_Description: Set ExcitementAtSeeingCelebrity to 0.
+  key:
+    m_Value:
+      m_Key: {fileID: 6338071397192291863, guid: f4882f8cd8aca30449f405793df5a032,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
+      m_KeyTypes: 4
+      m_IsValid: 1
+  operationType: 0
+  value: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,6 +298,31 @@ MonoBehaviour:
     - {fileID: 4991065280759167260}
     - {fileID: -2255832084324952848}
     m_MaxPlanSize: 5
+--- !u!114 &131191448060844302
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b6d337fe0fa4b269f145171ef4871cd, type: 3}
+  m_Name: FloatComparisonDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Precondition
+  m_Description: ExcitementAtSeeingCelebrity must be greater than 5.
+  invert: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 6338071397192291863, guid: f4882f8cd8aca30449f405793df5a032,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
+      m_KeyTypes: 4
+      m_IsValid: 1
+  secondValue: 5
+  equalityTolerance: 0
+  comparisonType: 1
 --- !u!114 &196336385426269841
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -248,31 +347,6 @@ MonoBehaviour:
   m_TrackMovingTarget: 1
   m_Tolerance: 1.5
   m_Speed: 2.5
---- !u!114 &665133896923576194
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad6818e4de9846adba80edd01785671e, type: 3}
-  m_Name: EnumOperatorEffector
-  m_EditorClassIdentifier: 
-  m_Subtitle: Effect
-  m_Description: Set CelebrityStatus to this value.
-  key:
-    m_Value:
-      m_Key: {fileID: 3307320711875789767, guid: f4882f8cd8aca30449f405793df5a032,
-        type: 2}
-      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
-      m_KeyTypes: 2
-      m_IsValid: 1
-  operationType: 0
-  value:
-    m_TypeIdentifier: BE612AB4-2AF3-4902-9820-D1B034C433C3
-    m_Value: 0
 --- !u!114 &1028771810193439909
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -326,7 +400,7 @@ MonoBehaviour:
     - {fileID: 2211031891720349160}
   m_Target:
     m_Target:
-    - {fileID: 3764228096948279716}
+    - {fileID: -5120434723721966000}
   <blackboard>k__BackingField: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032,
     type: 2}
 --- !u!114 &2014978866732633530
@@ -368,12 +442,12 @@ MonoBehaviour:
   m_TickInterval: 1000
   m_Description: Customize this description by overriding UpdateDescription().
   m_CelebrityTag: Celebrity
-  m_CelebrityStatus:
+  m_ExcitementKey:
     m_Value:
-      m_Key: {fileID: 3307320711875789767, guid: f4882f8cd8aca30449f405793df5a032,
+      m_Key: {fileID: 6338071397192291863, guid: f4882f8cd8aca30449f405793df5a032,
         type: 2}
-      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
-      m_KeyTypes: 2
+      m_Template: {fileID: 0}
+      m_KeyTypes: 4
       m_IsValid: 1
   m_CelebrityGameObject:
     m_Value:
@@ -453,28 +527,6 @@ MonoBehaviour:
   m_Description: Wait for 5 second(s).
   m_Timer: 5
   m_RandomDeviation: 0
---- !u!114 &3764228096948279716
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 841fea4ba9b94948b9b5ff847474ea57, type: 3}
-  m_Name: BooleanIsSetDecorator
-  m_EditorClassIdentifier: 
-  m_Subtitle: Target
-  m_Description: DoneIdling must be set.
-  invert: 0
-  key:
-    m_Value:
-      m_Key: {fileID: 3728205780240856743, guid: 6751d1823c6f6bc47ac195866a695740,
-        type: 2}
-      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
-      m_KeyTypes: 1
-      m_IsValid: 1
 --- !u!114 &4061810332045756577
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -490,13 +542,6 @@ MonoBehaviour:
   m_TickInterval: 0
   m_Description: Customize this description by overriding UpdateDescription().
   m_CelebrityTag: Celebrity
-  m_CelebrityStatus:
-    m_Value:
-      m_Key: {fileID: 3307320711875789767, guid: f4882f8cd8aca30449f405793df5a032,
-        type: 2}
-      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
-      m_KeyTypes: 2
-      m_IsValid: 1
   m_CelebrityGameObject:
     m_Value:
       m_Key: {fileID: 4717763473453229441, guid: f4882f8cd8aca30449f405793df5a032,
@@ -524,11 +569,11 @@ MonoBehaviour:
   m_Name: Patrol
   m_EditorClassIdentifier: 
   m_Action:
-    m_Precondition: []
+    m_Precondition:
+    - {fileID: -5783673660744780982}
     m_Cost:
     - {fileID: 5877648548785623709}
-    m_Effect:
-    - {fileID: -7363326694719253677}
+    m_Effect: []
   m_Target:
     m_Target: []
   m_TaskProviders:
@@ -541,7 +586,7 @@ MonoBehaviour:
   <blackboard>k__BackingField: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032,
     type: 2}
   <canBeAbstract>k__BackingField: 0
---- !u!114 &4464990508491180101
+--- !u!114 &4957440567327773728
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -550,47 +595,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c6644, type: 3}
-  m_Name: EnumEqualsDecorator
+  m_Script: {fileID: 11500000, guid: 3b6d337fe0fa4b269f145171ef4871cd, type: 3}
+  m_Name: FloatComparisonDecorator
   m_EditorClassIdentifier: 
-  m_Subtitle: Precondition
-  m_Description: CelebrityStatus must be equal to the selected value.
+  m_Subtitle: Target
+  m_Description: ExcitementAtSeeingCelebrity must be lesser than 5.
   invert: 0
   key:
     m_Value:
-      m_Key: {fileID: 3307320711875789767, guid: f4882f8cd8aca30449f405793df5a032,
+      m_Key: {fileID: 6338071397192291863, guid: f4882f8cd8aca30449f405793df5a032,
         type: 2}
       m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
-      m_KeyTypes: 2
+      m_KeyTypes: 4
       m_IsValid: 1
-  value:
-    m_TypeIdentifier: BE612AB4-2AF3-4902-9820-D1B034C433C3
-    m_Value: 2
---- !u!114 &4642870556767516394
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c6644, type: 3}
-  m_Name: EnumEqualsDecorator
-  m_EditorClassIdentifier: 
-  m_Subtitle: Precondition
-  m_Description: CelebrityStatus must be equal to the selected value.
-  invert: 0
-  key:
-    m_Value:
-      m_Key: {fileID: 3307320711875789767, guid: f4882f8cd8aca30449f405793df5a032,
-        type: 2}
-      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
-      m_KeyTypes: 2
-      m_IsValid: 1
-  value:
-    m_TypeIdentifier: BE612AB4-2AF3-4902-9820-D1B034C433C3
-    m_Value: 1
+  secondValue: 5
+  equalityTolerance: 0
+  comparisonType: 3
 --- !u!114 &4970845706236792912
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -620,11 +640,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Action:
     m_Precondition:
-    - {fileID: 4642870556767516394}
+    - {fileID: -7178176467997642272}
+    - {fileID: -7039009398051181830}
     m_Cost:
     - {fileID: 5901462939734723262}
     m_Effect:
-    - {fileID: -6079941100862730502}
+    - {fileID: -7404854091742133293}
   m_Target:
     m_Target: []
   m_TaskProviders:
@@ -677,14 +698,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c884b2306cc04a2ea7bb379c81e7aefa, type: 3}
-  m_Name: DealWithCelebrity
+  m_Name: DealWithExcitementAtSeeingCelebrity
   m_EditorClassIdentifier: 
   m_Insistence:
     m_Insistence:
-    - {fileID: -6120568511870590837}
+    - {fileID: -4108876938673565556}
   m_Target:
     m_Target:
-    - {fileID: -6739807534233941176}
+    - {fileID: 4957440567327773728}
   <blackboard>k__BackingField: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032,
     type: 2}
 --- !u!114 &8261602070040721732

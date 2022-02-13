@@ -7,7 +7,7 @@ namespace AIEngineTest
     {
         public float m_WaitTime;
         public BlackboardComponent m_Blackboard;
-        public string m_CelebrityStatusKey;
+        public string m_ExcitementKey;
 
         public void Start()
         {
@@ -24,7 +24,7 @@ namespace AIEngineTest
 
             if (m_WaitTime < 0f)
             {
-                m_Blackboard.SetEnumValue<CelebrityStatus>(m_CelebrityStatusKey, CelebrityStatus.Unknown);
+                m_Blackboard.SetFloatValue(m_ExcitementKey, 0f);
             }
         }
 
@@ -37,18 +37,18 @@ namespace AIEngineTest
     public class StopSearchingAfterTimeServiceProvider : HiraBotsServiceProvider
     {
         [SerializeField] private float m_WaitTime;
-        [SerializeField] private BlackboardTemplate.KeySelector m_CelebrityStatus;
+        [SerializeField] private BlackboardTemplate.KeySelector m_Excitement;
 
         #region Validation Boilerplate
 
         protected override void OnValidateCallback()
         {
-            m_CelebrityStatus.keyTypesFilter = BlackboardKeyType.Enum;
+            m_Excitement.keyTypesFilter = BlackboardKeyType.Float;
         }
 
         protected override void Validate(System.Action<string> reportError, in BlackboardTemplate.KeySet keySet)
         {
-            if (!m_CelebrityStatus.Validate(in keySet, BlackboardKeyType.Enum))
+            if (!m_Excitement.Validate(in keySet, BlackboardKeyType.Float))
             {
                 reportError("no celebrity status key");
             }
@@ -56,7 +56,7 @@ namespace AIEngineTest
 
         protected override void OnTargetBlackboardTemplateChanged(BlackboardTemplate template, in BlackboardTemplate.KeySet keySet)
         {
-            m_CelebrityStatus.OnTargetBlackboardTemplateChanged(template, in keySet);
+            m_Excitement.OnTargetBlackboardTemplateChanged(template, in keySet);
         }
 
         #endregion
@@ -66,7 +66,7 @@ namespace AIEngineTest
             return new StopSearchingAfterTimeService
             {
                 m_Blackboard = blackboard,
-                m_CelebrityStatusKey = m_CelebrityStatus.selectedKey.name,
+                m_ExcitementKey = m_Excitement.selectedKey.name,
                 m_WaitTime = m_WaitTime
             };
         }
