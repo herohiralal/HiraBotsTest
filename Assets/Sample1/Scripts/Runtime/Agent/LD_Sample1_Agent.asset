@@ -193,8 +193,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f02, type: 3}
   m_Name: AlwaysFailDecorator
   m_EditorClassIdentifier: 
-  m_Subtitle: 
-  m_Description: 
+  m_Subtitle: Precondition
+  m_Description: Always fail. Used to disable a goal/task for debugging purposes.
 --- !u!114 &9038539106002477906
 MonoBehaviour:
   m_ObjectHideFlags: 3
