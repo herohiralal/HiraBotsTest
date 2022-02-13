@@ -1,0 +1,709 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7363326694719253677
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf5cce8d3ca6458bbcf415de101c99e1, type: 3}
+  m_Name: BooleanIsSetEffector
+  m_EditorClassIdentifier: 
+  m_Subtitle: Effect
+  m_Description: Unset DoneIdling.
+  key:
+    m_Value:
+      m_Key: {fileID: 3728205780240856743, guid: 6751d1823c6f6bc47ac195866a695740,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
+      m_KeyTypes: 1
+      m_IsValid: 1
+  operationType: 1
+--- !u!114 &-6739807534233941176
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c6644, type: 3}
+  m_Name: EnumEqualsDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Target
+  m_Description: CelebrityStatus must be equal to the selected value.
+  invert: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 3307320711875789767, guid: f4882f8cd8aca30449f405793df5a032,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  value:
+    m_TypeIdentifier: BE612AB4-2AF3-4902-9820-D1B034C433C3
+    m_Value: 0
+--- !u!114 &-6120568511870590837
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c664c, type: 3}
+  m_Name: EnumEqualsScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Insistence
+  m_Description: +10. if CelebrityStatus is not equal to the selected value.
+  invert: 1
+  key:
+    m_Value:
+      m_Key: {fileID: 3307320711875789767, guid: f4882f8cd8aca30449f405793df5a032,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  value:
+    m_TypeIdentifier: BE612AB4-2AF3-4902-9820-D1B034C433C3
+    m_Value: 0
+  score: 10
+--- !u!114 &-6086921647091285747
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72829e80747749d69538555c2733c206, type: 3}
+  m_Name: SetTargetLocationAsPatrolPointTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0
+  m_Description: Customize this description by overriding UpdateDescription().
+  m_Key:
+    m_Value:
+      m_Key: {fileID: -3202358372231938240, guid: 6751d1823c6f6bc47ac195866a695740,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
+      m_KeyTypes: 64
+      m_IsValid: 1
+  m_PatrolPointCollection: {fileID: 11400000, guid: ba1ea3ae45a3dfb4b9619b1524fcaa3b,
+    type: 2}
+--- !u!114 &-6079941100862730502
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad6818e4de9846adba80edd01785671e, type: 3}
+  m_Name: EnumOperatorEffector
+  m_EditorClassIdentifier: 
+  m_Subtitle: Effect
+  m_Description: Set CelebrityStatus to this value.
+  key:
+    m_Value:
+      m_Key: {fileID: 3307320711875789767, guid: f4882f8cd8aca30449f405793df5a032,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  operationType: 0
+  value:
+    m_TypeIdentifier: BE612AB4-2AF3-4902-9820-D1B034C433C3
+    m_Value: 0
+--- !u!114 &-4243317203649551708
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c58ae3814f87470ebd76fca156ca98b8, type: 3}
+  m_Name: UpdateSpeedServiceProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0
+  m_Description: Customize this description by overriding UpdateDescription().
+  m_MinSpeed: 0
+  m_MaxSpeed: 4.197
+--- !u!114 &-4005283229290012659
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f182e0a150aa4e60bc461bdb7ed7ce04, type: 3}
+  m_Name: LookOutForCelebrityServiceProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 1000
+  m_Description: Customize this description by overriding UpdateDescription().
+  m_CelebrityTag: Celebrity
+  m_CelebrityStatus:
+    m_Value:
+      m_Key: {fileID: 3307320711875789767, guid: f4882f8cd8aca30449f405793df5a032,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  m_CelebrityGameObject:
+    m_Value:
+      m_Key: {fileID: 4717763473453229441, guid: f4882f8cd8aca30449f405793df5a032,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
+      m_KeyTypes: 16
+      m_IsValid: 1
+--- !u!114 &-2255832084324952848
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcba4340a034f9e83fbb967f661bb5d, type: 3}
+  m_Name: LookForCelebrity
+  m_EditorClassIdentifier: 
+  m_Action:
+    m_Precondition:
+    - {fileID: 4464990508491180101}
+    m_Cost:
+    - {fileID: 4970845706236792912}
+    m_Effect:
+    - {fileID: 665133896923576194}
+  m_Target:
+    m_Target: []
+  m_Loop: 0
+  m_TaskProviders:
+  - {fileID: 2660417026590820241}
+  - {fileID: 2694287308622922992}
+  m_ServiceProviders:
+  - {fileID: 8261602070040721732}
+  - {fileID: -4005283229290012659}
+  <blackboard>k__BackingField: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032,
+    type: 2}
+  <canBeAbstract>k__BackingField: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627e8d2093ba4dd4a6cea6c43a281bec, type: 3}
+  m_Name: LD_Sample1_Fan
+  m_EditorClassIdentifier: 
+  m_Backends: 1
+  m_Blackboard: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
+  m_TopLayer:
+    m_FallbackGoal: 0000
+    m_Goals:
+    - {fileID: 1819908513114570989}
+    - {fileID: 6452091504507741367}
+    m_MaxPlanSize: 1
+  m_IntermediateLayers: []
+  m_BottomLayer:
+    m_FallbackPlan: 0000
+    m_Tasks:
+    - {fileID: 4337811996622993081}
+    - {fileID: 4991065280759167260}
+    - {fileID: -2255832084324952848}
+    m_MaxPlanSize: 5
+--- !u!114 &196336385426269841
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24aa5b80e95740efa69e4fca8cbb8db1, type: 3}
+  m_Name: MoveToTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0
+  m_Description: Navigate agent to 1.5 units around CelebrityLocation at 2.5.
+  m_Target:
+    m_Value:
+      m_Key: {fileID: -4239694777762941101, guid: f4882f8cd8aca30449f405793df5a032,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
+      m_KeyTypes: 64
+      m_IsValid: 1
+  m_TrackMovingTarget: 1
+  m_Tolerance: 1.5
+  m_Speed: 2.5
+--- !u!114 &665133896923576194
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad6818e4de9846adba80edd01785671e, type: 3}
+  m_Name: EnumOperatorEffector
+  m_EditorClassIdentifier: 
+  m_Subtitle: Effect
+  m_Description: Set CelebrityStatus to this value.
+  key:
+    m_Value:
+      m_Key: {fileID: 3307320711875789767, guid: f4882f8cd8aca30449f405793df5a032,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  operationType: 0
+  value:
+    m_TypeIdentifier: BE612AB4-2AF3-4902-9820-D1B034C433C3
+    m_Value: 0
+--- !u!114 &1149259878478301926
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fddf010be5df40adac0a2dd25de7da3b, type: 3}
+  m_Name: BowToCelebrityTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0
+  m_Description: Customize this description by overriding UpdateDescription().
+  m_AnimationTime: 3
+  m_CelebrityGameObject:
+    m_Value:
+      m_Key: {fileID: 4717763473453229441, guid: f4882f8cd8aca30449f405793df5a032,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
+      m_KeyTypes: 16
+      m_IsValid: 1
+--- !u!114 &1819908513114570989
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c884b2306cc04a2ea7bb379c81e7aefa, type: 3}
+  m_Name: Idle
+  m_EditorClassIdentifier: 
+  m_Insistence:
+    m_Insistence:
+    - {fileID: 2211031891720349160}
+  m_Target:
+    m_Target:
+    - {fileID: 3764228096948279716}
+  <blackboard>k__BackingField: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032,
+    type: 2}
+--- !u!114 &2014978866732633530
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24aa5b80e95740efa69e4fca8cbb8db1, type: 3}
+  m_Name: MoveToTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 2
+  m_Description: Navigate agent to 0.25 units around TargetLocation at 1.79.
+  m_Target:
+    m_Value:
+      m_Key: {fileID: -3202358372231938240, guid: 6751d1823c6f6bc47ac195866a695740,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
+      m_KeyTypes: 64
+      m_IsValid: 1
+  m_TrackMovingTarget: 0
+  m_Tolerance: 0.25
+  m_Speed: 1.79
+--- !u!114 &2157981928068548914
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f182e0a150aa4e60bc461bdb7ed7ce04, type: 3}
+  m_Name: LookOutForCelebrityServiceProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 1000
+  m_Description: Customize this description by overriding UpdateDescription().
+  m_CelebrityTag: Celebrity
+  m_CelebrityStatus:
+    m_Value:
+      m_Key: {fileID: 3307320711875789767, guid: f4882f8cd8aca30449f405793df5a032,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  m_CelebrityGameObject:
+    m_Value:
+      m_Key: {fileID: 4717763473453229441, guid: f4882f8cd8aca30449f405793df5a032,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
+      m_KeyTypes: 16
+      m_IsValid: 1
+--- !u!114 &2211031891720349160
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f0c, type: 3}
+  m_Name: BaseScoreScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Insistence
+  m_Description: +5.
+  score: 5
+--- !u!114 &2458438174803153262
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c58ae3814f87470ebd76fca156ca98b8, type: 3}
+  m_Name: UpdateSpeedServiceProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0
+  m_Description: Customize this description by overriding UpdateDescription().
+  m_MinSpeed: 0
+  m_MaxSpeed: 4.197
+--- !u!114 &2660417026590820241
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24aa5b80e95740efa69e4fca8cbb8db1, type: 3}
+  m_Name: MoveToTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0
+  m_Description: Navigate agent to 1.5 units around CelebrityLocation at 1.79.
+  m_Target:
+    m_Value:
+      m_Key: {fileID: -4239694777762941101, guid: f4882f8cd8aca30449f405793df5a032,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
+      m_KeyTypes: 64
+      m_IsValid: 1
+  m_TrackMovingTarget: 0
+  m_Tolerance: 1.5
+  m_Speed: 1.79
+--- !u!114 &2694287308622922992
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c5ebb570bbb4f9384fef65361ab5388, type: 3}
+  m_Name: WaitTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0
+  m_Description: Wait for 5 second(s).
+  m_Timer: 5
+  m_RandomDeviation: 0
+--- !u!114 &3764228096948279716
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841fea4ba9b94948b9b5ff847474ea57, type: 3}
+  m_Name: BooleanIsSetDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Target
+  m_Description: DoneIdling must be set.
+  invert: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 3728205780240856743, guid: 6751d1823c6f6bc47ac195866a695740,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
+      m_KeyTypes: 1
+      m_IsValid: 1
+--- !u!114 &4061810332045756577
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 505443a094274249bc4a6744285f3bdb, type: 3}
+  m_Name: TrackCelebrityLocationServiceProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0
+  m_Description: Customize this description by overriding UpdateDescription().
+  m_CelebrityTag: Celebrity
+  m_CelebrityStatus:
+    m_Value:
+      m_Key: {fileID: 3307320711875789767, guid: f4882f8cd8aca30449f405793df5a032,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  m_CelebrityGameObject:
+    m_Value:
+      m_Key: {fileID: 4717763473453229441, guid: f4882f8cd8aca30449f405793df5a032,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
+      m_KeyTypes: 16
+      m_IsValid: 1
+  m_CelebrityLocation:
+    m_Value:
+      m_Key: {fileID: -4239694777762941101, guid: f4882f8cd8aca30449f405793df5a032,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
+      m_KeyTypes: 64
+      m_IsValid: 1
+--- !u!114 &4337811996622993081
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcba4340a034f9e83fbb967f661bb5d, type: 3}
+  m_Name: Patrol
+  m_EditorClassIdentifier: 
+  m_Action:
+    m_Precondition: []
+    m_Cost:
+    - {fileID: 5877648548785623709}
+    m_Effect:
+    - {fileID: -7363326694719253677}
+  m_Target:
+    m_Target: []
+  m_Loop: 1
+  m_TaskProviders:
+  - {fileID: -6086921647091285747}
+  - {fileID: 2014978866732633530}
+  - {fileID: 9038539106002477906}
+  m_ServiceProviders:
+  - {fileID: 2458438174803153262}
+  - {fileID: 2157981928068548914}
+  <blackboard>k__BackingField: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032,
+    type: 2}
+  <canBeAbstract>k__BackingField: 0
+--- !u!114 &4464990508491180101
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c6644, type: 3}
+  m_Name: EnumEqualsDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Precondition
+  m_Description: CelebrityStatus must be equal to the selected value.
+  invert: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 3307320711875789767, guid: f4882f8cd8aca30449f405793df5a032,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  value:
+    m_TypeIdentifier: BE612AB4-2AF3-4902-9820-D1B034C433C3
+    m_Value: 2
+--- !u!114 &4642870556767516394
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c6644, type: 3}
+  m_Name: EnumEqualsDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Precondition
+  m_Description: CelebrityStatus must be equal to the selected value.
+  invert: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 3307320711875789767, guid: f4882f8cd8aca30449f405793df5a032,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  value:
+    m_TypeIdentifier: BE612AB4-2AF3-4902-9820-D1B034C433C3
+    m_Value: 1
+--- !u!114 &4970845706236792912
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f0c, type: 3}
+  m_Name: BaseScoreScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Cost
+  m_Description: +5.
+  score: 5
+--- !u!114 &4991065280759167260
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcba4340a034f9e83fbb967f661bb5d, type: 3}
+  m_Name: GreetCelebrity
+  m_EditorClassIdentifier: 
+  m_Action:
+    m_Precondition:
+    - {fileID: 4642870556767516394}
+    m_Cost:
+    - {fileID: 5901462939734723262}
+    m_Effect:
+    - {fileID: -6079941100862730502}
+  m_Target:
+    m_Target: []
+  m_Loop: 1
+  m_TaskProviders:
+  - {fileID: 196336385426269841}
+  - {fileID: 1149259878478301926}
+  m_ServiceProviders:
+  - {fileID: 4061810332045756577}
+  - {fileID: -4243317203649551708}
+  <blackboard>k__BackingField: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032,
+    type: 2}
+  <canBeAbstract>k__BackingField: 0
+--- !u!114 &5877648548785623709
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f0c, type: 3}
+  m_Name: BaseScoreScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Cost
+  m_Description: +99.
+  score: 99
+--- !u!114 &5901462939734723262
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f0c, type: 3}
+  m_Name: BaseScoreScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Cost
+  m_Description: +5.
+  score: 5
+--- !u!114 &6452091504507741367
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c884b2306cc04a2ea7bb379c81e7aefa, type: 3}
+  m_Name: DealWithCelebrity
+  m_EditorClassIdentifier: 
+  m_Insistence:
+    m_Insistence:
+    - {fileID: -6120568511870590837}
+  m_Target:
+    m_Target:
+    - {fileID: -6739807534233941176}
+  <blackboard>k__BackingField: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032,
+    type: 2}
+--- !u!114 &8261602070040721732
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c58ae3814f87470ebd76fca156ca98b8, type: 3}
+  m_Name: UpdateSpeedServiceProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0
+  m_Description: Customize this description by overriding UpdateDescription().
+  m_MinSpeed: 0
+  m_MaxSpeed: 4.197
+--- !u!114 &9038539106002477906
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c5ebb570bbb4f9384fef65361ab5388, type: 3}
+  m_Name: WaitTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 2
+  m_Description: "Wait for 5 \xB1 3 second(s)."
+  m_Timer: 5
+  m_RandomDeviation: 3
