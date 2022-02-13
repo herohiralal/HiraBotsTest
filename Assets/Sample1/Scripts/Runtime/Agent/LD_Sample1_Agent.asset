@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7363326694719253677
+--- !u!114 &-7680833393915674676
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,19 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf5cce8d3ca6458bbcf415de101c99e1, type: 3}
-  m_Name: BooleanIsSetEffector
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f02, type: 3}
+  m_Name: AlwaysFailDecorator
   m_EditorClassIdentifier: 
-  m_Subtitle: Effect
-  m_Description: Unset DoneIdling.
-  key:
-    m_Value:
-      m_Key: {fileID: 3728205780240856743, guid: 6751d1823c6f6bc47ac195866a695740,
-        type: 2}
-      m_Template: {fileID: 11400000, guid: 6751d1823c6f6bc47ac195866a695740, type: 2}
-      m_KeyTypes: 1
-      m_IsValid: 1
-  operationType: 1
+  m_Subtitle: Target
+  m_Description: Always fail. Used to disable a goal/task for debugging purposes.
 --- !u!114 &-6086921647091285747
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -87,7 +79,7 @@ MonoBehaviour:
     - {fileID: 2211031891720349160}
   m_Target:
     m_Target:
-    - {fileID: 3764228096948279716}
+    - {fileID: -7680833393915674676}
   <blackboard>k__BackingField: {fileID: 11400000, guid: 6751d1823c6f6bc47ac195866a695740,
     type: 2}
 --- !u!114 &2014978866732633530
@@ -145,28 +137,6 @@ MonoBehaviour:
   m_Description: Customize this description by overriding UpdateDescription().
   m_MinSpeed: 0
   m_MaxSpeed: 4.197
---- !u!114 &3764228096948279716
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 841fea4ba9b94948b9b5ff847474ea57, type: 3}
-  m_Name: BooleanIsSetDecorator
-  m_EditorClassIdentifier: 
-  m_Subtitle: Target
-  m_Description: DoneIdling must be set.
-  invert: 0
-  key:
-    m_Value:
-      m_Key: {fileID: 3728205780240856743, guid: 6751d1823c6f6bc47ac195866a695740,
-        type: 2}
-      m_Template: {fileID: 11400000, guid: 6751d1823c6f6bc47ac195866a695740, type: 2}
-      m_KeyTypes: 1
-      m_IsValid: 1
 --- !u!114 &4337811996622993081
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -180,14 +150,13 @@ MonoBehaviour:
   m_Name: Patrol
   m_EditorClassIdentifier: 
   m_Action:
-    m_Precondition: []
+    m_Precondition:
+    - {fileID: 5956281833317885532}
     m_Cost:
     - {fileID: 5877648548785623709}
-    m_Effect:
-    - {fileID: -7363326694719253677}
+    m_Effect: []
   m_Target:
     m_Target: []
-  m_Loop: 1
   m_TaskProviders:
   - {fileID: -6086921647091285747}
   - {fileID: 2014978866732633530}
@@ -212,6 +181,20 @@ MonoBehaviour:
   m_Subtitle: Cost
   m_Description: +99.
   score: 99
+--- !u!114 &5956281833317885532
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f02, type: 3}
+  m_Name: AlwaysFailDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: 
+  m_Description: 
 --- !u!114 &9038539106002477906
 MonoBehaviour:
   m_ObjectHideFlags: 3

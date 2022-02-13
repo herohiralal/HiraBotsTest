@@ -33,20 +33,4 @@ MonoBehaviour:
   m_Backends: 1
   m_Parent: {fileID: 0}
   m_Keys:
-  - {fileID: 3728205780240856743}
   - {fileID: -3202358372231938240}
---- !u!114 &3728205780240856743
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b933bed9b3bc407d9a704296b326ab4a, type: 3}
-  m_Name: DoneIdling
-  m_EditorClassIdentifier: 
-  m_InstanceSynced: 0
-  m_EssentialToDecisionMaking: 0
-  m_DefaultValue: 0
