@@ -84,7 +84,7 @@ namespace AIEngineTest
 
         protected override void Validate(System.Action<string> reportError, in BlackboardTemplate.KeySet keySet)
         {
-            if (!m_ExcitementKey.Validate(in keySet, BlackboardKeyType.Enum))
+            if (!m_ExcitementKey.Validate(in keySet, BlackboardKeyType.Float))
             {
                 reportError("no excitement key");
             }

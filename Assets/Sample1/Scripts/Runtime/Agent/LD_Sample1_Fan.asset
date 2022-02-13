@@ -46,6 +46,35 @@ MonoBehaviour:
       m_KeyTypes: 16
       m_IsValid: 1
   value: {fileID: 0}
+--- !u!114 &-7063202260857362907
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f182e0a150aa4e60bc461bdb7ed7ce04, type: 3}
+  m_Name: LookOutForCelebrityServiceProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 1000
+  m_Description: Customize this description by overriding UpdateDescription().
+  m_CelebrityTag: Celebrity
+  m_ExcitementKey:
+    m_Value:
+      m_Key: {fileID: 6338071397192291863, guid: f4882f8cd8aca30449f405793df5a032,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
+      m_KeyTypes: 4
+      m_IsValid: 1
+  m_CelebrityGameObject:
+    m_Value:
+      m_Key: {fileID: 4717763473453229441, guid: f4882f8cd8aca30449f405793df5a032,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
+      m_KeyTypes: 16
+      m_IsValid: 1
 --- !u!114 &-7039009398051181830
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -120,8 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f02, type: 3}
   m_Name: AlwaysFailDecorator
   m_EditorClassIdentifier: 
-  m_Subtitle: 
-  m_Description: 
+  m_Subtitle: Target
+  m_Description: Always fail. Used to disable a goal/task for debugging purposes.
 --- !u!114 &-4243317203649551708
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -164,7 +193,7 @@ MonoBehaviour:
   equalityTolerance: 0
   comparisonType: 1
   score: 10
---- !u!114 &-4005283229290012659
+--- !u!114 &-2970277787574922366
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -183,7 +212,7 @@ MonoBehaviour:
     m_Value:
       m_Key: {fileID: 6338071397192291863, guid: f4882f8cd8aca30449f405793df5a032,
         type: 2}
-      m_Template: {fileID: 0}
+      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
       m_KeyTypes: 4
       m_IsValid: 1
   m_CelebrityGameObject:
@@ -220,7 +249,7 @@ MonoBehaviour:
   - {fileID: 2694287308622922992}
   m_ServiceProviders:
   - {fileID: 8261602070040721732}
-  - {fileID: -4005283229290012659}
+  - {fileID: -7063202260857362907}
   <blackboard>k__BackingField: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032,
     type: 2}
   <canBeAbstract>k__BackingField: 0
@@ -336,7 +365,8 @@ MonoBehaviour:
   m_Name: MoveToTaskProvider
   m_EditorClassIdentifier: 
   m_TickInterval: 0
-  m_Description: Navigate agent to 1.5 units around CelebrityLocation at 2.5.
+  m_Description: Navigate agent to 1.5 units around LastKnownCelebrityLocation at
+    2.5.
   m_Target:
     m_Value:
       m_Key: {fileID: -4239694777762941101, guid: f4882f8cd8aca30449f405793df5a032,
@@ -427,35 +457,6 @@ MonoBehaviour:
   m_TrackMovingTarget: 0
   m_Tolerance: 0.25
   m_Speed: 1.79
---- !u!114 &2157981928068548914
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f182e0a150aa4e60bc461bdb7ed7ce04, type: 3}
-  m_Name: LookOutForCelebrityServiceProvider
-  m_EditorClassIdentifier: 
-  m_TickInterval: 1000
-  m_Description: Customize this description by overriding UpdateDescription().
-  m_CelebrityTag: Celebrity
-  m_ExcitementKey:
-    m_Value:
-      m_Key: {fileID: 6338071397192291863, guid: f4882f8cd8aca30449f405793df5a032,
-        type: 2}
-      m_Template: {fileID: 0}
-      m_KeyTypes: 4
-      m_IsValid: 1
-  m_CelebrityGameObject:
-    m_Value:
-      m_Key: {fileID: 4717763473453229441, guid: f4882f8cd8aca30449f405793df5a032,
-        type: 2}
-      m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
-      m_KeyTypes: 16
-      m_IsValid: 1
 --- !u!114 &2211031891720349160
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -500,7 +501,8 @@ MonoBehaviour:
   m_Name: MoveToTaskProvider
   m_EditorClassIdentifier: 
   m_TickInterval: 0
-  m_Description: Navigate agent to 1.5 units around CelebrityLocation at 1.79.
+  m_Description: Navigate agent to 1.5 units around LastKnownCelebrityLocation at
+    1.79.
   m_Target:
     m_Value:
       m_Key: {fileID: -4239694777762941101, guid: f4882f8cd8aca30449f405793df5a032,
@@ -582,7 +584,7 @@ MonoBehaviour:
   - {fileID: 9038539106002477906}
   m_ServiceProviders:
   - {fileID: 2458438174803153262}
-  - {fileID: 2157981928068548914}
+  - {fileID: -2970277787574922366}
   <blackboard>k__BackingField: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032,
     type: 2}
   <canBeAbstract>k__BackingField: 0
