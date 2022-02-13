@@ -187,7 +187,6 @@ MonoBehaviour:
     - {fileID: 665133896923576194}
   m_Target:
     m_Target: []
-  m_Loop: 0
   m_TaskProviders:
   - {fileID: 2660417026590820241}
   - {fileID: 2694287308622922992}
@@ -274,6 +273,20 @@ MonoBehaviour:
   value:
     m_TypeIdentifier: BE612AB4-2AF3-4902-9820-D1B034C433C3
     m_Value: 0
+--- !u!114 &1028771810193439909
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: becb67739a90419cab14aebd9d2611fe, type: 3}
+  m_Name: FailTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0
+  m_Description: Automatically fails this task. Useful for debugging/looping.
 --- !u!114 &1149259878478301926
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -518,7 +531,6 @@ MonoBehaviour:
     - {fileID: -7363326694719253677}
   m_Target:
     m_Target: []
-  m_Loop: 1
   m_TaskProviders:
   - {fileID: -6086921647091285747}
   - {fileID: 2014978866732633530}
@@ -615,10 +627,10 @@ MonoBehaviour:
     - {fileID: -6079941100862730502}
   m_Target:
     m_Target: []
-  m_Loop: 1
   m_TaskProviders:
   - {fileID: 196336385426269841}
   - {fileID: 1149259878478301926}
+  - {fileID: 1028771810193439909}
   m_ServiceProviders:
   - {fileID: 4061810332045756577}
   - {fileID: -4243317203649551708}
