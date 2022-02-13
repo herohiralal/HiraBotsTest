@@ -7,6 +7,7 @@ namespace AIEngineTest
     public class GetCreepedOutService : IHiraBotsService, IMessageListener<FanGreetingMessage>
     {
         public BlackboardComponent m_Blackboard;
+        public string m_ShyKey;
         public string m_CreepedOutByKey;
         public int m_Count;
 
@@ -25,6 +26,13 @@ namespace AIEngineTest
 
         public void OnMessageReceived(FanGreetingMessage message)
         {
+            var isShy = m_Blackboard.GetBooleanValue(m_ShyKey);
+
+            if (!isShy)
+            {
+                return;
+            }
+
             m_Count--;
             if (m_Count == 0)
             {
@@ -41,6 +49,7 @@ namespace AIEngineTest
         }
 
         [SerializeField] private BlackboardTemplate.KeySelector m_CreepedOutBy;
+        [SerializeField] private BlackboardTemplate.KeySelector m_Shy;
         [SerializeField] private int m_TimesGreetedBeforeCreepedOut = 3;
 
         #region Validation Boilerplate
@@ -48,6 +57,7 @@ namespace AIEngineTest
         protected override void OnValidateCallback()
         {
             m_CreepedOutBy.keyTypesFilter = BlackboardKeyType.Object;
+            m_Shy.keyTypesFilter = BlackboardKeyType.Boolean;
         }
 
         protected override void Validate(Action<string> reportError, in BlackboardTemplate.KeySet keySet)
@@ -56,11 +66,17 @@ namespace AIEngineTest
             {
                 reportError("no creeped out by key");
             }
+
+            if (!m_Shy.Validate(keySet, BlackboardKeyType.Boolean))
+            {
+                reportError("no shy key");
+            }
         }
 
         protected override void OnTargetBlackboardTemplateChanged(BlackboardTemplate template, in BlackboardTemplate.KeySet keySet)
         {
             m_CreepedOutBy.OnTargetBlackboardTemplateChanged(template, in keySet);
+            m_Shy.OnTargetBlackboardTemplateChanged(template, in keySet);
         }
 
         #endregion
@@ -71,6 +87,7 @@ namespace AIEngineTest
             {
                 m_Blackboard = blackboard,
                 m_CreepedOutByKey = m_CreepedOutBy.selectedKey.name,
+                m_ShyKey = m_Shy.selectedKey.name,
                 m_Count = m_TimesGreetedBeforeCreepedOut
             };
         }

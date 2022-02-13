@@ -173,6 +173,13 @@ MonoBehaviour:
       m_Template: {fileID: 11400000, guid: 4cd6b8a52bf50a349a8c56dfef8c8252, type: 2}
       m_KeyTypes: 16
       m_IsValid: 1
+  m_Shy:
+    m_Value:
+      m_Key: {fileID: -158959164166478104, guid: 4cd6b8a52bf50a349a8c56dfef8c8252,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: 4cd6b8a52bf50a349a8c56dfef8c8252, type: 2}
+      m_KeyTypes: 1
+      m_IsValid: 1
   m_TimesGreetedBeforeCreepedOut: 3
 --- !u!114 &-3366126613219744117
 MonoBehaviour:
