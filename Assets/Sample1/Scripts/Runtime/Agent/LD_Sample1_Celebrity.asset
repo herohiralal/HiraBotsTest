@@ -236,20 +236,6 @@ MonoBehaviour:
   m_Description: Customize this description by overriding UpdateDescription().
   m_MinSpeed: 0
   m_MaxSpeed: 4.197
---- !u!114 &-1825903063941489197
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f02, type: 3}
-  m_Name: AlwaysFailDecorator
-  m_EditorClassIdentifier: 
-  m_Subtitle: Target
-  m_Description: Always fail. Used to disable a goal/task for debugging purposes.
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,8 +302,7 @@ MonoBehaviour:
     m_Insistence:
     - {fileID: 2211031891720349160}
   m_Target:
-    m_Target:
-    - {fileID: -1825903063941489197}
+    m_Target: []
   <blackboard>k__BackingField: {fileID: 11400000, guid: 4cd6b8a52bf50a349a8c56dfef8c8252,
     type: 2}
 --- !u!114 &2014978866732633530
