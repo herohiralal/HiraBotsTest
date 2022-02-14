@@ -25,15 +25,28 @@ namespace AIEngineTest
 
         public HiraBotsTaskResult Execute(float deltaTime)
         {
+            var obj = m_Blackboard.GetObjectValue(m_CelebrityGameObjectKey) as GameObject;
+            if (obj == null)
+            {
+                return HiraBotsTaskResult.Failed;
+            }
+
             m_AnimationTime -= deltaTime;
             if (m_AnimationTime > 0f)
             {
+                // turn towards celebrity
+                {
+                    var transform = m_SelfGameObject.transform;
+                    var eulerAngles = transform.eulerAngles;
+                    transform.LookAt(obj.transform);
+                    eulerAngles.y = transform.eulerAngles.y; // only need to change the yaw
+                    transform.eulerAngles = eulerAngles;
+                }
+
                 return HiraBotsTaskResult.InProgress;
             }
 
-            var obj = m_Blackboard.GetObjectValue(m_CelebrityGameObjectKey) as GameObject;
-            if (obj == null
-                || !obj.TryGetComponent<Archetype>(out var archetype)
+            if (!obj.TryGetComponent<Archetype>(out var archetype)
                 || archetype is not IHiraBotArchetype<HiraLGOAPRealtimeBot> bot)
             {
                 return HiraBotsTaskResult.Failed;
