@@ -1,0 +1,18 @@
+﻿{
+  "name": "AIEngineTest.Runtime.Sample2",
+  "rootNamespace": "",
+  "references": [
+    "GUID:69a7872e25ff956489d7ae2cf478296d",
+    "GUID:77a164f27b7b62c44bc067ecfe3114e9",
+    "GUID:d8b63aba1907145bea998dd612889d6b"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": true,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}
