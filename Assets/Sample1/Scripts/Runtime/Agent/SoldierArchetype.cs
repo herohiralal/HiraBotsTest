@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 namespace AIEngineTest
 {
-    public class Archetype : MonoBehaviour,
+    public class SoldierArchetype : MonoBehaviour,
         IHiraBotArchetype<NavMeshAgent>,
         IHiraBotArchetype<Animator>,
         IHiraBotArchetype<ConsolidatedSensor>,

@@ -46,7 +46,7 @@ namespace AIEngineTest
                 return HiraBotsTaskResult.InProgress;
             }
 
-            if (!obj.TryGetComponent<Archetype>(out var archetype)
+            if (!obj.TryGetComponent<SoldierArchetype>(out var archetype)
                 || archetype is not IHiraBotArchetype<HiraLGOAPRealtimeBot> bot)
             {
                 return HiraBotsTaskResult.Failed;
