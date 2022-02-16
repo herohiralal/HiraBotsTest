@@ -3,7 +3,7 @@
 namespace AIEngineTest
 {
     [CreateAssetMenu(fileName = "NewPatrolPointCollection", menuName = "Samples/1/Patrol Point Collection", order = 0)]
-    public class PatrolPointCollection : ScriptableObject
+    internal class PatrolPointCollection : ScriptableObject
     {
         [System.NonSerialized] private Transform[] m_PatrolPoints = new Transform[4];
         [System.NonSerialized] private int m_Count = 0;

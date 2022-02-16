@@ -2,7 +2,7 @@
 
 namespace AIEngineTest
 {
-    public class PatrolPoint : MonoBehaviour
+    internal class PatrolPoint : MonoBehaviour
     {
         [SerializeField] private PatrolPointCollection m_Collection = null;
 
