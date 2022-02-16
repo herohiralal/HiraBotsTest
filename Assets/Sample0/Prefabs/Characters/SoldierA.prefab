@@ -66,13 +66,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 7232040833389891592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23b23f82d28f57749aa94ee46a8bb53a, type: 3}
+  m_Script: {fileID: 11500000, guid: f971bcd7ed2c427281c3aa673fcb4896, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Animator: {fileID: 7232040833397187520}
   m_OnFootL:
     m_PersistentCalls:
       m_Calls: []
   m_OnFootR:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHit:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnStateEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnStateExit:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &7232040833389891686
