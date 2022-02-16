@@ -4,51 +4,36 @@ using UnityEngine.Scripting;
 
 namespace AIEngineTest
 {
-    [System.Serializable, UnityEngine.AI.ExposedToHiraBots("D8D1DA80-E3F8-4899-9DBD-ADB97DBC52A8")]
-    public enum Sample2MontageType
-    {
-        None = 0,
-        MeleeAttackRight = 1,
-        MeleeAttackLeft = 2
-    }
-
-    [System.Serializable, UnityEngine.AI.ExposedToHiraBots("24810CDF-70F7-4906-8B1D-FA60DADC1CEA")]
-    public enum Sample2WeaponType
-    {
-        None = -1,
-        Fists = 0,
-    }
-
     [RequireComponent(typeof(Animator))]
-    public class Sample2Animator : MonoBehaviour
+    public class AnimatorHelper : MonoBehaviour
     {
         [SerializeField] private Animator m_Animator;
         [SerializeField] private UnityEvent m_OnFootL;
         [SerializeField] private UnityEvent m_OnFootR;
         [SerializeField] private UnityEvent m_OnHit;
-        [SerializeField] private UnityEvent<Sample2MontageType> m_OnStateEnter;
-        [SerializeField] private UnityEvent<Sample2MontageType> m_OnStateExit;
+        [SerializeField] private UnityEvent<MontageType> m_OnStateEnter;
+        [SerializeField] private UnityEvent<MontageType> m_OnStateExit;
 
-        public UnityEvent<Sample2MontageType> stateEnter => m_OnStateEnter;
-        public UnityEvent<Sample2MontageType> stateExit => m_OnStateExit;
+        public UnityEvent<MontageType> stateEnter => m_OnStateEnter;
+        public UnityEvent<MontageType> stateExit => m_OnStateExit;
 
         private void Reset()
         {
             m_Animator = GetComponent<Animator>();
         }
 
-        private Sample2MontageType m_CurrentMontageState = Sample2MontageType.None;
-        public Sample2MontageType currentMontageState
+        private MontageType m_CurrentMontageState = MontageType.None;
+        public MontageType currentMontageState
         {
             get => m_CurrentMontageState;
             set
             {
-                if (m_CurrentMontageState != Sample2MontageType.None)
+                if (m_CurrentMontageState != MontageType.None)
                 {
                     m_Animator.SetTrigger(AnimatorHashes.s_InterruptMontage);
                 }
 
-                if (value != Sample2MontageType.None)
+                if (value != MontageType.None)
                 {
                     m_Animator.SetInteger(AnimatorHashes.s_MontageType, (int) value);
                     m_Animator.SetTrigger(AnimatorHashes.s_PlayMontage);
@@ -56,9 +41,9 @@ namespace AIEngineTest
             }
         }
 
-        private Sample2WeaponType m_WeaponType = Sample2WeaponType.None;
+        private WeaponType m_WeaponType = WeaponType.None;
 
-        public Sample2WeaponType weaponType
+        public WeaponType weaponType
         {
             get => m_WeaponType;
             set
@@ -92,19 +77,19 @@ namespace AIEngineTest
             m_OnHit.Invoke();
         }
 
-        public void OnStateEnter(Sample2MontageType montageType)
+        public void OnStateEnter(MontageType montageType)
         {
-            UnityEngine.Assertions.Assert.AreNotEqual(Sample2MontageType.None, montageType);
+            UnityEngine.Assertions.Assert.AreNotEqual(MontageType.None, montageType);
             UnityEngine.Assertions.Assert.AreNotEqual(m_CurrentMontageState, montageType);
             m_CurrentMontageState = montageType;
             m_OnStateEnter.Invoke(montageType);
         }
 
-        public void OnStateExit(Sample2MontageType montageType)
+        public void OnStateExit(MontageType montageType)
         {
-            UnityEngine.Assertions.Assert.AreNotEqual(Sample2MontageType.None, montageType);
+            UnityEngine.Assertions.Assert.AreNotEqual(MontageType.None, montageType);
             UnityEngine.Assertions.Assert.AreEqual(m_CurrentMontageState, montageType);
-            m_CurrentMontageState = Sample2MontageType.None;
+            m_CurrentMontageState = MontageType.None;
             m_OnStateExit.Invoke(montageType);
         }
     }

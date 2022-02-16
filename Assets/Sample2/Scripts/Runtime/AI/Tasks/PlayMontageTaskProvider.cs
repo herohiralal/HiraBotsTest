@@ -14,14 +14,14 @@ namespace AIEngineTest
         {
         }
 
-        private Sample2Animator m_Animator;
-        private Sample2MontageType m_Type;
+        private AnimatorHelper m_AnimatorHelper;
+        private MontageType m_Type;
         private HiraBotsTaskResult m_Status;
 
-        public static PlayMontageTask Get(Sample2Animator animator, Sample2MontageType type)
+        public static PlayMontageTask Get(AnimatorHelper animatorHelper, MontageType type)
         {
             var output = s_Executables.Count == 0 ? new PlayMontageTask() : s_Executables.Pop();
-            output.m_Animator = animator;
+            output.m_AnimatorHelper = animatorHelper;
             output.m_Type = type;
             output.m_Status = HiraBotsTaskResult.InProgress;
             return output;
@@ -31,8 +31,8 @@ namespace AIEngineTest
 
         public void Begin()
         {
-            m_Animator.stateExit.AddListener(OnAnimatorStateExit);
-            m_Animator.currentMontageState = m_Type;
+            m_AnimatorHelper.stateExit.AddListener(OnAnimatorStateExit);
+            m_AnimatorHelper.currentMontageState = m_Type;
         }
 
         public HiraBotsTaskResult Execute(float deltaTime)
@@ -42,7 +42,7 @@ namespace AIEngineTest
 
         public void Abort()
         {
-            m_Animator.currentMontageState = Sample2MontageType.None;
+            m_AnimatorHelper.currentMontageState = MontageType.None;
             Recycle();
         }
 
@@ -53,14 +53,14 @@ namespace AIEngineTest
 
         private void Recycle()
         {
-            m_Animator.stateExit.RemoveListener(OnAnimatorStateExit);
-            m_Animator = null;
-            m_Type = Sample2MontageType.None;
+            m_AnimatorHelper.stateExit.RemoveListener(OnAnimatorStateExit);
+            m_AnimatorHelper = null;
+            m_Type = MontageType.None;
             m_Status = HiraBotsTaskResult.InProgress;
             s_Executables.Push(this);
         }
 
-        private void OnAnimatorStateExit(Sample2MontageType type)
+        private void OnAnimatorStateExit(MontageType type)
         {
             if (m_Type == type && m_Status == HiraBotsTaskResult.InProgress)
             {
@@ -72,7 +72,7 @@ namespace AIEngineTest
         {
             if (m_Status == HiraBotsTaskResult.InProgress)
             {
-                m_Animator.currentMontageState = Sample2MontageType.None;
+                m_AnimatorHelper.currentMontageState = MontageType.None;
                 m_Status = HiraBotsTaskResult.Failed;
             }
         }
@@ -80,11 +80,11 @@ namespace AIEngineTest
 
     public class PlayMontageTaskProvider : HiraBotsTaskProvider
     {
-        [SerializeField] private Sample2MontageType m_Type;
+        [SerializeField] private MontageType m_Type;
 
         protected override IHiraBotsTask GetTask(BlackboardComponent blackboard, IHiraBotArchetype archetype)
         {
-            if (archetype is IHiraBotArchetype<Sample2Animator> animated && animated.component != null)
+            if (archetype is IHiraBotArchetype<AnimatorHelper> animated && animated.component != null)
             {
                 return PlayMontageTask.Get(animated.component, m_Type);
             }

@@ -3,18 +3,18 @@
 namespace AIEngineTest
 {
     [SharedBetweenAnimators]
-    public class Sample2AnimatorMontageStateBroadcaster : StateMachineBehaviour
+    public class AnimatorMontageStateBroadcaster : StateMachineBehaviour
     {
-        [SerializeField] private Sample2MontageType m_MontageType = Sample2MontageType.None;
+        [SerializeField] private MontageType m_MontageType = MontageType.None;
 
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            animator.GetComponent<Sample2Animator>().OnStateEnter(m_MontageType);
+            animator.GetComponent<AnimatorHelper>().OnStateEnter(m_MontageType);
         }
 
         public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            animator.GetComponent<Sample2Animator>().OnStateExit(m_MontageType);
+            animator.GetComponent<AnimatorHelper>().OnStateExit(m_MontageType);
         }
     }
 }
