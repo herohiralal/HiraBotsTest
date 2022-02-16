@@ -1,21 +1,27 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.AI;
 
 namespace AIEngineTest
 {
     public class UpdateSpeedService : IHiraBotsService
     {
-        public UpdateSpeedService(NavMeshAgent agent, Animator animator, float min, float max)
+        public static UpdateSpeedService Get(NavMeshAgent agent, AnimatorHelper animator)
         {
-            m_NavMeshAgent = agent;
-            m_Animator = animator;
-            m_Min = min;
-            m_Max = max;
+            var output = s_Executables.Count > 0 ? s_Executables.Pop() : new UpdateSpeedService();
+            output.m_NavMeshAgent = agent;
+            output.m_Animator = animator;
+            return output;
+        }
+
+        private UpdateSpeedService()
+        {
         }
 
         private NavMeshAgent m_NavMeshAgent;
-        private Animator m_Animator;
-        private readonly float m_Min, m_Max;
+        private AnimatorHelper m_Animator;
+
+        private static readonly Stack<UpdateSpeedService> s_Executables = new Stack<UpdateSpeedService>();
 
         public void Start()
         {
@@ -23,38 +29,28 @@ namespace AIEngineTest
 
         public void Tick(float deltaTime)
         {
-            var speed = m_NavMeshAgent.velocity.magnitude;
-
-            var normalizedSpeed = (speed - m_Min) / (m_Max - m_Min);
-
-            m_Animator.SetFloat(AnimatorHashes.s_Speed, normalizedSpeed);
+            m_Animator.speed = m_NavMeshAgent.velocity.magnitude;
         }
 
         public void Stop()
         {
             m_NavMeshAgent = null;
             m_Animator = null;
+            s_Executables.Push(this);
         }
     }
 
     public class UpdateSpeedServiceProvider : HiraBotsServiceProvider
     {
-        public UpdateSpeedServiceProvider()
-        {
-            tickInterval = 1f;
-        }
-
-        [SerializeField] private float m_MinSpeed = 0f, m_MaxSpeed = 3f;
-
         protected override IHiraBotsService GetService(BlackboardComponent blackboard, IHiraBotArchetype archetype)
         {
-            if (archetype is not (IHiraBotArchetype<NavMeshAgent> navigatingSoldier and IHiraBotArchetype<Animator> animatedSoldier))
+            if (archetype is not (IHiraBotArchetype<NavMeshAgent> navigatingSoldier and IHiraBotArchetype<AnimatorHelper> animated))
             {
                 Debug.LogError("Attempted to get an update speed service for an invalid game object.");
                 return null;
             }
 
-            return new UpdateSpeedService(navigatingSoldier.component, animatedSoldier.component, m_MinSpeed, m_MaxSpeed);
+            return UpdateSpeedService.Get(navigatingSoldier.component, animated.component);
         }
     }
 }

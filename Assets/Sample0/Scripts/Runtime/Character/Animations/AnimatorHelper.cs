@@ -53,6 +53,12 @@ namespace AIEngineTest
             }
         }
 
+        public float speed
+        {
+            get => m_Animator.GetFloat(AnimatorHashes.s_Speed) * AnimatorConstants.GetMaxSpeed(m_WeaponType);
+            set => m_Animator.SetFloat(AnimatorHashes.s_Speed, value / AnimatorConstants.GetMaxSpeed(m_WeaponType));
+        }
+
         public int actionNum
         {
             get => m_Animator.GetInteger(AnimatorHashes.s_ActionNum);

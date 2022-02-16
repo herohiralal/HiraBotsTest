@@ -1,12 +1,20 @@
-﻿namespace AIEngineTest
+﻿using System;
+using System.Runtime.CompilerServices;
+
+namespace AIEngineTest
 {
     public static class AnimatorConstants
     {
-        public const float k_RelaxedRunSpeed = 4.251f;
-        public const float k_UnarmedRunSpeed = 4.251f;
-        public const float k_SwordRunSpeed = 0f;
-        public const float k_SwordAndShieldRunSpeed = 0f;
-        public const float k_DualDaggersRunSpeed = 0f;
-        public const float k_StaffRunSpeed = 0f;
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float GetMaxSpeed(WeaponType weaponType) => weaponType switch
+        {
+            WeaponType.None => 4.197f,
+            WeaponType.Fists => 4.197f,
+            WeaponType.Sword => 4.251f,
+            WeaponType.SwordAndShield => 4.236f,
+            WeaponType.DualDaggers => 4.251f,
+            WeaponType.Staff => 5.084f,
+            _ => throw new ArgumentOutOfRangeException(nameof(weaponType), weaponType, null)
+        };
     }
 }
