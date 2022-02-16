@@ -5,6 +5,8 @@ namespace AIEngineTest
     {
         None = 0,
         MeleeAttackRight = 1,
-        MeleeAttackLeft = 2
+        MeleeAttackLeft = 2,
+        Unsheathe = 3,
+        Sheathe = 4,
     }
 }

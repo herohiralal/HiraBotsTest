@@ -5,5 +5,9 @@ namespace AIEngineTest
     {
         None = -1,
         Fists = 0,
+        Sword = 1,
+        SwordAndShield = 2,
+        DualDaggers = 3,
+        Staff = 4,
     }
 }
