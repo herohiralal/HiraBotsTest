@@ -4,7 +4,6 @@ using UnityEngine.AI;
 namespace AIEngineTest
 {
     public abstract class Sample2BaseArchetype : MonoBehaviour,
-        IHiraBotArchetype<Animator>,
         IHiraBotArchetype<Sample2Animator>,
         IHiraBotArchetype<NavMeshAgent>,
         IHiraBotArchetype<ConsolidatedSensor>,
@@ -12,15 +11,13 @@ namespace AIEngineTest
         IHiraBotArchetype<SightStimulus>,
         IHiraBotArchetype<SoundStimulus>
     {
-        [SerializeField] private Animator m_Animator;
-        [SerializeField] private Sample2Animator m_AnimatorHelper;
-        [SerializeField] private NavMeshAgent m_NavMeshAgent = null;
-        [SerializeField] private ConsolidatedSensor m_Sensor = null;
-        [SerializeField] private HiraLGOAPRealtimeBot m_Brain = null;
-        [SerializeField] private SightStimulus m_SightStimulus = null;
-        [SerializeField] private SoundStimulus m_SoundStimulus = null;
+        [SerializeField] public Sample2Animator m_AnimatorHelper = null;
+        [SerializeField] public NavMeshAgent m_NavMeshAgent = null;
+        [SerializeField] public ConsolidatedSensor m_Sensor = null;
+        [SerializeField] public HiraLGOAPRealtimeBot m_Brain = null;
+        [SerializeField] public SightStimulus m_SightStimulus = null;
+        [SerializeField] public SoundStimulus m_SoundStimulus = null;
 
-        Animator IHiraBotArchetype<Animator>.component => m_Animator;
         Sample2Animator IHiraBotArchetype<Sample2Animator>.component => m_AnimatorHelper;
         NavMeshAgent IHiraBotArchetype<NavMeshAgent>.component => m_NavMeshAgent;
         ConsolidatedSensor IHiraBotArchetype<ConsolidatedSensor>.component => m_Sensor;
