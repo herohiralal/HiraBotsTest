@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 namespace AIEngineTest
 {
-    public class GetCreepedOutService : IHiraBotsService, IMessageListener<FanGreetingMessage>
+    internal class GetCreepedOutService : IHiraBotsService, IMessageListener<FanGreetingMessage>
     {
         public BlackboardComponent m_Blackboard;
         public string m_ShyKey;
@@ -41,7 +41,7 @@ namespace AIEngineTest
         }
     }
 
-    public class GetCreepedOutServiceProvider : HiraBotsServiceProvider
+    internal class GetCreepedOutServiceProvider : HiraBotsServiceProvider
     {
         public GetCreepedOutServiceProvider()
         {

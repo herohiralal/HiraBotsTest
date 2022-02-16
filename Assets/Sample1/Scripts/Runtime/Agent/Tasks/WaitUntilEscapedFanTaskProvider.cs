@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 namespace AIEngineTest
 {
-    public class EscapeFanTask : IHiraBotsTask
+    internal class EscapeFanTask : IHiraBotsTask
     {
         public GameObject m_SelfGameObject;
         public float m_DistanceSq;
@@ -59,7 +59,7 @@ namespace AIEngineTest
         }
     }
 
-    public class WaitUntilEscapedFanTaskProvider : HiraBotsTaskProvider
+    internal class WaitUntilEscapedFanTaskProvider : HiraBotsTaskProvider
     {
         [SerializeField] private BlackboardTemplate.KeySelector m_CreepedOutBy;
         [SerializeField] private float m_Distance = 5f;

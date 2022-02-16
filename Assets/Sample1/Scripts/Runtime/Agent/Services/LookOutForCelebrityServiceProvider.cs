@@ -4,7 +4,7 @@ using Object = UnityEngine.Object;
 
 namespace AIEngineTest
 {
-    public class LookOutForCelebrityService : IHiraBotsService
+    internal class LookOutForCelebrityService : IHiraBotsService
     {
         private bool m_Bound = false;
         public BlackboardComponent m_Blackboard;
@@ -63,7 +63,7 @@ namespace AIEngineTest
         }
     }
 
-    public class LookOutForCelebrityServiceProvider : HiraBotsServiceProvider
+    internal class LookOutForCelebrityServiceProvider : HiraBotsServiceProvider
     {
         public LookOutForCelebrityServiceProvider()
         {

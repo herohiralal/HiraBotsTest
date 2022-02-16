@@ -3,12 +3,12 @@ using UnityEngine.AI;
 
 namespace AIEngineTest
 {
-    public struct FanGreetingMessage
+    internal struct FanGreetingMessage
     {
         public GameObject m_Fan;
     }
 
-    public class GreetCelebrityTask : IHiraBotsTask
+    internal class GreetCelebrityTask : IHiraBotsTask
     {
         public GameObject m_SelfGameObject;
         public BlackboardComponent m_Blackboard;
@@ -51,7 +51,7 @@ namespace AIEngineTest
         }
     }
 
-    public class GreetCelebrityTaskProvider : HiraBotsTaskProvider
+    internal class GreetCelebrityTaskProvider : HiraBotsTaskProvider
     {
         [SerializeField] private BlackboardTemplate.KeySelector m_CelebrityGameObject;
 

@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 namespace AIEngineTest
 {
-    public class StopSearchingAfterTimeService : IHiraBotsService
+    internal class StopSearchingAfterTimeService : IHiraBotsService
     {
         public float m_WaitTime;
         public BlackboardComponent m_Blackboard;
@@ -34,7 +34,7 @@ namespace AIEngineTest
         }
     }
 
-    public class StopSearchingAfterTimeServiceProvider : HiraBotsServiceProvider
+    internal class StopSearchingAfterTimeServiceProvider : HiraBotsServiceProvider
     {
         [SerializeField] private float m_WaitTime;
         [SerializeField] private BlackboardTemplate.KeySelector m_Excitement;

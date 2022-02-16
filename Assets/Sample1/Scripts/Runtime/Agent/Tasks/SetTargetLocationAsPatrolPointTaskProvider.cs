@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 namespace AIEngineTest
 {
-    public class SetTargetLocationAsPatrolPointTask : IHiraBotsTask
+    internal class SetTargetLocationAsPatrolPointTask : IHiraBotsTask
     {
         public BlackboardComponent m_Blackboard;
         public PatrolPointCollection m_PatrolPointCollection;
@@ -36,7 +36,7 @@ namespace AIEngineTest
         }
     }
 
-    public class SetTargetLocationAsPatrolPointTaskProvider : HiraBotsTaskProvider
+    internal class SetTargetLocationAsPatrolPointTaskProvider : HiraBotsTaskProvider
     {
         [SerializeField] private BlackboardTemplate.KeySelector m_Key;
         [SerializeField] private PatrolPointCollection m_PatrolPointCollection;

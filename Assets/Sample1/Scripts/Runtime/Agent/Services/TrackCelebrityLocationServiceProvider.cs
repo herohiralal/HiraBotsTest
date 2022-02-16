@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 namespace AIEngineTest
 {
-    public class TrackCelebrityLocationService : IHiraBotsService
+    internal class TrackCelebrityLocationService : IHiraBotsService
     {
         private bool m_Bound = false;
         private bool m_DoNotTick;
@@ -89,7 +89,7 @@ namespace AIEngineTest
         }
     }
 
-    public class TrackCelebrityLocationServiceProvider : HiraBotsServiceProvider
+    internal class TrackCelebrityLocationServiceProvider : HiraBotsServiceProvider
     {
         [SerializeField, TagProperty] private string m_CelebrityTag;
         [SerializeField] private BlackboardTemplate.KeySelector m_CelebrityGameObject;
