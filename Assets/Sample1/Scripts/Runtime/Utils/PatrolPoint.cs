@@ -11,16 +11,24 @@ namespace AIEngineTest
             get => m_Collection;
             set
             {
-                if (!ReferenceEquals(m_Collection, null))
+                var activeAndEnabled = isActiveAndEnabled;
+
+                if (activeAndEnabled)
                 {
-                    m_Collection.Remove(this);
+                    if (!ReferenceEquals(m_Collection, null))
+                    {
+                        m_Collection.Remove(this);
+                    }
                 }
 
                 m_Collection = value;
 
-                if (!ReferenceEquals(m_Collection, null))
+                if (activeAndEnabled)
                 {
-                    m_Collection.Add(this);
+                    if (!ReferenceEquals(m_Collection, null))
+                    {
+                        m_Collection.Add(this);
+                    }
                 }
             }
         }
