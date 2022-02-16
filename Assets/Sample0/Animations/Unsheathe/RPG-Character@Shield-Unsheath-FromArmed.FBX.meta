@@ -799,7 +799,7 @@ ModelImporter:
       curves: []
       events:
       - time: 0.4996988
-        functionName: WeaponSwitch
+        functionName: Unsheathe
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

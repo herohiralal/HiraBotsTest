@@ -13,6 +13,7 @@ namespace AIEngineTest
         [SerializeField] private UnityEvent m_OnHit;
         [SerializeField] private UnityEvent<MontageType> m_OnStateEnter;
         [SerializeField] private UnityEvent<MontageType> m_OnStateExit;
+        [SerializeField] private UnityEvent<WeaponType> m_OnEquip;
 
         public UnityEvent<MontageType> stateEnter => m_OnStateEnter;
         public UnityEvent<MontageType> stateExit => m_OnStateExit;
@@ -41,16 +42,42 @@ namespace AIEngineTest
             }
         }
 
-        private WeaponType m_WeaponType = WeaponType.None;
+        private WeaponType m_WeaponType;
 
         public WeaponType weaponType
         {
             get => m_WeaponType;
-            set
+            private set
             {
-                m_Animator.SetInteger(AnimatorHashes.s_WeaponType, (int) value);
                 m_WeaponType = value;
+                m_Animator.SetInteger(AnimatorHashes.s_WeaponType, (int) value);
             }
+        }
+
+        public void Equip(WeaponType type)
+        {
+            if (type == WeaponType.None || weaponType == type)
+            {
+                return;
+            }
+
+            if (type == WeaponType.SwordAndShield && weaponType != WeaponType.Sword)
+            {
+                return;
+            }
+
+            currentMontageState = MontageType.Unsheathe;
+            actionNum = (int) type;
+        }
+
+        public void Unequip(WeaponType type)
+        {
+            if (type == WeaponType.None || weaponType != type)
+            {
+                return;
+            }
+
+            currentMontageState = MontageType.Sheathe;
         }
 
         public float speed
@@ -81,6 +108,22 @@ namespace AIEngineTest
         public void Hit()
         {
             m_OnHit.Invoke();
+        }
+
+        [Preserve]
+        public void Unsheathe()
+        {
+            weaponType = (WeaponType) actionNum;
+            m_OnEquip.Invoke(m_WeaponType);
+        }
+
+        [Preserve]
+        public void Sheathe()
+        {
+            weaponType = weaponType == WeaponType.SwordAndShield
+                ? WeaponType.Sword
+                : WeaponType.None;
+            m_OnEquip.Invoke(weaponType);
         }
 
         public void OnStateEnter(MontageType montageType)
