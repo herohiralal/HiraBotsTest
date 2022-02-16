@@ -8,5 +8,6 @@ namespace AIEngineTest
         MeleeAttackLeft = 2,
         Unsheathe = 3,
         Sheathe = 4,
+        Bow = 5,
     }
 }

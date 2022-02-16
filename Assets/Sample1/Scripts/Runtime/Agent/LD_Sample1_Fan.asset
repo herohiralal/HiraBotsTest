@@ -239,6 +239,21 @@ MonoBehaviour:
   <blackboard>k__BackingField: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032,
     type: 2}
   <canBeAbstract>k__BackingField: 0
+--- !u!114 &-1174117013190917479
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3ea17f14634137b6060baa722c5020, type: 3}
+  m_Name: PlayMontageTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0
+  m_Description: Customize this description by overriding UpdateDescription().
+  m_Type: 5
 --- !u!114 &-666235997366936549
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -391,7 +406,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TickInterval: 0
   m_Description: Customize this description by overriding UpdateDescription().
-  m_AnimationTime: 3
   m_CelebrityGameObject:
     m_Value:
       m_Key: {fileID: 4717763473453229441, guid: f4882f8cd8aca30449f405793df5a032,
@@ -637,6 +651,7 @@ MonoBehaviour:
     m_Target: []
   m_TaskProviders:
   - {fileID: 196336385426269841}
+  - {fileID: -1174117013190917479}
   - {fileID: 1149259878478301926}
   - {fileID: 1028771810193439909}
   m_ServiceProviders:
