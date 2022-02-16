@@ -2,6 +2,7 @@
 
 namespace AIEngineTest
 {
+    [SharedBetweenAnimators]
     public class Sample2AnimatorMontageStateBroadcaster : StateMachineBehaviour
     {
         [SerializeField] private Sample2MontageType m_MontageType = Sample2MontageType.None;

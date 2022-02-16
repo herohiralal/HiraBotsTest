@@ -8,7 +8,15 @@ namespace AIEngineTest
     public enum Sample2MontageType
     {
         None = 0,
-        MeleeAttack = 1,
+        MeleeAttackRight = 1,
+        MeleeAttackLeft = 2
+    }
+
+    [System.Serializable]
+    public enum Sample2WeaponType
+    {
+        None = -1,
+        Fists = 0,
     }
 
     [RequireComponent(typeof(Animator))]
@@ -17,6 +25,7 @@ namespace AIEngineTest
         [SerializeField] private Animator m_Animator;
         [SerializeField] private UnityEvent m_OnFootL;
         [SerializeField] private UnityEvent m_OnFootR;
+        [SerializeField] private UnityEvent m_OnHit;
         [SerializeField] private UnityEvent<Sample2MontageType> m_OnStateEnter;
         [SerializeField] private UnityEvent<Sample2MontageType> m_OnStateExit;
 
@@ -54,6 +63,12 @@ namespace AIEngineTest
         public void FootR()
         {
             m_OnFootR.Invoke();
+        }
+
+        [Preserve]
+        public void Hit()
+        {
+            m_OnHit.Invoke();
         }
 
         public void OnStateEnter(Sample2MontageType montageType)
