@@ -54,30 +54,30 @@ namespace AIEngineTest
             }
         }
 
-        public void Equip(WeaponType type)
+        public bool PrepareToEquip(WeaponType type)
         {
             if (type == WeaponType.None || weaponType == type)
             {
-                return;
+                return false;
             }
 
             if (type == WeaponType.SwordAndShield && weaponType != WeaponType.Sword)
             {
-                return;
+                return false;
             }
 
-            currentMontageState = MontageType.Unsheathe;
             actionNum = (int) type;
+            return true;
         }
 
-        public void Unequip(WeaponType type)
+        public bool PrepareToUnequip(WeaponType type)
         {
             if (type == WeaponType.None || weaponType != type)
             {
-                return;
+                return false;
             }
 
-            currentMontageState = MontageType.Sheathe;
+            return true;
         }
 
         public float speed
