@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace AIEngineTest.Editor
 {
-    [CustomEditor(typeof(WeaponEquipmentHelper))]
+    [CustomEditor(typeof(CharacterMeshWeaponSocketProvider))]
     public class WeaponEquipmentHelperEditor : UnityEditor.Editor
     {
         private struct SocketProperty
@@ -16,6 +16,7 @@ namespace AIEngineTest.Editor
 
         private void GetProperties(
             out SocketProperty handL, out SocketProperty handR,
+            out SocketProperty back,
             out SocketProperty backL, out SocketProperty backR,
             out SocketProperty hipsL, out SocketProperty hipsR)
         {
@@ -24,21 +25,23 @@ namespace AIEngineTest.Editor
                 var output = new SocketProperty
                 {
                     m_Parent = parent,
-                    m_Socket = parent.FindPropertyRelative(nameof(WeaponEquipmentHelper.Socket.m_Socket)),
-                    m_PositionOffset = parent.FindPropertyRelative(nameof(WeaponEquipmentHelper.Socket.m_PositionOffset)),
-                    m_RotationOffset = parent.FindPropertyRelative(nameof(WeaponEquipmentHelper.Socket.m_RotationOffset))
+                    m_Socket = parent.FindPropertyRelative(nameof(CharacterMeshWeaponSocketProvider.Socket.m_Socket)),
+                    m_PositionOffset = parent.FindPropertyRelative(nameof(CharacterMeshWeaponSocketProvider.Socket.m_PositionOffset)),
+                    m_RotationOffset = parent.FindPropertyRelative(nameof(CharacterMeshWeaponSocketProvider.Socket.m_RotationOffset))
                 };
                 return output;
             }
 
-            handL = GetSocketProperty(serializedObject.FindProperty(nameof(WeaponEquipmentHelper.m_HandLSocket)));
-            handR = GetSocketProperty(serializedObject.FindProperty(nameof(WeaponEquipmentHelper.m_HandRSocket)));
+            handL = GetSocketProperty(serializedObject.FindProperty(nameof(CharacterMeshWeaponSocketProvider.m_HandLSocket)));
+            handR = GetSocketProperty(serializedObject.FindProperty(nameof(CharacterMeshWeaponSocketProvider.m_HandRSocket)));
 
-            hipsL = GetSocketProperty(serializedObject.FindProperty(nameof(WeaponEquipmentHelper.m_HipsLSocket)));
-            hipsR = GetSocketProperty(serializedObject.FindProperty(nameof(WeaponEquipmentHelper.m_HipsRSocket)));
+            back = GetSocketProperty(serializedObject.FindProperty(nameof(CharacterMeshWeaponSocketProvider.m_BackSocket)));
 
-            backL = GetSocketProperty(serializedObject.FindProperty(nameof(WeaponEquipmentHelper.m_BackLSocket)));
-            backR = GetSocketProperty(serializedObject.FindProperty(nameof(WeaponEquipmentHelper.m_BackRSocket)));
+            hipsL = GetSocketProperty(serializedObject.FindProperty(nameof(CharacterMeshWeaponSocketProvider.m_HipsLSocket)));
+            hipsR = GetSocketProperty(serializedObject.FindProperty(nameof(CharacterMeshWeaponSocketProvider.m_HipsRSocket)));
+
+            backL = GetSocketProperty(serializedObject.FindProperty(nameof(CharacterMeshWeaponSocketProvider.m_BackLSocket)));
+            backR = GetSocketProperty(serializedObject.FindProperty(nameof(CharacterMeshWeaponSocketProvider.m_BackRSocket)));
         }
 
         private static void DrawInspectorGUI(ref SocketProperty property)
@@ -66,11 +69,13 @@ namespace AIEngineTest.Editor
 
             GetProperties(
                 out var handL, out var handR,
+                out var back,
                 out var backL, out var backR,
                 out var hipsL, out var hipsR);
 
             DrawInspectorGUI(ref handL);
             DrawInspectorGUI(ref handR);
+            DrawInspectorGUI(ref back);
             DrawInspectorGUI(ref backL);
             DrawInspectorGUI(ref backR);
             DrawInspectorGUI(ref hipsL);
@@ -106,11 +111,13 @@ namespace AIEngineTest.Editor
 
             GetProperties(
                 out var handL, out var handR,
+                out var back,
                 out var backL, out var backR,
                 out var hipsL, out var hipsR);
 
             DrawSceneGUI(ref handL);
             DrawSceneGUI(ref handR);
+            DrawSceneGUI(ref back);
             DrawSceneGUI(ref backL);
             DrawSceneGUI(ref backR);
             DrawSceneGUI(ref hipsL);

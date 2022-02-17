@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float m_PauseTime = 0.5f;
 
+    [SerializeField] private WeaponGenerator m_WeaponGenerator;
+    [SerializeField] private CharacterGenerator m_CharacterGenerator;
+
     [System.NonSerialized] private LoadingScreen m_CurrentLoadingScreen;
     [System.NonSerialized] private PauseScreen m_CurrentPauseScreen;
 
@@ -24,6 +27,8 @@ public class GameManager : MonoBehaviour
     public new static Camera camera => s_Instance.m_MainCamera;
     public static LoadingScreen currentLoadingScreen => s_Instance.m_CurrentLoadingScreen;
     public static PauseScreen currentPauseScreen => s_Instance.m_CurrentPauseScreen;
+    public static WeaponGenerator weaponGenerator => s_Instance.m_WeaponGenerator;
+    public static CharacterGenerator characterGenerator => s_Instance.m_CharacterGenerator;
 
     public static float pauseTime => s_Instance.m_PauseTime;
 

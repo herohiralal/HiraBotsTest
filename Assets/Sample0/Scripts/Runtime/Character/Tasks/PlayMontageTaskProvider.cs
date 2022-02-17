@@ -18,10 +18,10 @@ namespace AIEngineTest
         private AnimatorHelper m_AnimatorHelper;
         private MontageType m_Type;
         private int? m_IntegerParam;
-        private WeaponType? m_WeaponTypeParam;
+        private EquipmentType? m_WeaponTypeParam;
         private HiraBotsTaskResult m_Status;
 
-        public static PlayMontageTask Get(AnimatorHelper animatorHelper, MontageType type, WeaponType? weaponTypeParam, int? integerParam)
+        public static PlayMontageTask Get(AnimatorHelper animatorHelper, MontageType type, EquipmentType? weaponTypeParam, int? integerParam)
         {
             var output = s_Executables.Count == 0 ? new PlayMontageTask() : s_Executables.Pop();
             output.m_AnimatorHelper = animatorHelper;
@@ -130,7 +130,7 @@ namespace AIEngineTest
         [SerializeField] private MontageType m_Type;
         [SerializeField] private bool m_UseCustomParam;
         [SerializeField] private int m_IntegerParam;
-        [SerializeField] private WeaponType m_WeaponTypeParam;
+        [SerializeField] private EquipmentType m_EquipmentTypeParam;
 
         protected override IHiraBotsTask GetTask(BlackboardComponent blackboard, IHiraBotArchetype archetype)
         {
@@ -139,7 +139,7 @@ namespace AIEngineTest
                 return PlayMontageTask.Get(
                     animated.component,
                     m_Type,
-                    m_UseCustomParam ? m_WeaponTypeParam : null,
+                    m_UseCustomParam ? m_EquipmentTypeParam : null,
                     m_UseCustomParam ? m_IntegerParam : null);
             }
 
