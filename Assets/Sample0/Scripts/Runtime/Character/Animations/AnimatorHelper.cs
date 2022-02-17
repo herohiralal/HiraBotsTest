@@ -1,12 +1,21 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Scripting;
+using Random = UnityEngine.Random;
 
 namespace AIEngineTest
 {
     [RequireComponent(typeof(Animator))]
     public class AnimatorHelper : MonoBehaviour
     {
+        private static readonly int s_Speed = Animator.StringToHash("Speed");
+        private static readonly int s_WeaponType = Animator.StringToHash("WeaponType");
+        private static readonly int s_PlayMontage = Animator.StringToHash("PlayMontage");
+        private static readonly int s_MontageType = Animator.StringToHash("MontageType");
+        private static readonly int s_InterruptMontage = Animator.StringToHash("InterruptMontage");
+        private static readonly int s_ActionNum = Animator.StringToHash("ActionNum");
+
         [SerializeField] private Animator m_Animator;
         [SerializeField] private UnityEvent m_OnFootL;
         [SerializeField] private UnityEvent m_OnFootR;
@@ -31,13 +40,13 @@ namespace AIEngineTest
             {
                 if (m_CurrentMontageState != MontageType.None)
                 {
-                    m_Animator.SetTrigger(AnimatorHashes.s_InterruptMontage);
+                    m_Animator.SetTrigger(s_InterruptMontage);
                 }
 
                 if (value != MontageType.None)
                 {
-                    m_Animator.SetInteger(AnimatorHashes.s_MontageType, (int) value);
-                    m_Animator.SetTrigger(AnimatorHashes.s_PlayMontage);
+                    m_Animator.SetInteger(s_MontageType, (int) value);
+                    m_Animator.SetTrigger(s_PlayMontage);
                 }
             }
         }
@@ -50,12 +59,78 @@ namespace AIEngineTest
             private set
             {
                 m_WeaponType = value;
-                m_Animator.SetInteger(AnimatorHashes.s_WeaponType, (int) value);
+                m_Animator.SetInteger(s_WeaponType, (int) value);
             }
         }
 
-        public bool PrepareToEquip(WeaponType type)
+        public bool PrepareMeleeAttackR(int? value = null)
         {
+            var max = -1;
+            switch (m_WeaponType)
+            {
+                case WeaponType.None:
+                    break;
+                case WeaponType.Fists:
+                    max = 3;
+                    break;
+                case WeaponType.Sword:
+                case WeaponType.SwordAndShield:
+                    max = 5;
+                    break;
+                case WeaponType.DualDaggers:
+                    max = 2;
+                    break;
+                case WeaponType.Staff:
+                    max = 6;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            if (max < 1)
+            {
+                return false;
+            }
+
+            actionNum = Mathf.Clamp(value.GetValueOrDefault(Random.Range(1, max + 1)), 1, max);
+            return true;
+
+        }
+
+        public bool PrepareMeleeAttackL(int? value = null)
+        {
+            var max = -1;
+            switch (m_WeaponType)
+            {
+                case WeaponType.None:
+                case WeaponType.Sword:
+                case WeaponType.Staff:
+                    break;
+                case WeaponType.Fists:
+                    max = 3;
+                    break;
+                case WeaponType.SwordAndShield:
+                    max = 1;
+                    break;
+                case WeaponType.DualDaggers:
+                    max = 2;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            if (max < 1)
+            {
+                return false;
+            }
+
+            actionNum = Mathf.Clamp(value.GetValueOrDefault(Random.Range(1, max + 1)), 1, max);
+            return true;
+        }
+
+        public bool PrepareToEquip(WeaponType? t = null)
+        {
+            var type = t ?? WeaponType.Fists;
             if (type == WeaponType.None || weaponType == type)
             {
                 return false;
@@ -70,8 +145,9 @@ namespace AIEngineTest
             return true;
         }
 
-        public bool PrepareToUnequip(WeaponType type)
+        public bool PrepareToUnequip(WeaponType? t = null)
         {
+            var type = t ?? weaponType;
             if (type == WeaponType.None || weaponType != type)
             {
                 return false;
@@ -80,16 +156,27 @@ namespace AIEngineTest
             return true;
         }
 
+        private static float GetMaxSpeedForCurrentWeaponType(WeaponType weaponType) => weaponType switch
+        {
+            WeaponType.None => 4.197f,
+            WeaponType.Fists => 4.197f,
+            WeaponType.Sword => 4.251f,
+            WeaponType.SwordAndShield => 4.236f,
+            WeaponType.DualDaggers => 4.251f,
+            WeaponType.Staff => 5.084f,
+            _ => throw new ArgumentOutOfRangeException(nameof(weaponType), weaponType, null)
+        };
+
         public float speed
         {
-            get => m_Animator.GetFloat(AnimatorHashes.s_Speed) * AnimatorConstants.GetMaxSpeed(m_WeaponType);
-            set => m_Animator.SetFloat(AnimatorHashes.s_Speed, value / AnimatorConstants.GetMaxSpeed(m_WeaponType));
+            get => m_Animator.GetFloat(s_Speed) * GetMaxSpeedForCurrentWeaponType(m_WeaponType);
+            set => m_Animator.SetFloat(s_Speed, value / GetMaxSpeedForCurrentWeaponType(m_WeaponType));
         }
 
         public int actionNum
         {
-            get => m_Animator.GetInteger(AnimatorHashes.s_ActionNum);
-            set => m_Animator.SetInteger(AnimatorHashes.s_ActionNum, value);
+            get => m_Animator.GetInteger(s_ActionNum);
+            set => m_Animator.SetInteger(s_ActionNum, value);
         }
 
         [Preserve]
