@@ -544,7 +544,7 @@ MonoBehaviour:
     m_SheathedSocket:
       m_Socket: {fileID: 6987568034221217234}
       m_PositionOffset: {x: -0.502, y: -0.046, z: -0.221}
-      m_RotationOffset: {x: -0.2277438, y: 0.08905397, z: 0.7689002, w: -0.59075767}
+      m_RotationOffset: {x: 0.21726982, y: -0.096852936, z: -0.76879746, w: 0.5936023}
     m_EquippedSocket:
       m_Socket: {fileID: 6987568032540522862}
       m_PositionOffset: {x: 0.109, y: 0.039, z: -0.002}

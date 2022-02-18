@@ -7,12 +7,12 @@ namespace AIEngineTest
     {
         [SerializeField] private MontageType m_MontageType = MontageType.None;
 
-        public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+        public override void OnStateMachineEnter(Animator animator, int stateMachinePathHash)
         {
             animator.GetComponent<AnimatorHelper>().OnStateEnter(m_MontageType);
         }
 
-        public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+        public override void OnStateMachineExit(Animator animator, int stateMachinePathHash)
         {
             animator.GetComponent<AnimatorHelper>().OnStateExit(m_MontageType);
         }

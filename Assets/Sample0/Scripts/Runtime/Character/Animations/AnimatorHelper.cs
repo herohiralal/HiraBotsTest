@@ -212,11 +212,6 @@ namespace AIEngineTest
                 return false;
             }
 
-            if (type == EquipmentType.SwordAndShield && m_CurrentEquipmentType != EquipmentType.Sword)
-            {
-                return false;
-            }
-
             switch (type)
             {
                 case EquipmentType.Fists:
@@ -293,6 +288,12 @@ namespace AIEngineTest
         public void Unsheathe()
         {
             var et = (EquipmentType) actionNum;
+
+            if (et == EquipmentType.SwordAndShield && equipmentType != EquipmentType.Sword)
+            {
+                et = EquipmentType.Sword;
+            }
+
             equipmentType = et;
 
             switch (et)

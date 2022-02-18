@@ -8,15 +8,25 @@ namespace AIEngineTest
 
         private void OnGUI()
         {
-            if (GUILayout.Button("Spawn"))
+            if (m_Character == null)
             {
-                m_Character = GameManager.characterGenerator.Generate(Vector3.zero);
-                m_Character.m_AnimatorHelper.InitializeEquipment(EquipmentType.None);
+                if (GUILayout.Button("Spawn"))
+                {
+                    m_Character = GameManager.characterGenerator.Generate(Vector3.zero);
+                    m_Character.m_AnimatorHelper.InitializeEquipment(EquipmentType.None);
+                }
             }
-
-            if (m_Character != null)
+            else
             {
-                if (m_Character.m_AnimatorHelper.equipmentType == EquipmentType.None)
+                if (m_Character.m_AnimatorHelper.equipmentType != EquipmentType.None)
+                {
+                    if (GUILayout.Button("Sheathe"))
+                    {
+                        m_Character.m_AnimatorHelper.PrepareToUnequip(m_Character.m_AnimatorHelper.equipmentType);
+                        m_Character.m_AnimatorHelper.currentMontageState = MontageType.Sheathe;
+                    }
+                }
+                else
                 {
                     EquipmentType? type = null;
                     if (GUILayout.Button("Sword"))
@@ -44,14 +54,6 @@ namespace AIEngineTest
                         m_Character.m_AnimatorHelper.InitializeEquipment(type.Value);
                         m_Character.m_AnimatorHelper.PrepareToEquip(type.Value);
                         m_Character.m_AnimatorHelper.currentMontageState = MontageType.Unsheathe;
-                    }
-                }
-                else
-                {
-                    if (GUILayout.Button("Sheathe"))
-                    {
-                        m_Character.m_AnimatorHelper.PrepareToUnequip(m_Character.m_AnimatorHelper.equipmentType);
-                        m_Character.m_AnimatorHelper.currentMontageState = MontageType.Sheathe;
                     }
                 }
             }
