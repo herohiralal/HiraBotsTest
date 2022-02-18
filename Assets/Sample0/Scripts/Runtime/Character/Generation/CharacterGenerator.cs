@@ -32,8 +32,8 @@ namespace AIEngineTest
         public void Discard(BaseArchetype arch)
         {
             arch.gameObject.SetActive(false);
-            arch.m_MeshFilter.sharedMesh = null;
-            arch.m_Renderer.sharedMaterial = null;
+            arch.m_SkinnedMeshRenderer.sharedMesh = null;
+            arch.m_SkinnedMeshRenderer.sharedMaterial = null;
         }
 
         public BaseArchetype Generate(Vector3 position)
@@ -44,8 +44,8 @@ namespace AIEngineTest
         public BaseArchetype Generate(Vector3 position, Quaternion rotation)
         {
             var arch = GetArchetype();
-            arch.m_MeshFilter.sharedMesh = m_MeshCollection.GetRandom();
-            arch.m_Renderer.sharedMaterial = m_MaterialCollection.GetRandom();
+            arch.m_SkinnedMeshRenderer.sharedMesh = m_MeshCollection.GetRandom();
+            arch.m_SkinnedMeshRenderer.sharedMaterial = m_MaterialCollection.GetRandom();
             return arch;
         }
     }

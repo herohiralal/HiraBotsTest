@@ -43,6 +43,12 @@ namespace AIEngineTest
         [System.Serializable]
         public struct WeaponSockets
         {
+            public static WeaponSockets defaultValue { get; } = new WeaponSockets
+            {
+                m_SheathedSocket = Socket.defaultValue,
+                m_EquippedSocket = Socket.defaultValue
+            };
+
             public Socket m_SheathedSocket;
             public Socket m_EquippedSocket;
 
@@ -57,10 +63,10 @@ namespace AIEngineTest
             }
         }
 
-        [SerializeField] public WeaponSockets m_SwordSockets;
-        [SerializeField] public WeaponSockets m_ShieldSockets;
-        [SerializeField] public WeaponSockets m_DaggerLSockets;
-        [SerializeField] public WeaponSockets m_DaggerRSockets;
-        [SerializeField] public WeaponSockets m_StaffSockets;
+        [SerializeField] public WeaponSockets m_SwordSockets = WeaponSockets.defaultValue;
+        [SerializeField] public WeaponSockets m_ShieldSockets = WeaponSockets.defaultValue;
+        [SerializeField] public WeaponSockets m_DaggerLSockets = WeaponSockets.defaultValue;
+        [SerializeField] public WeaponSockets m_DaggerRSockets = WeaponSockets.defaultValue;
+        [SerializeField] public WeaponSockets m_StaffSockets = WeaponSockets.defaultValue;
     }
 }
