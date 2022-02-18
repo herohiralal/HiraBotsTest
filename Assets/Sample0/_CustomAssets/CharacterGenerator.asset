@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38e47ede4eae4a9581460c1e8794ea86, type: 3}
   m_Name: CharacterGenerator
   m_EditorClassIdentifier: 
-  m_BaseArchetypePrefab: {fileID: 0}
+  m_BaseArchetypePrefab: {fileID: 6987568033644381725, guid: c76e51d1d1b806c4db1cdf8690dde78d,
+    type: 3}
   m_MeshCollection: {fileID: 11400000, guid: 42de43b545aa3074e95bca560f8171a0, type: 2}
   m_MaterialCollection: {fileID: 11400000, guid: 5a0d1fa875bd6fe4293ca84324c1ba3f,
     type: 2}
