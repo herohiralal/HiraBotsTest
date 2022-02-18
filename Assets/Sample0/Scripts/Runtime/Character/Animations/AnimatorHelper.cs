@@ -336,17 +336,17 @@ namespace AIEngineTest
                 case EquipmentType.Fists:
                     break;
                 case EquipmentType.Sword:
-                    m_CharacterMeshWeaponSocketProvider.m_SwordSockets.Unsheathe();
+                    m_CharacterMeshWeaponSocketProvider.m_SwordSockets.Sheathe();
                     break;
                 case EquipmentType.SwordAndShield:
-                    m_CharacterMeshWeaponSocketProvider.m_ShieldSockets.Unsheathe();
+                    m_CharacterMeshWeaponSocketProvider.m_ShieldSockets.Sheathe();
                     break;
                 case EquipmentType.DualDaggers:
-                    m_CharacterMeshWeaponSocketProvider.m_DaggerLSockets.Unsheathe();
-                    m_CharacterMeshWeaponSocketProvider.m_DaggerRSockets.Unsheathe();
+                    m_CharacterMeshWeaponSocketProvider.m_DaggerLSockets.Sheathe();
+                    m_CharacterMeshWeaponSocketProvider.m_DaggerRSockets.Sheathe();
                     break;
                 case EquipmentType.Staff:
-                    m_CharacterMeshWeaponSocketProvider.m_StaffSockets.Unsheathe();
+                    m_CharacterMeshWeaponSocketProvider.m_StaffSockets.Sheathe();
                     break;
                 default:
                     throw new System.ArgumentOutOfRangeException();

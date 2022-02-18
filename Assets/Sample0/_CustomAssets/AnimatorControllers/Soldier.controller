@@ -1672,23 +1672,23 @@ AnimatorStateMachine:
   - {fileID: 4912668658634268646}
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: -8292024127625809538}
-    second:
-    - {fileID: 814002151939014504}
-  - first: {fileID: 9168968527683690056}
-    second:
-    - {fileID: -3067336134084391023}
-  - first: {fileID: -2851922652166250969}
-    second:
-    - {fileID: 8758282056807588711}
   - first: {fileID: -1584038907681041384}
     second: []
-  - first: {fileID: 4246968195013434858}
-    second:
-    - {fileID: 3965856407088476871}
   - first: {fileID: 8026772257717333803}
     second:
     - {fileID: 5449903549297632582}
+  - first: {fileID: 4246968195013434858}
+    second:
+    - {fileID: 3965856407088476871}
+  - first: {fileID: -2851922652166250969}
+    second:
+    - {fileID: 8758282056807588711}
+  - first: {fileID: 9168968527683690056}
+    second:
+    - {fileID: -3067336134084391023}
+  - first: {fileID: -8292024127625809538}
+    second:
+    - {fileID: 814002151939014504}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_EntryPosition: {x: 360, y: -260, z: 0}
@@ -2890,15 +2890,15 @@ AnimatorStateMachine:
   - {fileID: 6775362464391501959}
   - {fileID: 7347258814171097456}
   m_StateMachineTransitions:
-  - first: {fileID: 6670423023078208322}
-    second:
-    - {fileID: 4802925110979248389}
-  - first: {fileID: -4026010407741943687}
-    second:
-    - {fileID: 4548457460907921966}
   - first: {fileID: 6756021899950019147}
     second:
     - {fileID: -8282353954347440769}
+  - first: {fileID: -4026010407741943687}
+    second:
+    - {fileID: 4548457460907921966}
+  - first: {fileID: 6670423023078208322}
+    second:
+    - {fileID: 4802925110979248389}
   m_StateMachineBehaviours:
   - {fileID: -8613202916984358183}
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
@@ -3357,7 +3357,7 @@ AnimatorTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
+  - m_ConditionMode: 7
     m_ConditionEvent: WeaponType
     m_EventTreshold: -1
   m_DstStateMachine: {fileID: 0}
@@ -4158,18 +4158,18 @@ AnimatorStateMachine:
   - {fileID: -2353183412731153579}
   - {fileID: 4801933322417079520}
   m_StateMachineTransitions:
-  - first: {fileID: 7659689643143730046}
-    second:
-    - {fileID: -5741521137594227629}
-  - first: {fileID: 6797869420488267827}
-    second:
-    - {fileID: -1348269208819670551}
-  - first: {fileID: 691875595944652133}
-    second:
-    - {fileID: 5590195879369265883}
   - first: {fileID: -2324109084212399367}
     second:
     - {fileID: 7299443270527374904}
+  - first: {fileID: 691875595944652133}
+    second:
+    - {fileID: 5590195879369265883}
+  - first: {fileID: 6797869420488267827}
+    second:
+    - {fileID: -1348269208819670551}
+  - first: {fileID: 7659689643143730046}
+    second:
+    - {fileID: -5741521137594227629}
   m_StateMachineBehaviours:
   - {fileID: 8732773676758499833}
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
