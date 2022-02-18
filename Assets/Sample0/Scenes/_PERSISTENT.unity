@@ -407,8 +407,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5391aee080af20d45a10ddbe4c5da76c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_MainCamera: {fileID: 144757713}
   m_LoadingScreenPrefab: {fileID: 4510799583927981879, guid: 74ab63ffa0626f24890f117dab63c27d,
     type: 3}
-  m_MainCamera: {fileID: 144757713}
   m_PauseScreenPrefab: {fileID: 4500084981574852509, guid: d8cee95c706d3464a9fe90b8a399d0bc,
     type: 3}
+  m_PauseTime: 0.5
+  m_WeaponGenerator: {fileID: 11400000, guid: 92a376380f0e1b845a1dac26cd22b1c5, type: 2}
+  m_CharacterGenerator: {fileID: 11400000, guid: 5de373c8a4d9dfd49a21c409ab85881b,
+    type: 2}

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9098eadc3344b1abdc62b4040318f4b, type: 3}
+  m_Name: StaffMeshes
+  m_EditorClassIdentifier: 
+  m_Objects:
+  - {fileID: 4300000, guid: fa284e26dea09a74993b31ef5f8ef136, type: 3}
+  - {fileID: 4300000, guid: 420dcfe796661224c9628b9b6502b23a, type: 3}
+  - {fileID: 4300000, guid: 413107009b29e2a4bb8c58780710c535, type: 3}
+  - {fileID: 4300000, guid: f061ddb3bd9b875408fcb254d1cf18b6, type: 3}
+  - {fileID: 4300000, guid: 256712edc95a72640b942b14500daddf, type: 3}
+  - {fileID: 4300000, guid: eea6e29e5de241e40a8439965b76d214, type: 3}
+  - {fileID: 4300000, guid: bd07adcec4e0c924e96b527516ab3710, type: 3}

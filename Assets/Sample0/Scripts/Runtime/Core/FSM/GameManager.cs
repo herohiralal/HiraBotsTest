@@ -143,6 +143,9 @@ public class GameManager : MonoBehaviour
 
         s_Instance.m_CurrentPauseScreen = Instantiate(s_Instance.m_PauseScreenPrefab);
 
+        characterGenerator.ClearPool();
+        weaponGenerator.ClearPool();
+
         yield return DestroyLoadingScreen();
         locked = false;
     }
@@ -236,6 +239,9 @@ public class GameManager : MonoBehaviour
         locked = true;
         yield return CreateLoadingScreen();
 
+        weaponGenerator.ClearPool();
+        characterGenerator.ClearPool();
+
         Destroy(currentPauseScreen);
         s_Instance.m_CurrentPauseScreen = null;
 
@@ -243,8 +249,6 @@ public class GameManager : MonoBehaviour
 
         yield return UnloadScene(Scenes.k_Debug, 0.0f, 0.5f);
         yield return SetActiveScene(Scenes.k_Persistent);
-
-        s_Instance.m_CurrentPauseScreen = null;
 
         yield return LoadScene(Scenes.k_MainMenu, 0.5f, 1f);
         yield return SetActiveScene(Scenes.k_MainMenu);
@@ -268,10 +272,16 @@ public class GameManager : MonoBehaviour
         locked = true;
         yield return CreateLoadingScreen();
 
+        weaponGenerator.ClearPool();
+        characterGenerator.ClearPool();
+
+        Destroy(currentPauseScreen);
+        s_Instance.m_CurrentPauseScreen = null;
+
+        Time.timeScale = 1f;
+
         yield return UnloadScene(Scenes.k_Debug, 0f, 1f);
         yield return SetActiveScene(Scenes.k_Persistent);
-
-        s_Instance.m_CurrentPauseScreen = null;
 
         Quit();
         locked = false;

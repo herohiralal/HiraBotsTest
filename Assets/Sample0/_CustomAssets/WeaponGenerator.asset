@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed21f95bab374aaca3dd73f6e7287f82, type: 3}
+  m_Name: WeaponGenerator
+  m_EditorClassIdentifier: 
+  m_WeaponArchetypePrefab: {fileID: 0}
+  m_SwordMeshCollection: {fileID: 11400000, guid: bc71bdb81283a8b4183ee44ed4d15814,
+    type: 2}
+  m_ShieldMeshCollection: {fileID: 11400000, guid: a6921712b1599bd46a51a2bc943c188d,
+    type: 2}
+  m_DaggerMeshCollection: {fileID: 11400000, guid: b7dace572d9639147979a975dce7b553,
+    type: 2}
+  m_StaffMeshCollection: {fileID: 11400000, guid: 97032c5fc0bb1db4faa6a5b492b124cd,
+    type: 2}
+  m_MaterialCollection: {fileID: 11400000, guid: 5a0d1fa875bd6fe4293ca84324c1ba3f,
+    type: 2}
