@@ -40,14 +40,27 @@ namespace AIEngineTest
             }
         }
 
-        [SerializeField] public Socket m_HandLSocket = Socket.defaultValue;
-        [SerializeField] public Socket m_HandRSocket = Socket.defaultValue;
+        [System.Serializable]
+        public struct WeaponSockets
+        {
+            public Socket m_SheathedSocket;
+            public Socket m_EquippedSocket;
 
-        [SerializeField] public Socket m_BackSocket = Socket.defaultValue;
-        [SerializeField] public Socket m_BackLSocket = Socket.defaultValue;
-        [SerializeField] public Socket m_BackRSocket = Socket.defaultValue;
+            public void Sheathe()
+            {
+                m_SheathedSocket.Attach(m_EquippedSocket.Detach());
+            }
 
-        [SerializeField] public Socket m_HipsLSocket = Socket.defaultValue;
-        [SerializeField] public Socket m_HipsRSocket = Socket.defaultValue;
+            public void Unsheathe()
+            {
+                m_EquippedSocket.Attach(m_SheathedSocket.Detach());
+            }
+        }
+
+        [SerializeField] public WeaponSockets m_SwordSockets;
+        [SerializeField] public WeaponSockets m_ShieldSockets;
+        [SerializeField] public WeaponSockets m_DaggerLSockets;
+        [SerializeField] public WeaponSockets m_DaggerRSockets;
+        [SerializeField] public WeaponSockets m_StaffSockets;
     }
 }

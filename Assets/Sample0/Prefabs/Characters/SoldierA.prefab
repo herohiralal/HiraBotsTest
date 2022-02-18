@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7232040833389988904}
   - component: {fileID: 7232040833397187520}
-  - component: {fileID: 3506705206189367396}
   - component: {fileID: -2068460500744710101}
   m_Layer: 0
   m_Name: SoldierA
@@ -58,42 +57,6 @@ Animator:
   m_HasTransformHierarchy: 0
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3506705206189367396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7232040833389891592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41931e98666e4368978d63540daabdbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HandLSocket:
-    m_Socket: {fileID: 7232040833389988870}
-    m_PositionOffset: {x: -0.07916878, y: -0.027762316, z: -0.0011069982}
-    m_RotationOffset: {x: 0, y: -0.0017434992, z: 0, w: 0.99999857}
-  m_HandRSocket:
-    m_Socket: {fileID: 7232040833389988872}
-    m_PositionOffset: {x: 0.106398, y: 0.012268567, z: 0.011910239}
-    m_RotationOffset: {x: 1.6521365e-22, y: 0.99888086, z: -8.6129656e-24, w: 0.047296666}
-  m_BackLSocket:
-    m_Socket: {fileID: 0}
-    m_PositionOffset: {x: 0, y: 0, z: 0}
-    m_RotationOffset: {x: 0, y: 0, z: 0, w: 1}
-  m_BackRSocket:
-    m_Socket: {fileID: 0}
-    m_PositionOffset: {x: 0, y: 0, z: 0}
-    m_RotationOffset: {x: 0, y: 0, z: 0, w: 1}
-  m_HipsLSocket:
-    m_Socket: {fileID: 0}
-    m_PositionOffset: {x: 0, y: 0, z: 0}
-    m_RotationOffset: {x: 0, y: 0, z: 0, w: 1}
-  m_HipsRSocket:
-    m_Socket: {fileID: 0}
-    m_PositionOffset: {x: 0, y: 0, z: 0}
-    m_RotationOffset: {x: 0, y: 0, z: 0, w: 1}
 --- !u!114 &-2068460500744710101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,6 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Animator: {fileID: 7232040833397187520}
+  m_CharacterMeshWeaponSocketProvider: {fileID: 0}
   m_OnFootL:
     m_PersistentCalls:
       m_Calls: []

@@ -138,7 +138,7 @@ namespace AIEngineTest
 
         public void DropAllEquipment()
         {
-            void DropEquipment(ref CharacterMeshWeaponSocketProvider.Socket socket)
+            void DropEquipmentFromSocket(ref CharacterMeshWeaponSocketProvider.Socket socket)
             {
                 if (socket.currentlyAttached != null)
                 {
@@ -146,13 +146,17 @@ namespace AIEngineTest
                 }
             }
 
-            DropEquipment(ref m_CharacterMeshWeaponSocketProvider.m_HandLSocket);
-            DropEquipment(ref m_CharacterMeshWeaponSocketProvider.m_HandRSocket);
-            DropEquipment(ref m_CharacterMeshWeaponSocketProvider.m_BackSocket);
-            DropEquipment(ref m_CharacterMeshWeaponSocketProvider.m_BackLSocket);
-            DropEquipment(ref m_CharacterMeshWeaponSocketProvider.m_BackRSocket);
-            DropEquipment(ref m_CharacterMeshWeaponSocketProvider.m_HipsLSocket);
-            DropEquipment(ref m_CharacterMeshWeaponSocketProvider.m_HipsRSocket);
+            void DropEquipmentFromSockets(ref CharacterMeshWeaponSocketProvider.WeaponSockets sockets)
+            {
+                DropEquipmentFromSocket(ref sockets.m_SheathedSocket);
+                DropEquipmentFromSocket(ref sockets.m_EquippedSocket);
+            }
+
+            DropEquipmentFromSockets(ref m_CharacterMeshWeaponSocketProvider.m_SwordSockets);
+            DropEquipmentFromSockets(ref m_CharacterMeshWeaponSocketProvider.m_ShieldSockets);
+            DropEquipmentFromSockets(ref m_CharacterMeshWeaponSocketProvider.m_DaggerLSockets);
+            DropEquipmentFromSockets(ref m_CharacterMeshWeaponSocketProvider.m_DaggerRSockets);
+            DropEquipmentFromSockets(ref m_CharacterMeshWeaponSocketProvider.m_StaffSockets);
 
             m_OwnedEquipmentType = EquipmentType.None;
             equipmentType = EquipmentType.None;
@@ -168,18 +172,18 @@ namespace AIEngineTest
                 case EquipmentType.Fists:
                     break;
                 case EquipmentType.Sword:
-                    m_CharacterMeshWeaponSocketProvider.m_BackRSocket.Attach(GameManager.weaponGenerator.GenerateSword());
+                    m_CharacterMeshWeaponSocketProvider.m_SwordSockets.m_SheathedSocket.Attach(GameManager.weaponGenerator.GenerateSword());
                     break;
                 case EquipmentType.SwordAndShield:
-                    m_CharacterMeshWeaponSocketProvider.m_BackRSocket.Attach(GameManager.weaponGenerator.GenerateSword());
-                    m_CharacterMeshWeaponSocketProvider.m_BackSocket.Attach(GameManager.weaponGenerator.GenerateShield());
+                    m_CharacterMeshWeaponSocketProvider.m_SwordSockets.m_SheathedSocket.Attach(GameManager.weaponGenerator.GenerateSword());
+                    m_CharacterMeshWeaponSocketProvider.m_ShieldSockets.m_SheathedSocket.Attach(GameManager.weaponGenerator.GenerateShield());
                     break;
                 case EquipmentType.DualDaggers:
-                    m_CharacterMeshWeaponSocketProvider.m_HipsLSocket.Attach(GameManager.weaponGenerator.GenerateDagger());
-                    m_CharacterMeshWeaponSocketProvider.m_HipsRSocket.Attach(GameManager.weaponGenerator.GenerateDagger());
+                    m_CharacterMeshWeaponSocketProvider.m_DaggerLSockets.m_SheathedSocket.Attach(GameManager.weaponGenerator.GenerateDagger());
+                    m_CharacterMeshWeaponSocketProvider.m_DaggerRSockets.m_SheathedSocket.Attach(GameManager.weaponGenerator.GenerateDagger());
                     break;
                 case EquipmentType.Staff:
-                    m_CharacterMeshWeaponSocketProvider.m_BackSocket.Attach(GameManager.weaponGenerator.GenerateStaff());
+                    m_CharacterMeshWeaponSocketProvider.m_StaffSockets.m_SheathedSocket.Attach(GameManager.weaponGenerator.GenerateStaff());
                     break;
                 default:
                     throw new System.ArgumentOutOfRangeException(nameof(type), type, null);
@@ -298,22 +302,17 @@ namespace AIEngineTest
                 case EquipmentType.Fists:
                     break;
                 case EquipmentType.Sword:
-                    var sword = m_CharacterMeshWeaponSocketProvider.m_BackRSocket.Detach();
-                    m_CharacterMeshWeaponSocketProvider.m_HandRSocket.Attach(sword);
+                    m_CharacterMeshWeaponSocketProvider.m_SwordSockets.Unsheathe();
                     break;
                 case EquipmentType.SwordAndShield:
-                    var shield = m_CharacterMeshWeaponSocketProvider.m_BackSocket.Detach();
-                    m_CharacterMeshWeaponSocketProvider.m_HandLSocket.Attach(shield);
+                    m_CharacterMeshWeaponSocketProvider.m_ShieldSockets.Unsheathe();
                     break;
                 case EquipmentType.DualDaggers:
-                    var daggerL = m_CharacterMeshWeaponSocketProvider.m_HipsLSocket.Detach();
-                    var daggerR = m_CharacterMeshWeaponSocketProvider.m_HipsRSocket.Detach();
-                    m_CharacterMeshWeaponSocketProvider.m_HandLSocket.Attach(daggerL);
-                    m_CharacterMeshWeaponSocketProvider.m_HandRSocket.Attach(daggerR);
+                    m_CharacterMeshWeaponSocketProvider.m_DaggerLSockets.Unsheathe();
+                    m_CharacterMeshWeaponSocketProvider.m_DaggerRSockets.Unsheathe();
                     break;
                 case EquipmentType.Staff:
-                    var staff = m_CharacterMeshWeaponSocketProvider.m_BackSocket.Detach();
-                    m_CharacterMeshWeaponSocketProvider.m_HandRSocket.Attach(staff);
+                    m_CharacterMeshWeaponSocketProvider.m_StaffSockets.Unsheathe();
                     break;
                 default:
                     throw new System.ArgumentOutOfRangeException();
@@ -337,22 +336,17 @@ namespace AIEngineTest
                 case EquipmentType.Fists:
                     break;
                 case EquipmentType.Sword:
-                    var sword = m_CharacterMeshWeaponSocketProvider.m_HandRSocket.Detach();
-                    m_CharacterMeshWeaponSocketProvider.m_BackRSocket.Attach(sword);
+                    m_CharacterMeshWeaponSocketProvider.m_SwordSockets.Unsheathe();
                     break;
                 case EquipmentType.SwordAndShield:
-                    var shield = m_CharacterMeshWeaponSocketProvider.m_HandLSocket.Detach();
-                    m_CharacterMeshWeaponSocketProvider.m_BackSocket.Attach(shield);
+                    m_CharacterMeshWeaponSocketProvider.m_ShieldSockets.Unsheathe();
                     break;
                 case EquipmentType.DualDaggers:
-                    var daggerL = m_CharacterMeshWeaponSocketProvider.m_HandLSocket.Detach();
-                    var daggerR = m_CharacterMeshWeaponSocketProvider.m_HandRSocket.Detach();
-                    m_CharacterMeshWeaponSocketProvider.m_HipsLSocket.Attach(daggerL);
-                    m_CharacterMeshWeaponSocketProvider.m_HipsRSocket.Attach(daggerR);
+                    m_CharacterMeshWeaponSocketProvider.m_DaggerLSockets.Unsheathe();
+                    m_CharacterMeshWeaponSocketProvider.m_DaggerRSockets.Unsheathe();
                     break;
                 case EquipmentType.Staff:
-                    var staff = m_CharacterMeshWeaponSocketProvider.m_HandRSocket.Detach();
-                    m_CharacterMeshWeaponSocketProvider.m_BackSocket.Attach(staff);
+                    m_CharacterMeshWeaponSocketProvider.m_StaffSockets.Unsheathe();
                     break;
                 default:
                     throw new System.ArgumentOutOfRangeException();
