@@ -584,7 +584,7 @@ MonoBehaviour:
     m_EquippedSocket:
       m_Socket: {fileID: 6987568032540522862}
       m_PositionOffset: {x: 0.09, y: 0.041, z: -0.018}
-      m_RotationOffset: {x: 0.3916357, y: -0.41998065, z: 0.53438187, w: -0.6202208}
+      m_RotationOffset: {x: 0.5011267, y: -0.43800512, z: 0.53634024, w: -0.5190016}
 --- !u!95 &6987568034024766483
 Animator:
   serializedVersion: 4

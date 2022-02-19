@@ -1654,23 +1654,23 @@ AnimatorStateMachine:
   - {fileID: 4912668658634268646}
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: -8292024127625809538}
-    second:
-    - {fileID: 814002151939014504}
-  - first: {fileID: -2851922652166250969}
-    second:
-    - {fileID: 8758282056807588711}
   - first: {fileID: -1584038907681041384}
     second: []
-  - first: {fileID: 4246968195013434858}
-    second:
-    - {fileID: 3965856407088476871}
   - first: {fileID: 8026772257717333803}
     second:
     - {fileID: 5449903549297632582}
+  - first: {fileID: 4246968195013434858}
+    second:
+    - {fileID: 3965856407088476871}
+  - first: {fileID: -2851922652166250969}
+    second:
+    - {fileID: 8758282056807588711}
   - first: {fileID: 9168968527683690056}
     second:
     - {fileID: -3067336134084391023}
+  - first: {fileID: -8292024127625809538}
+    second:
+    - {fileID: 814002151939014504}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_EntryPosition: {x: 360, y: -260, z: 0}
@@ -1863,37 +1863,37 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: WeaponType
     m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: -1
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: PlayMontage
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: InterruptMontage
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: MontageType
     m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: ActionNum
     m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 1
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -2914,15 +2914,15 @@ AnimatorStateMachine:
   - {fileID: 6775362464391501959}
   - {fileID: 7347258814171097456}
   m_StateMachineTransitions:
+  - first: {fileID: 6756021899950019147}
+    second:
+    - {fileID: -8282353954347440769}
   - first: {fileID: -4026010407741943687}
     second:
     - {fileID: 4548457460907921966}
   - first: {fileID: 6670423023078208322}
     second:
     - {fileID: 4802925110979248389}
-  - first: {fileID: 6756021899950019147}
-    second:
-    - {fileID: -8282353954347440769}
   m_StateMachineBehaviours:
   - {fileID: -8613202916984358183}
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
