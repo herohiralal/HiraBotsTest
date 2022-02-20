@@ -34,6 +34,7 @@ namespace AIEngineTest
 
         public void Stop()
         {
+            m_Animator.speed = 0f;
             m_NavMeshAgent = null;
             m_Animator = null;
             s_Executables.Push(this);
