@@ -2,11 +2,11 @@
 
 namespace AIEngineTest
 {
-    internal class PatrolPoint : MonoBehaviour
+    public class MarkupPoint : MonoBehaviour
     {
-        [SerializeField] private PatrolPointCollection m_Collection = null;
+        [SerializeField] private MarkupPointCollection m_Collection = null;
 
-        public PatrolPointCollection collection
+        public MarkupPointCollection collection
         {
             get => m_Collection;
             set

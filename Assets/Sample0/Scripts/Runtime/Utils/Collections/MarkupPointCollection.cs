@@ -2,13 +2,13 @@
 
 namespace AIEngineTest
 {
-    [CreateAssetMenu(fileName = "NewPatrolPointCollection", menuName = "Samples/1/Patrol Point Collection", order = 0)]
-    internal class PatrolPointCollection : ScriptableObject
+    [CreateAssetMenu(fileName = "NewPatrolPointCollection", menuName = "Samples/MarkupPointCollection", order = 0)]
+    public class MarkupPointCollection : ScriptableObject
     {
         [System.NonSerialized] private Transform[] m_PatrolPoints = new Transform[4];
         [System.NonSerialized] private int m_Count = 0;
 
-        public void Add(PatrolPoint point)
+        public void Add(MarkupPoint point)
         {
             var t = point.transform;
 
@@ -22,7 +22,7 @@ namespace AIEngineTest
             m_Count++;
         }
 
-        public void Remove(PatrolPoint point)
+        public void Remove(MarkupPoint point)
         {
             var t = point.transform;
 

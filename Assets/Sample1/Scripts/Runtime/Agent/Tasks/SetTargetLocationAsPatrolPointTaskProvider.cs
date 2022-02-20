@@ -6,7 +6,7 @@ namespace AIEngineTest
     internal class SetTargetLocationAsPatrolPointTask : IHiraBotsTask
     {
         public BlackboardComponent m_Blackboard;
-        public PatrolPointCollection m_PatrolPointCollection;
+        public MarkupPointCollection m_PatrolPointCollection;
         public string m_Key;
 
         public void Begin()
@@ -39,7 +39,7 @@ namespace AIEngineTest
     internal class SetTargetLocationAsPatrolPointTaskProvider : HiraBotsTaskProvider
     {
         [SerializeField] private BlackboardTemplate.KeySelector m_Key;
-        [SerializeField] private PatrolPointCollection m_PatrolPointCollection;
+        [SerializeField] private MarkupPointCollection m_PatrolPointCollection;
 
         protected override IHiraBotsTask GetTask(BlackboardComponent blackboard, IHiraBotArchetype archetype)
         {
