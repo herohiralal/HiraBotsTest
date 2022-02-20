@@ -29,6 +29,109 @@ namespace AIEngineTest
         [Range(0, 1)] public float m_HitPointFactor;
         [Range(0, 1)] public float m_SpellPointFactor;
 
+        #region Init
+
+        private enum AbilityScoreRangeType
+        {
+            VeryLow,
+            Low,
+            Medium,
+            High,
+            VeryHigh,
+            Max
+        }
+
+        public void Initialize(CharacterClass cc)
+        {
+            int GetRandomAbilityScore(AbilityScoreRangeType type)
+            {
+                var min = type switch
+                {
+                    AbilityScoreRangeType.VeryLow => 6,
+                    AbilityScoreRangeType.Low => 8,
+                    AbilityScoreRangeType.Medium => 10,
+                    AbilityScoreRangeType.High => 12,
+                    AbilityScoreRangeType.VeryHigh => 14,
+                    AbilityScoreRangeType.Max => 16,
+                    _ => throw new System.ArgumentOutOfRangeException(nameof(type), type, null)
+                };
+
+                return Random.Range(min, min + 5);
+            }
+
+            int CalculateAbilityScore(AbilityScoreRangeType type, bool addLevelUps)
+            {
+                return GetRandomAbilityScore(type) + (addLevelUps ? (k_CharacterLevel / 4) : 0);
+            }
+
+            (AbilityScoreRangeType type, bool addExtra) strType = cc switch
+            {
+                CharacterClass.Fighter => (AbilityScoreRangeType.Max, true),
+                CharacterClass.Magus => (AbilityScoreRangeType.High, true),
+                CharacterClass.Rogue => (AbilityScoreRangeType.High, false),
+                CharacterClass.Wizard => (AbilityScoreRangeType.VeryLow, false),
+                _ => throw new System.ArgumentOutOfRangeException(nameof(cc), cc, null)
+            };
+
+            (AbilityScoreRangeType type, bool addExtra) dexType = cc switch
+            {
+                CharacterClass.Fighter => (AbilityScoreRangeType.High, false),
+                CharacterClass.Magus => (AbilityScoreRangeType.Medium, false),
+                CharacterClass.Rogue => (AbilityScoreRangeType.Max, true),
+                CharacterClass.Wizard => (AbilityScoreRangeType.Medium, false),
+                _ => throw new System.ArgumentOutOfRangeException(nameof(cc), cc, null)
+            };
+
+            (AbilityScoreRangeType type, bool addExtra) conType = cc switch
+            {
+                CharacterClass.Fighter => (AbilityScoreRangeType.VeryHigh, false),
+                CharacterClass.Magus => (AbilityScoreRangeType.Low, false),
+                CharacterClass.Rogue => (AbilityScoreRangeType.Medium, false),
+                CharacterClass.Wizard => (AbilityScoreRangeType.Low, false),
+                _ => throw new System.ArgumentOutOfRangeException(nameof(cc), cc, null)
+            };
+
+            (AbilityScoreRangeType type, bool addExtra) intType = cc switch
+            {
+                CharacterClass.Fighter => (AbilityScoreRangeType.VeryLow, false),
+                CharacterClass.Magus => (AbilityScoreRangeType.High, false),
+                CharacterClass.Rogue => (AbilityScoreRangeType.Medium, false),
+                CharacterClass.Wizard => (AbilityScoreRangeType.Max, true),
+                _ => throw new System.ArgumentOutOfRangeException(nameof(cc), cc, null)
+            };
+
+            (AbilityScoreRangeType type, bool addExtra) wisType = cc switch
+            {
+                CharacterClass.Fighter => (AbilityScoreRangeType.Medium, false),
+                CharacterClass.Magus => (AbilityScoreRangeType.VeryLow, false),
+                CharacterClass.Rogue => (AbilityScoreRangeType.Low, false),
+                CharacterClass.Wizard => (AbilityScoreRangeType.Medium, false),
+                _ => throw new System.ArgumentOutOfRangeException(nameof(cc), cc, null)
+            };
+
+            (AbilityScoreRangeType type, bool addExtra) chaType = cc switch
+            {
+                CharacterClass.Fighter => (AbilityScoreRangeType.VeryLow, false),
+                CharacterClass.Magus => (AbilityScoreRangeType.High, false),
+                CharacterClass.Rogue => (AbilityScoreRangeType.VeryLow, false),
+                CharacterClass.Wizard => (AbilityScoreRangeType.Low, false),
+                _ => throw new System.ArgumentOutOfRangeException(nameof(cc), cc, null)
+            };
+
+            m_Class = cc;
+            m_Strength = CalculateAbilityScore(strType.type, strType.addExtra);
+            m_Dexterity = CalculateAbilityScore(dexType.type, dexType.addExtra);
+            m_Constitution = CalculateAbilityScore(conType.type, conType.addExtra);
+            m_Intelligence = CalculateAbilityScore(intType.type, intType.addExtra);
+            m_Wisdom = CalculateAbilityScore(wisType.type, wisType.addExtra);
+            m_Charisma = CalculateAbilityScore(chaType.type, chaType.addExtra);
+
+            m_HitPointFactor = 1f;
+            m_SpellPointFactor = 1f;
+        }
+
+        #endregion
+
         #region HitPoints
 
         public (int current, int max) hitPoints
