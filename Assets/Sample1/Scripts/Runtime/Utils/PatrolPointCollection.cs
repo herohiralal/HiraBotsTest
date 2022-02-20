@@ -45,9 +45,9 @@ namespace AIEngineTest
             }
         }
 
-        public Vector3 GetRandom()
+        public Vector3 GetRandom(Vector3 defaultValue = default)
         {
-            return m_PatrolPoints[Random.Range(0, m_Count)].position;
+            return m_Count > 0 ? m_PatrolPoints[Random.Range(0, m_Count)].position : defaultValue;
         }
     }
 }
