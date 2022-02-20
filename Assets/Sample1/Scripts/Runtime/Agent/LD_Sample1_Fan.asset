@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Subtitle: Effect
   m_Description: Set ExcitementAtSeeingCelebrity to 0.
+  m_AutoApplyOnSuccessfulExecution: 1
   key:
     m_Value:
       m_Key: {fileID: 6338071397192291863, guid: f4882f8cd8aca30449f405793df5a032,
@@ -121,7 +122,7 @@ MonoBehaviour:
       m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
       m_KeyTypes: 64
       m_IsValid: 1
-  m_PatrolPointCollection: {fileID: 11400000, guid: ba1ea3ae45a3dfb4b9619b1524fcaa3b,
+  m_MarkupPointCollection: {fileID: 11400000, guid: ba1ea3ae45a3dfb4b9619b1524fcaa3b,
     type: 2}
 --- !u!114 &-5783673660744780982
 MonoBehaviour:
@@ -252,6 +253,9 @@ MonoBehaviour:
   m_TickInterval: 0
   m_Description: Customize this description by overriding UpdateDescription().
   m_Type: 5
+  m_UseCustomParam: 0
+  m_IntegerParam: 0
+  m_EquipmentTypeParam: 0
 --- !u!114 &-666235997366936549
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -289,6 +293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Subtitle: Effect
   m_Description: Set ExcitementAtSeeingCelebrity to 0.
+  m_AutoApplyOnSuccessfulExecution: 1
   key:
     m_Value:
       m_Key: {fileID: 6338071397192291863, guid: f4882f8cd8aca30449f405793df5a032,
@@ -371,7 +376,7 @@ MonoBehaviour:
       m_Key: {fileID: -4239694777762941101, guid: f4882f8cd8aca30449f405793df5a032,
         type: 2}
       m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
-      m_KeyTypes: 64
+      m_KeyTypes: 80
       m_IsValid: 1
   m_TrackMovingTarget: 1
   m_Tolerance: 1.5
@@ -389,7 +394,8 @@ MonoBehaviour:
   m_Name: FailTaskProvider
   m_EditorClassIdentifier: 
   m_TickInterval: 0
-  m_Description: Automatically fails this task. Useful for debugging/looping.
+  m_Description: Automatically fails this task provider. Useful for debugging/looping.
+  m_Result: 2
 --- !u!114 &1149259878478301926
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -470,7 +476,7 @@ MonoBehaviour:
       m_Key: {fileID: -3202358372231938240, guid: 6751d1823c6f6bc47ac195866a695740,
         type: 2}
       m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
-      m_KeyTypes: 64
+      m_KeyTypes: 80
       m_IsValid: 1
   m_TrackMovingTarget: 0
   m_Tolerance: 0.25
@@ -524,7 +530,7 @@ MonoBehaviour:
       m_Key: {fileID: -4239694777762941101, guid: f4882f8cd8aca30449f405793df5a032,
         type: 2}
       m_Template: {fileID: 11400000, guid: f4882f8cd8aca30449f405793df5a032, type: 2}
-      m_KeyTypes: 64
+      m_KeyTypes: 80
       m_IsValid: 1
   m_TrackMovingTarget: 0
   m_Tolerance: 1.5
