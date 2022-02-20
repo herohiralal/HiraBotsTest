@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 namespace AIEngineTest
 {
-    internal class SetTargetLocationAsPatrolPointTask : IHiraBotsTask
+    public class SetTargetLocationAsMarkupPointTask : IHiraBotsTask
     {
         public BlackboardComponent m_Blackboard;
-        public MarkupPointCollection m_PatrolPointCollection;
+        public MarkupPointCollection m_MarkupPointCollection;
         public string m_Key;
 
         public void Begin()
@@ -19,7 +20,7 @@ namespace AIEngineTest
             Vector3 current = m_Blackboard.GetVectorValue(m_Key);
             do
             {
-                destination = m_PatrolPointCollection.GetRandom();
+                destination = m_MarkupPointCollection.GetRandom();
             } while (destination == current);
 
             m_Blackboard.SetVectorValue(m_Key, destination, true);
@@ -36,17 +37,18 @@ namespace AIEngineTest
         }
     }
 
-    internal class SetTargetLocationAsPatrolPointTaskProvider : HiraBotsTaskProvider
+    public class SetTargetLocationAsMarkupPointTaskProvider : HiraBotsTaskProvider
     {
         [SerializeField] private BlackboardTemplate.KeySelector m_Key;
-        [SerializeField] private MarkupPointCollection m_PatrolPointCollection;
+        [FormerlySerializedAs("m_PatrolPointCollection")]
+        [SerializeField] private MarkupPointCollection m_MarkupPointCollection;
 
         protected override IHiraBotsTask GetTask(BlackboardComponent blackboard, IHiraBotArchetype archetype)
         {
-            return new SetTargetLocationAsPatrolPointTask
+            return new SetTargetLocationAsMarkupPointTask
             {
                 m_Blackboard = blackboard,
-                m_PatrolPointCollection = m_PatrolPointCollection,
+                m_MarkupPointCollection = m_MarkupPointCollection,
                 m_Key = m_Key.selectedKey.name
             };
         }
@@ -68,7 +70,7 @@ namespace AIEngineTest
                 reportError("Unassigned key.");
             }
 
-            if (m_PatrolPointCollection == null)
+            if (m_MarkupPointCollection == null)
             {
                 reportError("No patrol point collection present.");
             }
