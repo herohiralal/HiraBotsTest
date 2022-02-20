@@ -17,17 +17,17 @@ namespace AIEngineTest
     {
         public const int k_CharacterLevel = 5;
 
-        public CharacterClass m_Class;
+        private CharacterClass m_Class;
 
-        [Range(7, 20)] public int m_Strength;
-        [Range(7, 20)] public int m_Dexterity;
-        [Range(7, 20)] public int m_Constitution;
-        [Range(7, 20)] public int m_Intelligence;
-        [Range(7, 20)] public int m_Wisdom;
-        [Range(7, 20)] public int m_Charisma;
+        private int m_Strength;
+        private int m_Dexterity;
+        private int m_Constitution;
+        private int m_Intelligence;
+        private int m_Wisdom;
+        private int m_Charisma;
 
-        [Range(0, 1)] public float m_HitPointFactor;
-        [Range(0, 1)] public float m_SpellPointFactor;
+        private float m_HitPointFactor;
+        private float m_SpellPointFactor;
 
         #region Init
 
@@ -176,6 +176,86 @@ namespace AIEngineTest
             CharacterClass.Wizard => k_CharacterLevel * 2 / 4,
             _ => throw new System.ArgumentOutOfRangeException(nameof(cc), cc, null)
         };
+
+        #region Defence
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int GetArmourBonus(CharacterClass cc) => cc switch
+        {
+            CharacterClass.Fighter => 12,
+            CharacterClass.Magus => 4,
+            CharacterClass.Rogue => 8,
+            CharacterClass.Wizard => 4,
+            _ => throw new System.ArgumentOutOfRangeException(nameof(cc), cc, null)
+        };
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int GetDodgeBonus(CharacterClass cc, int dex) => cc switch
+        {
+            CharacterClass.Fighter => Mathf.Min((dex - 10) / 2, 2),
+            CharacterClass.Magus => (dex - 10) / 2,
+            CharacterClass.Rogue => (dex - 10) / 2,
+            CharacterClass.Wizard => (dex - 10) / 2,
+            _ => throw new System.ArgumentOutOfRangeException(nameof(cc), cc, null)
+        };
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int GetArmourClass(CharacterClass cc, int dex)
+        {
+            return 10 + GetArmourBonus(cc) + GetDodgeBonus(cc, dex);
+        }
+
+        #endregion
+
+        #region Saves
+
+        public int fortitudeSave => GetFortitudeSaveForClass(m_Class, m_Constitution);
+        public int reflexSave => GetReflexSaveForClass(m_Class, m_Dexterity);
+        public int willSave => GetWillSaveForClass(m_Class, m_Wisdom);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int GetLowSave()
+        {
+            return k_CharacterLevel / 3;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int GetHighSave()
+        {
+            return 2 + k_CharacterLevel / 2;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int GetFortitudeSaveForClass(CharacterClass cc, int con) => cc switch
+        {
+            CharacterClass.Fighter => GetHighSave(),
+            CharacterClass.Magus => GetHighSave(),
+            CharacterClass.Rogue => GetLowSave(),
+            CharacterClass.Wizard => GetLowSave(),
+            _ => throw new System.ArgumentOutOfRangeException(nameof(cc), cc, null)
+        } + ((con - 10) / 2);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int GetReflexSaveForClass(CharacterClass cc, int dex) => cc switch
+        {
+            CharacterClass.Fighter => GetLowSave(),
+            CharacterClass.Magus => GetLowSave(),
+            CharacterClass.Rogue => GetHighSave(),
+            CharacterClass.Wizard => GetLowSave(),
+            _ => throw new System.ArgumentOutOfRangeException(nameof(cc), cc, null)
+        } + ((dex - 10) / 2);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int GetWillSaveForClass(CharacterClass cc, int wis) => cc switch
+        {
+            CharacterClass.Fighter => GetLowSave(),
+            CharacterClass.Magus => GetHighSave(),
+            CharacterClass.Rogue => GetLowSave(),
+            CharacterClass.Wizard => GetHighSave(),
+            _ => throw new System.ArgumentOutOfRangeException(nameof(cc), cc, null)
+        } + ((wis - 10) / 2);
+
+        #endregion
 
         #region SpellPoints
 
