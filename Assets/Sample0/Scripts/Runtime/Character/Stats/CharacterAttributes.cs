@@ -167,6 +167,11 @@ namespace AIEngineTest
 
         #endregion
 
+        #region Attack
+
+        public int maxAttackCount => GetMaxAttackCount(m_Class);
+        public int attackModifier => GetAttackModifier(m_Class, m_Strength, m_Dexterity);
+
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int GetBaseAttackBonus(CharacterClass cc) => cc switch
         {
@@ -176,6 +181,24 @@ namespace AIEngineTest
             CharacterClass.Wizard => k_CharacterLevel * 2 / 4,
             _ => throw new System.ArgumentOutOfRangeException(nameof(cc), cc, null)
         };
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int GetMaxAttackCount(CharacterClass cc)
+        {
+            return 1 + GetBaseAttackBonus(cc) / 5;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int GetAttackModifier(CharacterClass cc, int str, int dex) => cc switch
+        {
+            CharacterClass.Fighter => GetBaseAttackBonus(cc) + ((str - 10) / 2),
+            CharacterClass.Magus => GetBaseAttackBonus(cc) + ((str - 10) / 2),
+            CharacterClass.Rogue => GetBaseAttackBonus(cc) + ((dex - 10) / 3),
+            CharacterClass.Wizard => GetBaseAttackBonus(cc) + ((str - 10) / 2),
+            _ => throw new System.ArgumentOutOfRangeException(nameof(cc), cc, null)
+        };
+
+        #endregion
 
         #region Defence
 
