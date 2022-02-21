@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5592424070009532453
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b933bed9b3bc407d9a704296b326ab4a, type: 3}
+  m_Name: DoneIdling
+  m_EditorClassIdentifier: 
+  m_InstanceSynced: 0
+  m_EssentialToDecisionMaking: 0
+  m_DefaultValue: 0
+--- !u!114 &-5384307435038233828
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb7cd0bd84747b5b7ae8289fbdd048d, type: 3}
+  m_Name: TargetLocation
+  m_EditorClassIdentifier: 
+  m_InstanceSynced: 0
+  m_EssentialToDecisionMaking: 0
+  m_DefaultValue:
+    x: 0
+    y: 0
+    z: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 473c002154df4e02b22cd7712cdfbc56, type: 3}
+  m_Name: BB_Sample2_Character
+  m_EditorClassIdentifier: 
+  m_Backends: 1
+  m_Parent: {fileID: 0}
+  m_Keys:
+  - {fileID: 2613326230545813411}
+  - {fileID: 5134172063115121030}
+  - {fileID: -5592424070009532453}
+  - {fileID: -5384307435038233828}
+--- !u!114 &2613326230545813411
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b933bed9b3bc407d9a704296b326ab4a, type: 3}
+  m_Name: NeedReaction
+  m_EditorClassIdentifier: 
+  m_InstanceSynced: 0
+  m_EssentialToDecisionMaking: 1
+  m_DefaultValue: 0
+--- !u!114 &5134172063115121030
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b1a7c660ebb41bcb9617e2114d967cc, type: 3}
+  m_Name: ScriptingLevel
+  m_EditorClassIdentifier: 
+  m_InstanceSynced: 0
+  m_EssentialToDecisionMaking: 1
+  m_DefaultValue:
+    m_TypeIdentifier: 9CD41184-4EF1-4C8A-9387-7BBBB31618B7
+    m_Value: 0

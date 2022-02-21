@@ -1,0 +1,643 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8392218704038691098
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad6818e4de9846adba80edd01785671e, type: 3}
+  m_Name: Clear ScriptingLevel
+  m_EditorClassIdentifier: 
+  m_Subtitle: Effect
+  m_Description: Set ScriptingLevel to None.
+  m_AutoApplyOnSuccessfulExecution: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 5134172063115121030, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  operationType: 0
+  value:
+    m_TypeIdentifier: 9CD41184-4EF1-4C8A-9387-7BBBB31618B7
+    m_Value: 0
+--- !u!114 &-7577434850603919163
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841fea4ba9b94948b9b5ff847474ea57, type: 3}
+  m_Name: BooleanIsSetDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Target
+  m_Description: NeedReaction must not be set.
+  invert: 1
+  key:
+    m_Value:
+      m_Key: {fileID: 2613326230545813411, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 1
+      m_IsValid: 1
+--- !u!114 &-7331465899305744920
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c664c, type: 3}
+  m_Name: None
+  m_EditorClassIdentifier: 
+  m_Subtitle: Insistence
+  m_Description: -100. if ScriptingLevel is equal to None.
+  invert: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 5134172063115121030, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  value:
+    m_TypeIdentifier: 9CD41184-4EF1-4C8A-9387-7BBBB31618B7
+    m_Value: 0
+  score: -100
+--- !u!114 &-6423212864490916542
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72829e80747749d69538555c2733c206, type: 3}
+  m_Name: SetTargetLocationAsMarkupPointTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0
+  m_Description: Customize this description by overriding UpdateDescription().
+  m_Key:
+    m_Value:
+      m_Key: {fileID: -5384307435038233828, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 64
+      m_IsValid: 1
+  m_MarkupPointCollection: {fileID: 11400000, guid: ba1ea3ae45a3dfb4b9619b1524fcaa3b,
+    type: 2}
+--- !u!114 &-6130501275500744730
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: becb67739a90419cab14aebd9d2611fe, type: 3}
+  m_Name: PredeterminedTaskResultTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 3600
+  m_Description: Infinitely loops this task provider. Useful for turning off the
+    AI and running scripted behaviours.
+  m_Result: 0
+--- !u!114 &-5852278631290763677
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c58ae3814f87470ebd76fca156ca98b8, type: 3}
+  m_Name: UpdateSpeedServiceProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0
+  m_Description: Customize this description by overriding UpdateDescription().
+--- !u!114 &-5653274685697373580
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c6644, type: 3}
+  m_Name: Needs to play scripted behaviour
+  m_EditorClassIdentifier: 
+  m_Subtitle: Precondition
+  m_Description: ScriptingLevel must not be equal to None.
+  invert: 1
+  key:
+    m_Value:
+      m_Key: {fileID: 5134172063115121030, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  value:
+    m_TypeIdentifier: 9CD41184-4EF1-4C8A-9387-7BBBB31618B7
+    m_Value: 0
+--- !u!114 &-5312839726840959470
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f0c, type: 3}
+  m_Name: BaseScoreScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Cost
+  m_Description: +5.
+  score: 5
+--- !u!114 &-4992515526586492120
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad6818e4de9846adba80edd01785671e, type: 3}
+  m_Name: Clear ScriptingLevel
+  m_EditorClassIdentifier: 
+  m_Subtitle: Effect
+  m_Description: Set ScriptingLevel to None.
+  m_AutoApplyOnSuccessfulExecution: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 5134172063115121030, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  operationType: 0
+  value:
+    m_TypeIdentifier: 9CD41184-4EF1-4C8A-9387-7BBBB31618B7
+    m_Value: 0
+--- !u!114 &-3391396670579932900
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c884b2306cc04a2ea7bb379c81e7aefa, type: 3}
+  m_Name: React
+  m_EditorClassIdentifier: 
+  m_Insistence:
+    m_Insistence:
+    - {fileID: -1995672869790168872}
+  m_Target:
+    m_Target:
+    - {fileID: -7577434850603919163}
+  <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+    type: 2}
+--- !u!114 &-2814649005857058142
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f0c, type: 3}
+  m_Name: BaseScoreScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Cost
+  m_Description: +5.
+  score: 5
+--- !u!114 &-1995672869790168872
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841fea4ba9b94948b9b5ff847474ea5c, type: 3}
+  m_Name: BooleanIsSetScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Insistence
+  m_Description: +80. if NeedReaction is set.
+  invert: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 2613326230545813411, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 1
+      m_IsValid: 1
+  score: 80
+--- !u!114 &-1722824244363640331
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c6644, type: 3}
+  m_Name: ClearScriptingLevel
+  m_EditorClassIdentifier: 
+  m_Subtitle: Target
+  m_Description: ScriptingLevel must be equal to None.
+  invert: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 5134172063115121030, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  value:
+    m_TypeIdentifier: 9CD41184-4EF1-4C8A-9387-7BBBB31618B7
+    m_Value: 0
+--- !u!114 &-1551265549423917042
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c884b2306cc04a2ea7bb379c81e7aefa, type: 3}
+  m_Name: DoNothing
+  m_EditorClassIdentifier: 
+  m_Insistence:
+    m_Insistence:
+    - {fileID: -7331465899305744920}
+    - {fileID: 6979095142558618187}
+    - {fileID: 6837671588559697612}
+  m_Target:
+    m_Target:
+    - {fileID: -1722824244363640331}
+  <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+    type: 2}
+--- !u!114 &-815369239994259119
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24aa5b80e95740efa69e4fca8cbb8db1, type: 3}
+  m_Name: MoveToTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 1.5
+  m_Description: Navigate agent to 1.5 units around TargetLocation at 1.5.
+  m_Target:
+    m_Value:
+      m_Key: {fileID: -5384307435038233828, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 80
+      m_IsValid: 1
+  m_TrackMovingTarget: 0
+  m_Tolerance: 1.5
+  m_Speed: 1.5
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627e8d2093ba4dd4a6cea6c43a281bec, type: 3}
+  m_Name: LD_Sample2_Character
+  m_EditorClassIdentifier: 
+  m_Backends: 1
+  m_Blackboard: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+  m_TopLayer:
+    m_FallbackGoal: 0000
+    m_Goals:
+    - {fileID: -1551265549423917042}
+    - {fileID: 5648232815240633159}
+    - {fileID: -3391396670579932900}
+    m_MaxPlanSize: 1
+  m_IntermediateLayers:
+  - m_FallbackPlan: 0000
+    m_Tasks:
+    - {fileID: 9028213473762110266}
+    - {fileID: 5784935958961617608}
+    m_MaxPlanSize: 5
+  m_BottomLayer:
+    m_FallbackPlan: 0000
+    m_Tasks:
+    - {fileID: 941643892299066189}
+    m_MaxPlanSize: 5
+--- !u!114 &688727632696688111
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c6644, type: 3}
+  m_Name: Needs to play scripted behaviour
+  m_EditorClassIdentifier: 
+  m_Subtitle: Precondition
+  m_Description: ScriptingLevel must not be equal to None.
+  invert: 1
+  key:
+    m_Value:
+      m_Key: {fileID: 5134172063115121030, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  value:
+    m_TypeIdentifier: 9CD41184-4EF1-4C8A-9387-7BBBB31618B7
+    m_Value: 0
+--- !u!114 &941643892299066189
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcba4340a034f9e83fbb967f661bb5d, type: 3}
+  m_Name: DoNothing
+  m_EditorClassIdentifier: 
+  m_Action:
+    m_Precondition:
+    - {fileID: -5653274685697373580}
+    m_Cost:
+    - {fileID: 7341143769011445492}
+    m_Effect:
+    - {fileID: -4992515526586492120}
+  m_Target:
+    m_Target: []
+  m_TaskProviders:
+  - {fileID: -6130501275500744730}
+  m_ServiceProviders: []
+  <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+    type: 2}
+  <canBeAbstract>k__BackingField: 0
+--- !u!114 &2477372123630046134
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf5cce8d3ca6458bbcf415de101c99e1, type: 3}
+  m_Name: BooleanIsSetEffector
+  m_EditorClassIdentifier: 
+  m_Subtitle: Effect
+  m_Description: Set DoneIdling.
+  m_AutoApplyOnSuccessfulExecution: 0
+  key:
+    m_Value:
+      m_Key: {fileID: -5592424070009532453, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 1
+      m_IsValid: 1
+  operationType: 0
+--- !u!114 &2740893862059540401
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841fea4ba9b94948b9b5ff847474ea57, type: 3}
+  m_Name: BooleanIsSetDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Target
+  m_Description: DoneIdling must be set.
+  invert: 0
+  key:
+    m_Value:
+      m_Key: {fileID: -5592424070009532453, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 1
+      m_IsValid: 1
+--- !u!114 &4182366708353127162
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: becb67739a90419cab14aebd9d2611fe, type: 3}
+  m_Name: PredeterminedTaskResultTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 3600
+  m_Description: Infinitely loops this task provider. Useful for turning off the
+    AI and running scripted behaviours.
+  m_Result: 0
+--- !u!114 &4476191333924456403
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f0c, type: 3}
+  m_Name: BaseScoreScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Insistence
+  m_Description: +5.
+  score: 5
+--- !u!114 &5648232815240633159
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c884b2306cc04a2ea7bb379c81e7aefa, type: 3}
+  m_Name: Idle
+  m_EditorClassIdentifier: 
+  m_Insistence:
+    m_Insistence:
+    - {fileID: 4476191333924456403}
+  m_Target:
+    m_Target:
+    - {fileID: 2740893862059540401}
+  <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+    type: 2}
+--- !u!114 &5784935958961617608
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcba4340a034f9e83fbb967f661bb5d, type: 3}
+  m_Name: Idle
+  m_EditorClassIdentifier: 
+  m_Action:
+    m_Precondition: []
+    m_Cost:
+    - {fileID: -5312839726840959470}
+    m_Effect:
+    - {fileID: 2477372123630046134}
+  m_Target:
+    m_Target: []
+  m_TaskProviders:
+  - {fileID: -6423212864490916542}
+  - {fileID: -815369239994259119}
+  - {fileID: 7473313244671864444}
+  m_ServiceProviders:
+  - {fileID: -5852278631290763677}
+  <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+    type: 2}
+  <canBeAbstract>k__BackingField: 1
+--- !u!114 &6837671588559697612
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c664c, type: 3}
+  m_Name: Hard
+  m_EditorClassIdentifier: 
+  m_Subtitle: Insistence
+  m_Description: +60. if ScriptingLevel is equal to Hard.
+  invert: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 5134172063115121030, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  value:
+    m_TypeIdentifier: 9CD41184-4EF1-4C8A-9387-7BBBB31618B7
+    m_Value: 2
+  score: 60
+--- !u!114 &6979095142558618187
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c664c, type: 3}
+  m_Name: Soft
+  m_EditorClassIdentifier: 
+  m_Subtitle: Insistence
+  m_Description: +5.5. if ScriptingLevel is equal to Soft.
+  invert: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 5134172063115121030, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  value:
+    m_TypeIdentifier: 9CD41184-4EF1-4C8A-9387-7BBBB31618B7
+    m_Value: 1
+  score: 5.5
+--- !u!114 &7341143769011445492
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f0c, type: 3}
+  m_Name: BaseScoreScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Cost
+  m_Description: +5.
+  score: 5
+--- !u!114 &7473313244671864444
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c5ebb570bbb4f9384fef65361ab5388, type: 3}
+  m_Name: WaitTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 2
+  m_Description: "Wait for 7.5 \xB1 2.5 second(s)."
+  m_Timer: 7.5
+  m_RandomDeviation: 2.5
+--- !u!114 &9028213473762110266
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcba4340a034f9e83fbb967f661bb5d, type: 3}
+  m_Name: DoNothing
+  m_EditorClassIdentifier: 
+  m_Action:
+    m_Precondition:
+    - {fileID: 688727632696688111}
+    m_Cost:
+    - {fileID: -2814649005857058142}
+    m_Effect:
+    - {fileID: -8392218704038691098}
+  m_Target:
+    m_Target: []
+  m_TaskProviders:
+  - {fileID: 4182366708353127162}
+  m_ServiceProviders: []
+  <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+    type: 2}
+  <canBeAbstract>k__BackingField: 1
