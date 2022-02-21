@@ -15,9 +15,8 @@ namespace AIEngineTest
 
     public class CharacterAttributes : MonoBehaviour
     {
-        public const int k_CharacterLevel = 5;
-
         private CharacterClass m_Class;
+        private int m_Level;
 
         private int m_Strength;
         private int m_Dexterity;
@@ -41,7 +40,7 @@ namespace AIEngineTest
             Max
         }
 
-        public void Initialize(CharacterClass cc)
+        public void Initialize(CharacterClass cc, int lvl)
         {
             int GetRandomAbilityScore(AbilityScoreRangeType type)
             {
@@ -61,7 +60,7 @@ namespace AIEngineTest
 
             int CalculateAbilityScore(AbilityScoreRangeType type, bool addLevelUps)
             {
-                return GetRandomAbilityScore(type) + (addLevelUps ? (k_CharacterLevel / 4) : 0);
+                return GetRandomAbilityScore(type) + (addLevelUps ? (lvl / 4) : 0);
             }
 
             (AbilityScoreRangeType type, bool addExtra) strType = cc switch
@@ -119,6 +118,7 @@ namespace AIEngineTest
             };
 
             m_Class = cc;
+            m_Level = lvl;
             m_Strength = CalculateAbilityScore(strType.type, strType.addExtra);
             m_Dexterity = CalculateAbilityScore(dexType.type, dexType.addExtra);
             m_Constitution = CalculateAbilityScore(conType.type, conType.addExtra);
@@ -136,7 +136,7 @@ namespace AIEngineTest
 
         public (int current, int max) hitPoints
         {
-            get => CalculateHitPoints(m_Class, m_Constitution, m_HitPointFactor);
+            get => CalculateHitPoints(m_Class, m_Level, m_Constitution, m_HitPointFactor);
             set => m_HitPointFactor = (float) value.current / value.max;
         }
 
@@ -151,15 +151,15 @@ namespace AIEngineTest
         };
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int GetMaxHitPoints(CharacterClass cc, int con)
+        public static int GetMaxHitPoints(CharacterClass cc, int lvl, int con)
         {
-            return (GetHitDie(cc) + con) * k_CharacterLevel;
+            return (GetHitDie(cc) + con) * lvl;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static (int current, int max) CalculateHitPoints(CharacterClass cc, int con, float hitPointFactor)
+        public static (int current, int max) CalculateHitPoints(CharacterClass cc, int lvl, int con, float hitPointFactor)
         {
-            var max = GetMaxHitPoints(cc, con);
+            var max = GetMaxHitPoints(cc, lvl, con);
             var current = Mathf.RoundToInt(max * hitPointFactor);
             var clampedCurrent = Mathf.Clamp(current, 0, max);
             return (clampedCurrent, max);
@@ -169,32 +169,32 @@ namespace AIEngineTest
 
         #region Attack
 
-        public int maxAttackCount => GetMaxAttackCount(m_Class);
-        public int attackModifier => GetAttackModifier(m_Class, m_Strength, m_Dexterity);
+        public int maxAttackCount => GetMaxAttackCount(m_Class, m_Level);
+        public int attackModifier => GetAttackModifier(m_Class, m_Level, m_Strength, m_Dexterity);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int GetBaseAttackBonus(CharacterClass cc) => cc switch
+        public static int GetBaseAttackBonus(CharacterClass cc, int lvl) => cc switch
         {
-            CharacterClass.Fighter => k_CharacterLevel,
-            CharacterClass.Magus => k_CharacterLevel * 3 / 4,
-            CharacterClass.Rogue => k_CharacterLevel * 3 / 4,
-            CharacterClass.Wizard => k_CharacterLevel * 2 / 4,
+            CharacterClass.Fighter => lvl,
+            CharacterClass.Magus => lvl * 3 / 4,
+            CharacterClass.Rogue => lvl * 3 / 4,
+            CharacterClass.Wizard => lvl * 2 / 4,
             _ => throw new System.ArgumentOutOfRangeException(nameof(cc), cc, null)
         };
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int GetMaxAttackCount(CharacterClass cc)
+        public static int GetMaxAttackCount(CharacterClass cc, int lvl)
         {
-            return 1 + GetBaseAttackBonus(cc) / 5;
+            return 1 + GetBaseAttackBonus(cc, lvl) / 5;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int GetAttackModifier(CharacterClass cc, int str, int dex) => cc switch
+        public static int GetAttackModifier(CharacterClass cc, int lvl, int str, int dex) => cc switch
         {
-            CharacterClass.Fighter => GetBaseAttackBonus(cc) + ((str - 10) / 2),
-            CharacterClass.Magus => GetBaseAttackBonus(cc) + ((str - 10) / 2),
-            CharacterClass.Rogue => GetBaseAttackBonus(cc) + ((dex - 10) / 3),
-            CharacterClass.Wizard => GetBaseAttackBonus(cc) + ((str - 10) / 2),
+            CharacterClass.Fighter => GetBaseAttackBonus(cc, lvl) + ((str - 10) / 2),
+            CharacterClass.Magus => GetBaseAttackBonus(cc, lvl) + ((str - 10) / 2),
+            CharacterClass.Rogue => GetBaseAttackBonus(cc, lvl) + ((dex - 10) / 3),
+            CharacterClass.Wizard => GetBaseAttackBonus(cc, lvl) + ((str - 10) / 2),
             _ => throw new System.ArgumentOutOfRangeException(nameof(cc), cc, null)
         };
 
@@ -232,49 +232,49 @@ namespace AIEngineTest
 
         #region Saves
 
-        public int fortitudeSave => GetFortitudeSaveForClass(m_Class, m_Constitution);
-        public int reflexSave => GetReflexSaveForClass(m_Class, m_Dexterity);
-        public int willSave => GetWillSaveForClass(m_Class, m_Wisdom);
+        public int fortitudeSave => GetFortitudeSaveForClass(m_Class, m_Level, m_Constitution);
+        public int reflexSave => GetReflexSaveForClass(m_Class, m_Level, m_Dexterity);
+        public int willSave => GetWillSaveForClass(m_Class, m_Level, m_Wisdom);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int GetLowSave()
+        public static int GetLowSave(int lvl)
         {
-            return k_CharacterLevel / 3;
+            return lvl / 3;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int GetHighSave()
+        public static int GetHighSave(int lvl)
         {
-            return 2 + k_CharacterLevel / 2;
+            return 2 + lvl / 2;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int GetFortitudeSaveForClass(CharacterClass cc, int con) => cc switch
+        public static int GetFortitudeSaveForClass(CharacterClass cc, int lvl, int con) => cc switch
         {
-            CharacterClass.Fighter => GetHighSave(),
-            CharacterClass.Magus => GetHighSave(),
-            CharacterClass.Rogue => GetLowSave(),
-            CharacterClass.Wizard => GetLowSave(),
+            CharacterClass.Fighter => GetHighSave(lvl),
+            CharacterClass.Magus => GetHighSave(lvl),
+            CharacterClass.Rogue => GetLowSave(lvl),
+            CharacterClass.Wizard => GetLowSave(lvl),
             _ => throw new System.ArgumentOutOfRangeException(nameof(cc), cc, null)
         } + ((con - 10) / 2);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int GetReflexSaveForClass(CharacterClass cc, int dex) => cc switch
+        public static int GetReflexSaveForClass(CharacterClass cc, int lvl, int dex) => cc switch
         {
-            CharacterClass.Fighter => GetLowSave(),
-            CharacterClass.Magus => GetLowSave(),
-            CharacterClass.Rogue => GetHighSave(),
-            CharacterClass.Wizard => GetLowSave(),
+            CharacterClass.Fighter => GetLowSave(lvl),
+            CharacterClass.Magus => GetLowSave(lvl),
+            CharacterClass.Rogue => GetHighSave(lvl),
+            CharacterClass.Wizard => GetLowSave(lvl),
             _ => throw new System.ArgumentOutOfRangeException(nameof(cc), cc, null)
         } + ((dex - 10) / 2);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int GetWillSaveForClass(CharacterClass cc, int wis) => cc switch
+        public static int GetWillSaveForClass(CharacterClass cc, int lvl, int wis) => cc switch
         {
-            CharacterClass.Fighter => GetLowSave(),
-            CharacterClass.Magus => GetHighSave(),
-            CharacterClass.Rogue => GetLowSave(),
-            CharacterClass.Wizard => GetHighSave(),
+            CharacterClass.Fighter => GetLowSave(lvl),
+            CharacterClass.Magus => GetHighSave(lvl),
+            CharacterClass.Rogue => GetLowSave(lvl),
+            CharacterClass.Wizard => GetHighSave(lvl),
             _ => throw new System.ArgumentOutOfRangeException(nameof(cc), cc, null)
         } + ((wis - 10) / 2);
 
@@ -284,12 +284,12 @@ namespace AIEngineTest
 
         public (int current, int max) spellPoints
         {
-            get => CalculateSpellPoints(m_Class, m_Intelligence, m_Charisma, m_SpellPointFactor);
+            get => CalculateSpellPoints(m_Class, m_Level, m_Intelligence, m_Charisma, m_SpellPointFactor);
             set => m_SpellPointFactor = (float) value.current / value.max;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int GetWizardBaseSpellPoints(int level) => level switch
+        public static int GetWizardBaseSpellPoints(int lvl) => lvl switch
         {
             01 => 1 * 1,
             02 => 2 * 1,
@@ -311,11 +311,11 @@ namespace AIEngineTest
             18 => 4 * 1 + 4 * 2 + 4 * 3 + 4 * 4 + 4 * 5 + 4 * 6 + 3 * 7 + 3 * 8 + 2 * 9,
             19 => 4 * 1 + 4 * 2 + 4 * 3 + 4 * 4 + 4 * 5 + 4 * 6 + 4 * 7 + 3 * 8 + 3 * 9,
             20 => 4 * 1 + 4 * 2 + 4 * 3 + 4 * 4 + 4 * 5 + 4 * 6 + 4 * 7 + 4 * 8 + 4 * 9,
-            _ => throw new System.ArgumentOutOfRangeException(nameof(level), level, null)
+            _ => throw new System.ArgumentOutOfRangeException(nameof(lvl), lvl, null)
         };
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int GetMagusBaseSpellPoints(int level) => level switch
+        public static int GetMagusBaseSpellPoints(int lvl) => lvl switch
         {
             01 => 1 * 1,
             02 => 2 * 1,
@@ -337,7 +337,7 @@ namespace AIEngineTest
             18 => 5 * 1 + 5 * 2 + 5 * 3 + 5 * 4 + 4 * 5 + 3 * 6,
             19 => 5 * 1 + 5 * 2 + 5 * 3 + 5 * 4 + 5 * 5 + 4 * 6,
             20 => 5 * 1 + 5 * 2 + 5 * 3 + 5 * 4 + 5 * 5 + 5 * 6,
-            _ => throw new System.ArgumentOutOfRangeException(nameof(level), level, null)
+            _ => throw new System.ArgumentOutOfRangeException(nameof(lvl), lvl, null)
         };
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -354,19 +354,19 @@ namespace AIEngineTest
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int GetMaxSpellPoints(CharacterClass cc, int intel, int cha) => cc switch
+        public static int GetMaxSpellPoints(CharacterClass cc, int lvl, int intel, int cha) => cc switch
         {
             CharacterClass.Fighter => 0,
-            CharacterClass.Magus => GetMagusBaseSpellPoints(k_CharacterLevel) + GetBonusSpellPoints(6, cha),
+            CharacterClass.Magus => GetMagusBaseSpellPoints(lvl) + GetBonusSpellPoints(6, cha),
             CharacterClass.Rogue => 0,
-            CharacterClass.Wizard => GetWizardBaseSpellPoints(k_CharacterLevel) + GetBonusSpellPoints(9, intel),
+            CharacterClass.Wizard => GetWizardBaseSpellPoints(lvl) + GetBonusSpellPoints(9, intel),
             _ => throw new System.ArgumentOutOfRangeException(nameof(cc), cc, null)
         };
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static (int current, int max) CalculateSpellPoints(CharacterClass cc, int intel, int cha, float spellPointFactor)
+        public static (int current, int max) CalculateSpellPoints(CharacterClass cc, int lvl, int intel, int cha, float spellPointFactor)
         {
-            var max = GetMaxSpellPoints(cc, intel, cha);
+            var max = GetMaxSpellPoints(cc, lvl, intel, cha);
             var current = Mathf.RoundToInt(max * spellPointFactor);
             var clampedCurrent = Mathf.Clamp(current, 0, max);
             return (clampedCurrent, max);
