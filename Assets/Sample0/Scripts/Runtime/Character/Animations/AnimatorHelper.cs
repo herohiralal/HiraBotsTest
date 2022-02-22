@@ -14,6 +14,7 @@ namespace AIEngineTest
         private static readonly int s_MontageType = Animator.StringToHash("MontageType");
         private static readonly int s_InterruptMontage = Animator.StringToHash("InterruptMontage");
         private static readonly int s_ActionNum = Animator.StringToHash("ActionNum");
+        private static readonly int s_KeepMontageActive = Animator.StringToHash("KeepMontageActive");
 
         [SerializeField] private Animator m_Animator;
         [SerializeField] private CharacterMeshWeaponSocketProvider m_CharacterMeshWeaponSocketProvider;

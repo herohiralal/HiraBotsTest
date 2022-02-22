@@ -9,5 +9,9 @@ namespace AIEngineTest
         Unsheathe = 3,
         Sheathe = 4,
         Bow = 5,
+        Block = 6,
+        Dodge = 7,
+        Cast = 8,
+        DualAttack = 9,
     }
 }
