@@ -35,6 +35,19 @@ namespace AIEngineTest
             m_CharacterMeshWeaponSocketProvider = GetComponent<CharacterMeshWeaponSocketProvider>();
         }
 
+        #region Reactions
+
+        public void CalculateDirection(Vector3 otherPosition)
+        {
+            var t = transform;
+            var dir = (otherPosition - t.position).normalized;
+            var ang = Vector3.SignedAngle(t.forward, dir, t.up) % 360;
+            ang += ang < 0 ? 360 : 0;
+            m_Animator.SetFloat(s_Direction, ang);
+        }
+
+        #endregion
+
         #region Montage
 
         private MontageType m_CurrentMontageState = MontageType.None;
@@ -54,6 +67,12 @@ namespace AIEngineTest
                     m_Animator.SetTrigger(s_PlayMontage);
                 }
             }
+        }
+
+        public bool keepMontageActive
+        {
+            get => m_Animator.GetBool(s_KeepMontageActive);
+            set => m_Animator.SetBool(s_KeepMontageActive, value);
         }
 
         public int actionNum
