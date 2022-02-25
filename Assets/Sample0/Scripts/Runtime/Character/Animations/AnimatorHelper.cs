@@ -84,7 +84,7 @@ namespace AIEngineTest
                     max = 2;
                     break;
                 case EquipmentType.Staff:
-                    max = 6;
+                    max = 5;
                     break;
                 default:
                     throw new System.ArgumentOutOfRangeException();
