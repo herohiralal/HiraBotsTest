@@ -22,6 +22,7 @@ namespace AIEngineTest
         [SerializeField] private UnityEvent m_OnFootL;
         [SerializeField] private UnityEvent m_OnFootR;
         [SerializeField] private UnityEvent m_OnHit;
+        [SerializeField] private UnityEvent m_OnCast;
         [SerializeField] private UnityEvent<MontageType> m_OnStateEnter;
         [SerializeField] private UnityEvent<MontageType> m_OnStateExit;
         [SerializeField] private UnityEvent<EquipmentType> m_OnEquip;
@@ -303,6 +304,12 @@ namespace AIEngineTest
         public void Hit()
         {
             m_OnHit.Invoke();
+        }
+
+        [Preserve]
+        public void Cast()
+        {
+            m_OnCast.Invoke();
         }
 
         [Preserve]
