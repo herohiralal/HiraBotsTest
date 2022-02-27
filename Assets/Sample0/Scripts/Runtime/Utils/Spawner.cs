@@ -22,7 +22,7 @@ namespace AIEngineTest
                 {
                     if (GUILayout.Button("Sheathe"))
                     {
-                        m_Character.m_AnimatorHelper.PrepareToUnequip(m_Character.m_AnimatorHelper.equipmentType);
+                        m_Character.m_AnimatorHelper.PrepareToUnequip();
                         m_Character.m_AnimatorHelper.currentMontageState = MontageType.Sheathe;
                     }
                 }
@@ -52,7 +52,7 @@ namespace AIEngineTest
                     if (type.HasValue)
                     {
                         m_Character.m_AnimatorHelper.InitializeEquipment(type.Value);
-                        m_Character.m_AnimatorHelper.PrepareToEquip(type.Value);
+                        m_Character.m_AnimatorHelper.PrepareToEquip();
                         m_Character.m_AnimatorHelper.currentMontageState = MontageType.Unsheathe;
                     }
                 }

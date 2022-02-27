@@ -226,42 +226,14 @@ namespace AIEngineTest
             }
         }
 
-        public bool PrepareToEquip(EquipmentType? t = null)
+        public bool PrepareToEquip()
         {
-            var type = t ?? EquipmentType.Fists;
-            if (type == EquipmentType.None || m_CurrentEquipmentType == type)
-            {
-                return false;
-            }
-
-            switch (type)
-            {
-                case EquipmentType.Fists:
-                    break;
-                case EquipmentType.Sword when m_OwnedEquipmentType is EquipmentType.Sword or EquipmentType.SwordAndShield:
-                    break;
-                case EquipmentType.SwordAndShield when m_OwnedEquipmentType is EquipmentType.SwordAndShield:
-                    break;
-                case EquipmentType.DualDaggers when m_OwnedEquipmentType is EquipmentType.DualDaggers:
-                    break;
-                case EquipmentType.Staff when m_OwnedEquipmentType is EquipmentType.Staff:
-                    break;
-                default:
-                    return false;
-            }
-
-            actionNum = (int) type;
+            actionNum = (int) m_OwnedEquipmentType;
             return true;
         }
 
-        public bool PrepareToUnequip(EquipmentType? t = null)
+        public bool PrepareToUnequip()
         {
-            var type = t ?? m_CurrentEquipmentType;
-            if (type == EquipmentType.None || m_CurrentEquipmentType != type)
-            {
-                return false;
-            }
-
             return true;
         }
 
