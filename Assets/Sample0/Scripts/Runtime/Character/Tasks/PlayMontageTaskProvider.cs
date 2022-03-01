@@ -212,10 +212,22 @@ namespace AIEngineTest
 
     public class PlayMontageTaskProvider : HiraBotsTaskProvider
     {
-        [SerializeField] private MontageType m_Type;
-        [SerializeField] private bool m_UseCustomParam;
-        [SerializeField] private int m_IntegerParam;
-        [SerializeField] private float m_Duration;
+        [System.Serializable]
+        public struct MontageInfo
+        {
+            public MontageType m_Type;
+            public bool m_UseExtraParam;
+            public int m_ExtraParam;
+            public float m_Duration;
+        }
+
+        [SerializeField] private MontageInfo m_Info = new MontageInfo
+        {
+            m_Type = MontageType.None,
+            m_UseExtraParam = false,
+            m_ExtraParam = 1,
+            m_Duration = -1f
+        };
 
         protected override IHiraBotsTask GetTask(BlackboardComponent blackboard, IHiraBotArchetype archetype)
         {
@@ -223,9 +235,9 @@ namespace AIEngineTest
             {
                 return PlayMontageTask.Get(
                     animated.component,
-                    m_Type,
-                    m_UseCustomParam ? m_IntegerParam : null,
-                    m_Duration);
+                    m_Info.m_Type,
+                    m_Info.m_UseExtraParam ? m_Info.m_ExtraParam : null,
+                    m_Info.m_Duration);
             }
 
             return null;

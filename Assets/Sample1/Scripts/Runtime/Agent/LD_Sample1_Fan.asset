@@ -252,10 +252,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TickInterval: 0
   m_Description: Customize this description by overriding UpdateDescription().
-  m_Type: 5
-  m_UseCustomParam: 0
-  m_IntegerParam: 0
-  m_EquipmentTypeParam: 0
+  m_Info:
+    m_Type: 5
+    m_UseExtraParam: 1
+    m_ExtraParam: 1
+    m_Duration: -1
 --- !u!114 &-666235997366936549
 MonoBehaviour:
   m_ObjectHideFlags: 3
