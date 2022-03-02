@@ -13,6 +13,27 @@ namespace AIEngineTest
         Wizard
     }
 
+    [System.Serializable, ExposedToHiraBots("F091D744-3397-4027-ACB2-B36C89914A69")]
+    public enum DamageType : byte
+    {
+        None,
+        Slashing,
+        Piercing,
+        Bludgeoning
+    }
+
+    [System.Serializable, ExposedToHiraBots("B291899F-FBF9-4C63-82D7-9FA17BE606F2")]
+    public enum StatusType : uint
+    {
+        Blocking,
+        Count,
+    }
+
+    public unsafe struct StatusEffects
+    {
+        public fixed byte m_Flags[(((int) StatusType.Count + 7) & ~7) / 8];
+    }
+
     public class CharacterAttributes : MonoBehaviour
     {
         private CharacterClass m_Class;
@@ -119,6 +140,7 @@ namespace AIEngineTest
 
             m_Class = cc;
             m_Level = lvl;
+            m_Effects = new StatusEffects();
             m_Strength = CalculateAbilityScore(strType.type, strType.addExtra);
             m_Dexterity = CalculateAbilityScore(dexType.type, dexType.addExtra);
             m_Constitution = CalculateAbilityScore(conType.type, conType.addExtra);
@@ -128,6 +150,50 @@ namespace AIEngineTest
 
             m_HitPointFactor = 1f;
             m_SpellPointFactor = 1f;
+        }
+
+        #endregion
+
+        #region Status
+
+#pragma warning disable 414
+        private StatusEffects m_Effects;
+#pragma warning restore 414
+
+        public unsafe bool HasStatus(StatusType status)
+        {
+            fixed (byte* effects = m_Effects.m_Flags)
+            {
+                return GetStatus(effects, status);
+            }
+        }
+
+        public unsafe void SetStatus(StatusType status, bool value)
+        {
+            fixed (byte* effects = m_Effects.m_Flags)
+            {
+                SetStatus(effects, status, value);
+            }
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static unsafe bool GetStatus(byte* effects, StatusType type)
+        {
+            var index = 1 << (int) type;
+            var byteIndex = index / 8;
+            var bitIndex = index % 8;
+            return (effects[byteIndex] & (1 << bitIndex)) != 0;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static unsafe void SetStatus(byte* effects, StatusType type, bool value)
+        {
+            var index = 1 << (int) type;
+            var byteIndex = index / 8;
+            var bitIndex = index % 8;
+            effects[byteIndex] = value
+                ? (byte) (effects[byteIndex] | (1 << bitIndex))
+                : (byte) (effects[byteIndex] & ~(1 << bitIndex));
         }
 
         #endregion
@@ -200,22 +266,59 @@ namespace AIEngineTest
 
         #endregion
 
+        #region Damage
+
+        public (int min, int max, DamageType type) equippedWeaponDamageRange => GetEquippedWeaponDamageRange(m_Class, m_Level, m_Strength, m_Dexterity);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static (int min, int max, DamageType type) GetEquippedWeaponDamageRange(CharacterClass cc, int lvl, int str, int dex)
+        {
+            switch (cc)
+            {
+                case CharacterClass.Fighter:
+                {
+                    var strMod = ((str - 10) / 2);
+                    return (1 + strMod, 8 + strMod, DamageType.Slashing); // 1d8 for longsword
+                }
+                case CharacterClass.Magus:
+                {
+                    var strMod = ((str - 10) / 2);
+                    return (1 + strMod, 6 + strMod, DamageType.Slashing); // 1d6 for shortsword
+                }
+                case CharacterClass.Rogue:
+                {
+                    var dexMod = ((dex - 10) / 2);
+                    var sneakDie = lvl / 2;
+                    return (1 + (sneakDie * 1) + dexMod, 4 + (sneakDie * 6) + dexMod, DamageType.Piercing); // 1d4 for dagger, 1d6 for sneak dice
+                }
+                case CharacterClass.Wizard:
+                {
+                    var strMod = ((str - 10) / 2);
+                    return (1 + strMod, 6 + strMod, DamageType.Bludgeoning); // 1d6 for quarterstaff
+                }
+                default:
+                    throw new System.ArgumentOutOfRangeException(nameof(cc), cc, null);
+            }
+        }
+
+        #endregion
+
         #region Defence
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int GetArmourBonus(CharacterClass cc) => cc switch
         {
-            CharacterClass.Fighter => 12,
-            CharacterClass.Magus => 4,
-            CharacterClass.Rogue => 8,
-            CharacterClass.Wizard => 4,
+            CharacterClass.Fighter => 14, // +4 shield, plate armour
+            CharacterClass.Magus => 4, // mage armour
+            CharacterClass.Rogue => 8, // leather armour
+            CharacterClass.Wizard => 4, // mage armour
             _ => throw new System.ArgumentOutOfRangeException(nameof(cc), cc, null)
         };
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int GetDodgeBonus(CharacterClass cc, int dex) => cc switch
         {
-            CharacterClass.Fighter => Mathf.Min((dex - 10) / 2, 2),
+            CharacterClass.Fighter => Mathf.Min((dex - 10) / 2, 2), // capped by armour
             CharacterClass.Magus => (dex - 10) / 2,
             CharacterClass.Rogue => (dex - 10) / 2,
             CharacterClass.Wizard => (dex - 10) / 2,
