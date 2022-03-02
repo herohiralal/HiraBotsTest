@@ -193,6 +193,46 @@ MonoBehaviour:
   value:
     m_TypeIdentifier: 9CD41184-4EF1-4C8A-9387-7BBBB31618B7
     m_Value: 0
+--- !u!114 &-3878422406865220924
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b6d337fe0fa4b269f145171ef4871cd, type: 3}
+  m_Name: FloatComparisonDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Precondition
+  m_Description: Stamina must be lesser than 20.
+  invert: 0
+  key:
+    m_Value:
+      m_Key: {fileID: -4551606356962940156, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 4
+      m_IsValid: 1
+  secondValue: 20
+  equalityTolerance: 0
+  comparisonType: 3
+--- !u!114 &-3841149354096681949
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f0c, type: 3}
+  m_Name: BaseScoreScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Cost
+  m_Description: +10.
+  score: 10
 --- !u!114 &-3391396670579932900
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -213,6 +253,33 @@ MonoBehaviour:
     - {fileID: -7577434850603919163}
   <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
     type: 2}
+--- !u!114 &-2919405787251325899
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcba4340a034f9e83fbb967f661bb5d, type: 3}
+  m_Name: Catch Breath
+  m_EditorClassIdentifier: 
+  m_Action:
+    m_Precondition:
+    - {fileID: -3878422406865220924}
+    m_Cost:
+    - {fileID: -3841149354096681949}
+    m_Effect:
+    - {fileID: 933767689712222013}
+  m_Target:
+    m_Target: []
+  m_TaskProviders:
+  - {fileID: 3314110489250736977}
+  m_ServiceProviders: []
+  <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+    type: 2}
+  <canBeAbstract>k__BackingField: 0
 --- !u!114 &-2814649005857058142
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -353,6 +420,7 @@ MonoBehaviour:
     m_FallbackPlan: 0000
     m_Tasks:
     - {fileID: 941643892299066189}
+    - {fileID: -2919405787251325899}
     m_MaxPlanSize: 5
 --- !u!114 &688727632696688111
 MonoBehaviour:
@@ -379,6 +447,30 @@ MonoBehaviour:
   value:
     m_TypeIdentifier: 9CD41184-4EF1-4C8A-9387-7BBBB31618B7
     m_Value: 0
+--- !u!114 &933767689712222013
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89af0e100fac43f1ba83126b2d7c87de, type: 3}
+  m_Name: FloatOperatorEffector
+  m_EditorClassIdentifier: 
+  m_Subtitle: Effect
+  m_Description: Add 100 to Stamina.
+  m_AutoApplyOnSuccessfulExecution: 1
+  key:
+    m_Value:
+      m_Key: {fileID: -4551606356962940156, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 4
+      m_IsValid: 1
+  operationType: 1
+  value: 100
 --- !u!114 &941643892299066189
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -451,6 +543,22 @@ MonoBehaviour:
       m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
       m_KeyTypes: 1
       m_IsValid: 1
+--- !u!114 &3314110489250736977
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c5ebb570bbb4f9384fef65361ab5388, type: 3}
+  m_Name: WaitTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 1
+  m_Description: Wait for 5 second(s).
+  m_Timer: 5
+  m_RandomDeviation: 0
 --- !u!114 &4182366708353127162
 MonoBehaviour:
   m_ObjectHideFlags: 3
