@@ -12,19 +12,45 @@ namespace AIEngineTest
      */
     internal static class AbilitiesAndVariables
     {
+        private struct Base
+        {
+            // patrol
+            // hit react
+        }
+
         private struct Fighter
         {
-            
+            // attack
+            // charge
+            // shield wall
+            // spinarooni
+            // shield bash
+
+            // block react
+            // block and counterattack react
         }
 
         private struct Rogue
         {
-            
+            // attack
+            // flurry
+            // backlash
+            // throwing knife
+            // feign death
+
+            // dodge react
+            // dodge and counterattack react
         }
 
         private struct Wizard
         {
-            
+            // staff hit
+            // zap
+            // fireball
+            // teleport away
+            // hailstorm
+
+            // phase react
         }
     }
 }
