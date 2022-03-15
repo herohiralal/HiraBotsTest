@@ -23,7 +23,7 @@ namespace AIEngineTest
     }
 
     [System.Serializable, ExposedToHiraBots("B291899F-FBF9-4C63-82D7-9FA17BE606F2")]
-    public enum StatusType : uint
+    public enum StatusType : byte
     {
         Blocking,
         Count,
@@ -31,7 +31,17 @@ namespace AIEngineTest
 
     public unsafe struct StatusEffects
     {
-        public fixed byte m_Flags[(((int) StatusType.Count + 7) & ~7) / 8];
+        private const int k_FlagsLength = (((int) StatusType.Count + 7) & ~7) / 8;
+
+        public fixed byte m_Flags[k_FlagsLength];
+
+        public void ResetAll()
+        {
+            for (var i = 0; i < k_FlagsLength; i++)
+            {
+                m_Flags[i] = 0;
+            }
+        }
     }
 
     public class CharacterAttributes : MonoBehaviour
@@ -140,7 +150,7 @@ namespace AIEngineTest
 
             m_Class = cc;
             m_Level = lvl;
-            m_Effects = new StatusEffects();
+            m_Effects.ResetAll();
             m_Strength = CalculateAbilityScore(strType.type, strType.addExtra);
             m_Dexterity = CalculateAbilityScore(dexType.type, dexType.addExtra);
             m_Constitution = CalculateAbilityScore(conType.type, conType.addExtra);
