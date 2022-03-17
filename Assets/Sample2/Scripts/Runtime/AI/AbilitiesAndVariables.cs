@@ -20,11 +20,12 @@ namespace AIEngineTest
 
         private struct Fighter
         {
-            // attack
-            // charge
-            // shield wall
-            // spinarooni
-            // shield bash
+            // attack - earns valor, earns rampage, costs stamina
+            // charge - costs rampage, earns valor, cost stamina, has cooldown
+            // shield wall - costs valor, earns rampage, costs stamina, has cooldown
+            // spinarooni - earns valor, costs rampage, costs stamina, has cooldown
+            // shield bash - earns rampage, costs valor, costs stamina, has cooldown
+            // catch breath - earns stamina, costs rampage, costs valor
 
             // block react
             // block and counterattack react
@@ -32,11 +33,12 @@ namespace AIEngineTest
 
         private struct Rogue
         {
-            // attack
-            // flurry
-            // backlash
-            // throwing knife
-            // feign death
+            // attack - earns guile, earns bloodlust, costs stamina
+            // flurry - costs bloodlust, earns guile, costs stamina, has cooldown
+            // backlash - costs bloodlust, earns guile, costs stamina, has cooldown
+            // throwing knife - costs guile, earns bloodlust, costs stamina, has cooldown
+            // kick - costs guile, earns bloodlust, costs stamina, has cooldown
+            // catch breath - earns stamina, costs anonymity, costs 
 
             // dodge react
             // dodge and counterattack react
@@ -44,11 +46,12 @@ namespace AIEngineTest
 
         private struct Wizard
         {
-            // staff hit
-            // zap
-            // fireball
-            // teleport away
-            // hailstorm
+            // attack - earns havoc, earns support, costs stamina
+            // fireball - costs havoc, earns support, costs spellpoints, has cooldown
+            // mass heal - costs support, earns havoc, costs spellpoints, has cooldown
+            // hailstorm - costs support, earns havoc, costs spellpoints, has cooldown
+            // summon demon - costs havoc, earns support, costs spellpoints, has cooldown
+            // catch breath - earns stamina, costs havoc, costs support
 
             // phase react
         }
