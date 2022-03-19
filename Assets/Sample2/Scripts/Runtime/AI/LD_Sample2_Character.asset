@@ -1,5 +1,58 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8946397342270897357
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da5818b29555439cb0a6adc4d0937280, type: 3}
+  m_Name: ObjectEqualsEffector
+  m_EditorClassIdentifier: 
+  m_Subtitle: Effect
+  m_Description: Set TargetEnemy to null.
+  m_AutoApplyOnSuccessfulExecution: 0
+  key:
+    m_Value:
+      m_Key: {fileID: -3407975657028422647, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 16
+      m_IsValid: 1
+  value: {fileID: 0}
+--- !u!114 &-8414934654948752743
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f0c, type: 3}
+  m_Name: BaseScoreScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Cost
+  m_Description: +5.
+  score: 5
+--- !u!114 &-8411615076510007760
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f0c, type: 3}
+  m_Name: BaseScoreScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Cost
+  m_Description: +5.
+  score: 5
 --- !u!114 &-8392218704038691098
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -26,7 +79,84 @@ MonoBehaviour:
   value:
     m_TypeIdentifier: 9CD41184-4EF1-4C8A-9387-7BBBB31618B7
     m_Value: 0
---- !u!114 &-7577434850603919163
+--- !u!114 &-8336632638866848784
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f073722b6c814acdb3f6485ca22b0f0e, type: 3}
+  m_Name: IntegerOperatorEffector
+  m_EditorClassIdentifier: 
+  m_Subtitle: Effect
+  m_Description: Add 10 to AIRunning.
+  m_AutoApplyOnSuccessfulExecution: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 4299253122412169877, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 8
+      m_IsValid: 1
+  operationType: 1
+  value: 10
+--- !u!114 &-8234683613144592825
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f073722b6c814acdb3f6485ca22b0f0e, type: 3}
+  m_Name: IntegerOperatorEffector
+  m_EditorClassIdentifier: 
+  m_Subtitle: Effect
+  m_Description: Add 10 to AIRunning.
+  m_AutoApplyOnSuccessfulExecution: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 4299253122412169877, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 8
+      m_IsValid: 1
+  operationType: 1
+  value: 10
+--- !u!114 &-8061847149712786236
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcba4340a034f9e83fbb967f661bb5d, type: 3}
+  m_Name: Fight
+  m_EditorClassIdentifier: 
+  m_Action:
+    m_Precondition:
+    - {fileID: -5329224797433534400}
+    - {fileID: -1108444200129322972}
+    m_Cost:
+    - {fileID: 4416143287681188617}
+    m_Effect:
+    - {fileID: -8946397342270897357}
+    - {fileID: -8234683613144592825}
+  m_Target:
+    m_Target:
+    - {fileID: 2457128637731905952}
+  m_TaskProviders: []
+  m_ServiceProviders: []
+  <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+    type: 2}
+  <canBeAbstract>k__BackingField: 1
+--- !u!114 &-7639520243572987633
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -38,16 +168,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841fea4ba9b94948b9b5ff847474ea57, type: 3}
   m_Name: BooleanIsSetDecorator
   m_EditorClassIdentifier: 
-  m_Subtitle: Target
-  m_Description: NeedReaction must not be set.
+  m_Subtitle: Precondition
+  m_Description: HasWeaponEquipped must not be set.
+  m_CheckDuringExecution: 1
   invert: 1
   key:
     m_Value:
-      m_Key: {fileID: 2613326230545813411, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+      m_Key: {fileID: 7368642876963137112, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
         type: 2}
       m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
       m_KeyTypes: 1
       m_IsValid: 1
+--- !u!114 &-7576637491540379925
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b6d337fe0fa4b269f045171ef4871cd, type: 3}
+  m_Name: IntegerComparisonDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Target
+  m_Description: AIRunning must be greater than or equal to 30.
+  m_CheckDuringExecution: 1
+  invert: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 4299253122412169877, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 8
+      m_IsValid: 1
+  secondValue: 30
+  comparisonType: 2
+--- !u!114 &-7532763751317967031
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f0c, type: 3}
+  m_Name: BaseScoreScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Insistence
+  m_Description: +10.
+  score: 10
 --- !u!114 &-7331465899305744920
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -97,6 +268,30 @@ MonoBehaviour:
       m_IsValid: 1
   m_MarkupPointCollection: {fileID: 11400000, guid: ba1ea3ae45a3dfb4b9619b1524fcaa3b,
     type: 2}
+--- !u!114 &-6237587468502987167
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f073722b6c814acdb3f6485ca22b0f0e, type: 3}
+  m_Name: IntegerOperatorEffector
+  m_EditorClassIdentifier: 
+  m_Subtitle: Effect
+  m_Description: Add 10 to AIRunning.
+  m_AutoApplyOnSuccessfulExecution: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 4299253122412169877, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 8
+      m_IsValid: 1
+  operationType: 1
+  value: 10
 --- !u!114 &-6130501275500744730
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -113,6 +308,34 @@ MonoBehaviour:
   m_Description: Infinitely loops this task provider. Useful for turning off the
     AI and running scripted behaviours.
   m_Result: 0
+--- !u!114 &-5869169735386170880
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcba4340a034f9e83fbb967f661bb5d, type: 3}
+  m_Name: DodgeReact
+  m_EditorClassIdentifier: 
+  m_Action:
+    m_Precondition:
+    - {fileID: 8259501710607009054}
+    - {fileID: -551576907788170142}
+    m_Cost:
+    - {fileID: 6519511870814629713}
+    m_Effect:
+    - {fileID: 1438488302357981566}
+  m_Target:
+    m_Target: []
+  m_TaskProviders:
+  - {fileID: 1098963803995560738}
+  m_ServiceProviders: []
+  <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+    type: 2}
+  <canBeAbstract>k__BackingField: 0
 --- !u!114 &-5852278631290763677
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -141,6 +364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Subtitle: Precondition
   m_Description: ScriptingLevel must not be equal to None.
+  m_CheckDuringExecution: 1
   invert: 1
   key:
     m_Value:
@@ -152,6 +376,29 @@ MonoBehaviour:
   value:
     m_TypeIdentifier: 9CD41184-4EF1-4C8A-9387-7BBBB31618B7
     m_Value: 0
+--- !u!114 &-5329224797433534400
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841fea4ba9b94948b9b5ff847474ea57, type: 3}
+  m_Name: BooleanIsSetDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Precondition
+  m_Description: HasWeaponEquipped must be set.
+  m_CheckDuringExecution: 1
+  invert: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 7368642876963137112, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 1
+      m_IsValid: 1
 --- !u!114 &-5312839726840959470
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -167,6 +414,36 @@ MonoBehaviour:
   m_Subtitle: Cost
   m_Description: +5.
   score: 5
+--- !u!114 &-5135393617119792945
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c89e5910ec04893b329539512e8c1b7, type: 3}
+  m_Name: DynamicEnumEqualsDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Target
+  m_Description: OwnedEquipment must be equal to CurrentEquipment.
+  m_CheckDuringExecution: 1
+  invert: 0
+  targetKey:
+    m_Value:
+      m_Key: {fileID: 6235062126746876699, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  operatorKey:
+    m_Value:
+      m_Key: {fileID: 8310805269065138596, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
 --- !u!114 &-4992515526586492120
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -193,7 +470,7 @@ MonoBehaviour:
   value:
     m_TypeIdentifier: 9CD41184-4EF1-4C8A-9387-7BBBB31618B7
     m_Value: 0
---- !u!114 &-3878422406865220924
+--- !u!114 &-4925661216990964686
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,23 +479,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b6d337fe0fa4b269f145171ef4871cd, type: 3}
-  m_Name: FloatComparisonDecorator
+  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c6644, type: 3}
+  m_Name: EnumEqualsDecorator
   m_EditorClassIdentifier: 
-  m_Subtitle: Precondition
-  m_Description: Stamina must be lesser than 20.
+  m_Subtitle: Target
+  m_Description: ReactionRequired must be equal to None.
+  m_CheckDuringExecution: 1
   invert: 0
   key:
     m_Value:
-      m_Key: {fileID: -4551606356962940156, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+      m_Key: {fileID: -5975802511102006986, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
         type: 2}
       m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
-      m_KeyTypes: 4
+      m_KeyTypes: 2
       m_IsValid: 1
-  secondValue: 20
-  equalityTolerance: 0
-  comparisonType: 3
---- !u!114 &-3841149354096681949
+  value:
+    m_TypeIdentifier: E8395A7D-9589-456D-B72B-9FC99808CC13
+    m_Value: 0
+--- !u!114 &-3825611528863175625
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -227,12 +505,69 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f0c, type: 3}
-  m_Name: BaseScoreScoreCalculator
+  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c6644, type: 3}
+  m_Name: EnumEqualsDecorator
   m_EditorClassIdentifier: 
-  m_Subtitle: Cost
-  m_Description: +10.
-  score: 10
+  m_Subtitle: Target
+  m_Description: CurrentEquipment must not be equal to None.
+  m_CheckDuringExecution: 1
+  invert: 1
+  key:
+    m_Value:
+      m_Key: {fileID: 8310805269065138596, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  value:
+    m_TypeIdentifier: 24810CDF-70F7-4906-8B1D-FA60DADC1CEA
+    m_Value: 255
+--- !u!114 &-3800108734435143394
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3ea17f14634137b6060baa722c5020, type: 3}
+  m_Name: PlayMontageTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0.2
+  m_Description: Customize this description by overriding UpdateDescription().
+  m_Info:
+    m_Type: 6
+    m_UseExtraParam: 0
+    m_ExtraParam: 1
+    m_Duration: 150
+--- !u!114 &-3601401773832373301
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcba4340a034f9e83fbb967f661bb5d, type: 3}
+  m_Name: DeathReact
+  m_EditorClassIdentifier: 
+  m_Action:
+    m_Precondition:
+    - {fileID: 362668811841449970}
+    m_Cost:
+    - {fileID: 8488092803400574296}
+    m_Effect:
+    - {fileID: 557763433789532549}
+  m_Target:
+    m_Target: []
+  m_TaskProviders:
+  - {fileID: -3800108734435143394}
+  m_ServiceProviders: []
+  <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+    type: 2}
+  <canBeAbstract>k__BackingField: 0
 --- !u!114 &-3391396670579932900
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -247,13 +582,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Insistence:
     m_Insistence:
-    - {fileID: -1995672869790168872}
+    - {fileID: 4007922746392884976}
   m_Target:
     m_Target:
-    - {fileID: -7577434850603919163}
+    - {fileID: -780280072915122048}
   <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
     type: 2}
---- !u!114 &-2919405787251325899
+--- !u!114 &-2834762033813940530
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -262,24 +597,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffcba4340a034f9e83fbb967f661bb5d, type: 3}
-  m_Name: Catch Breath
+  m_Script: {fileID: 11500000, guid: 2a3ea17f14634137b6060baa722c5020, type: 3}
+  m_Name: PlayMontageTaskProvider
   m_EditorClassIdentifier: 
-  m_Action:
-    m_Precondition:
-    - {fileID: -3878422406865220924}
-    m_Cost:
-    - {fileID: -3841149354096681949}
-    m_Effect:
-    - {fileID: 933767689712222013}
-  m_Target:
-    m_Target: []
-  m_TaskProviders:
-  - {fileID: 3314110489250736977}
-  m_ServiceProviders: []
-  <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
-    type: 2}
-  <canBeAbstract>k__BackingField: 0
+  m_TickInterval: 0.2
+  m_Description: Customize this description by overriding UpdateDescription().
+  m_Info:
+    m_Type: 7
+    m_UseExtraParam: 0
+    m_ExtraParam: 1
+    m_Duration: -1
 --- !u!114 &-2814649005857058142
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -295,7 +622,7 @@ MonoBehaviour:
   m_Subtitle: Cost
   m_Description: +5.
   score: 5
---- !u!114 &-1995672869790168872
+--- !u!114 &-2578607756894425141
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -304,20 +631,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 841fea4ba9b94948b9b5ff847474ea5c, type: 3}
-  m_Name: BooleanIsSetScoreCalculator
+  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c6644, type: 3}
+  m_Name: EnumEqualsDecorator
   m_EditorClassIdentifier: 
-  m_Subtitle: Insistence
-  m_Description: +80. if NeedReaction is set.
+  m_Subtitle: Precondition
+  m_Description: ReactionRequired must be equal to Hit.
+  m_CheckDuringExecution: 1
   invert: 0
   key:
     m_Value:
-      m_Key: {fileID: 2613326230545813411, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+      m_Key: {fileID: -5975802511102006986, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
         type: 2}
       m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
-      m_KeyTypes: 1
+      m_KeyTypes: 2
       m_IsValid: 1
-  score: 80
+  value:
+    m_TypeIdentifier: E8395A7D-9589-456D-B72B-9FC99808CC13
+    m_Value: 1
 --- !u!114 &-1722824244363640331
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -332,6 +662,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Subtitle: Target
   m_Description: ScriptingLevel must be equal to None.
+  m_CheckDuringExecution: 1
   invert: 0
   key:
     m_Value:
@@ -342,6 +673,32 @@ MonoBehaviour:
       m_IsValid: 1
   value:
     m_TypeIdentifier: 9CD41184-4EF1-4C8A-9387-7BBBB31618B7
+    m_Value: 0
+--- !u!114 &-1696846866706444279
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad6818e4de9846adba80edd01785671e, type: 3}
+  m_Name: EnumOperatorEffector
+  m_EditorClassIdentifier: 
+  m_Subtitle: Effect
+  m_Description: Set ReactionRequired to None.
+  m_AutoApplyOnSuccessfulExecution: 1
+  key:
+    m_Value:
+      m_Key: {fileID: -5975802511102006986, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  operationType: 0
+  value:
+    m_TypeIdentifier: E8395A7D-9589-456D-B72B-9FC99808CC13
     m_Value: 0
 --- !u!114 &-1551265549423917042
 MonoBehaviour:
@@ -360,11 +717,89 @@ MonoBehaviour:
     - {fileID: -7331465899305744920}
     - {fileID: 6979095142558618187}
     - {fileID: 6837671588559697612}
+    - {fileID: 3431121298872760984}
   m_Target:
     m_Target:
     - {fileID: -1722824244363640331}
   <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
     type: 2}
+--- !u!114 &-1514218634615487038
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f073722b6c814acdb3f6485ca22b0f0e, type: 3}
+  m_Name: IntegerOperatorEffector
+  m_EditorClassIdentifier: 
+  m_Subtitle: Effect
+  m_Description: Add 10 to Patrol.
+  m_AutoApplyOnSuccessfulExecution: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 7930345514163448524, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 8
+      m_IsValid: 1
+  operationType: 1
+  value: 10
+--- !u!114 &-1390175553324034011
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcba4340a034f9e83fbb967f661bb5d, type: 3}
+  m_Name: AcquireWeapon
+  m_EditorClassIdentifier: 
+  m_Action:
+    m_Precondition:
+    - {fileID: -7639520243572987633}
+    m_Cost:
+    - {fileID: 7773551223617884357}
+    m_Effect:
+    - {fileID: 7785354831537047154}
+    - {fileID: -8336632638866848784}
+  m_Target:
+    m_Target:
+    - {fileID: -3825611528863175625}
+    - {fileID: -5135393617119792945}
+  m_TaskProviders: []
+  m_ServiceProviders: []
+  <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+    type: 2}
+  <canBeAbstract>k__BackingField: 1
+--- !u!114 &-1108444200129322972
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ecc27574ca4a030ff85de39d096ccb, type: 3}
+  m_Name: ObjectEqualsDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Precondition
+  m_Description: TargetEnemy must not be set to null.
+  m_CheckDuringExecution: 1
+  invert: 1
+  key:
+    m_Value:
+      m_Key: {fileID: -3407975657028422647, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 16
+      m_IsValid: 1
+  value: {fileID: 0}
 --- !u!114 &-815369239994259119
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -389,6 +824,86 @@ MonoBehaviour:
   m_TrackMovingTarget: 0
   m_Tolerance: 1.5
   m_Speed: 1.5
+--- !u!114 &-780280072915122048
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c6644, type: 3}
+  m_Name: EnumEqualsDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Target
+  m_Description: ReactionRequired must be equal to None.
+  m_CheckDuringExecution: 1
+  invert: 0
+  key:
+    m_Value:
+      m_Key: {fileID: -5975802511102006986, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  value:
+    m_TypeIdentifier: E8395A7D-9589-456D-B72B-9FC99808CC13
+    m_Value: 0
+--- !u!114 &-551576907788170142
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c6644, type: 3}
+  m_Name: EnumEqualsDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Precondition
+  m_Description: Class must be equal to Rogue.
+  m_CheckDuringExecution: 1
+  invert: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 1763845591122689936, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  value:
+    m_TypeIdentifier: 06033E01-71F2-4344-92CB-62889A539B36
+    m_Value: 2
+--- !u!114 &-19367040927133681
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcba4340a034f9e83fbb967f661bb5d, type: 3}
+  m_Name: BlockReact
+  m_EditorClassIdentifier: 
+  m_Action:
+    m_Precondition:
+    - {fileID: 8077887338412671899}
+    - {fileID: 638759620038564881}
+    m_Cost:
+    - {fileID: 3334682685887524275}
+    m_Effect:
+    - {fileID: -1696846866706444279}
+  m_Target:
+    m_Target: []
+  m_TaskProviders:
+  - {fileID: 7417535892507885530}
+  m_ServiceProviders: []
+  <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+    type: 2}
+  <canBeAbstract>k__BackingField: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,21 +922,148 @@ MonoBehaviour:
     m_FallbackGoal: 0000
     m_Goals:
     - {fileID: -1551265549423917042}
-    - {fileID: 5648232815240633159}
     - {fileID: -3391396670579932900}
+    - {fileID: 3248004944504920886}
     m_MaxPlanSize: 1
   m_IntermediateLayers:
   - m_FallbackPlan: 0000
     m_Tasks:
     - {fileID: 9028213473762110266}
-    - {fileID: 5784935958961617608}
+    - {fileID: 6885789427522365065}
+    - {fileID: 961934873488494227}
+    - {fileID: -1390175553324034011}
+    - {fileID: -8061847149712786236}
     m_MaxPlanSize: 5
   m_BottomLayer:
     m_FallbackPlan: 0000
     m_Tasks:
     - {fileID: 941643892299066189}
-    - {fileID: -2919405787251325899}
-    m_MaxPlanSize: 5
+    - {fileID: 5784935958961617608}
+    - {fileID: -3601401773832373301}
+    - {fileID: 6412865065058465362}
+    - {fileID: -19367040927133681}
+    - {fileID: -5869169735386170880}
+    - {fileID: 657883503132030861}
+    m_MaxPlanSize: 7
+--- !u!114 &17159818469200163
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f0c, type: 3}
+  m_Name: BaseScoreScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Cost
+  m_Description: +5.
+  score: 5
+--- !u!114 &362668811841449970
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c6644, type: 3}
+  m_Name: EnumEqualsDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Precondition
+  m_Description: ReactionRequired must be equal to Die.
+  m_CheckDuringExecution: 1
+  invert: 0
+  key:
+    m_Value:
+      m_Key: {fileID: -5975802511102006986, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  value:
+    m_TypeIdentifier: E8395A7D-9589-456D-B72B-9FC99808CC13
+    m_Value: 3
+--- !u!114 &557763433789532549
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad6818e4de9846adba80edd01785671e, type: 3}
+  m_Name: EnumOperatorEffector
+  m_EditorClassIdentifier: 
+  m_Subtitle: Effect
+  m_Description: Set ReactionRequired to None.
+  m_AutoApplyOnSuccessfulExecution: 1
+  key:
+    m_Value:
+      m_Key: {fileID: -5975802511102006986, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  operationType: 0
+  value:
+    m_TypeIdentifier: E8395A7D-9589-456D-B72B-9FC99808CC13
+    m_Value: 0
+--- !u!114 &638759620038564881
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c6644, type: 3}
+  m_Name: EnumEqualsDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Precondition
+  m_Description: Class must be equal to Fighter.
+  m_CheckDuringExecution: 1
+  invert: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 1763845591122689936, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  value:
+    m_TypeIdentifier: 06033E01-71F2-4344-92CB-62889A539B36
+    m_Value: 0
+--- !u!114 &657883503132030861
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcba4340a034f9e83fbb967f661bb5d, type: 3}
+  m_Name: MoveToMeleeRangeOfTargetEnemy
+  m_EditorClassIdentifier: 
+  m_Action:
+    m_Precondition:
+    - {fileID: 8270862033316347954}
+    m_Cost:
+    - {fileID: -8414934654948752743}
+    m_Effect:
+    - {fileID: 2964183110977697156}
+  m_Target:
+    m_Target: []
+  m_TaskProviders: []
+  m_ServiceProviders: []
+  <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+    type: 2}
+  <canBeAbstract>k__BackingField: 0
 --- !u!114 &688727632696688111
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -436,6 +1078,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Subtitle: Precondition
   m_Description: ScriptingLevel must not be equal to None.
+  m_CheckDuringExecution: 1
   invert: 1
   key:
     m_Value:
@@ -447,30 +1090,6 @@ MonoBehaviour:
   value:
     m_TypeIdentifier: 9CD41184-4EF1-4C8A-9387-7BBBB31618B7
     m_Value: 0
---- !u!114 &933767689712222013
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89af0e100fac43f1ba83126b2d7c87de, type: 3}
-  m_Name: FloatOperatorEffector
-  m_EditorClassIdentifier: 
-  m_Subtitle: Effect
-  m_Description: Add 100 to Stamina.
-  m_AutoApplyOnSuccessfulExecution: 1
-  key:
-    m_Value:
-      m_Key: {fileID: -4551606356962940156, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
-        type: 2}
-      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
-      m_KeyTypes: 4
-      m_IsValid: 1
-  operationType: 1
-  value: 100
 --- !u!114 &941643892299066189
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -498,7 +1117,7 @@ MonoBehaviour:
   <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
     type: 2}
   <canBeAbstract>k__BackingField: 0
---- !u!114 &2477372123630046134
+--- !u!114 &961934873488494227
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -507,21 +1126,70 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf5cce8d3ca6458bbcf415de101c99e1, type: 3}
-  m_Name: BooleanIsSetEffector
+  m_Script: {fileID: 11500000, guid: ffcba4340a034f9e83fbb967f661bb5d, type: 3}
+  m_Name: Patrol
+  m_EditorClassIdentifier: 
+  m_Action:
+    m_Precondition: []
+    m_Cost:
+    - {fileID: 5917858588747002984}
+    - {fileID: 7397045144417282247}
+    m_Effect:
+    - {fileID: -6237587468502987167}
+  m_Target:
+    m_Target:
+    - {fileID: 6408702191713517234}
+  m_TaskProviders: []
+  m_ServiceProviders: []
+  <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+    type: 2}
+  <canBeAbstract>k__BackingField: 1
+--- !u!114 &1098963803995560738
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3ea17f14634137b6060baa722c5020, type: 3}
+  m_Name: PlayMontageTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0.2
+  m_Description: Customize this description by overriding UpdateDescription().
+  m_Info:
+    m_Type: 9
+    m_UseExtraParam: 0
+    m_ExtraParam: 1
+    m_Duration: -1
+--- !u!114 &1438488302357981566
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad6818e4de9846adba80edd01785671e, type: 3}
+  m_Name: EnumOperatorEffector
   m_EditorClassIdentifier: 
   m_Subtitle: Effect
-  m_Description: Set DoneIdling.
-  m_AutoApplyOnSuccessfulExecution: 0
+  m_Description: Set ReactionRequired to None.
+  m_AutoApplyOnSuccessfulExecution: 1
   key:
     m_Value:
-      m_Key: {fileID: -5592424070009532453, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+      m_Key: {fileID: -5975802511102006986, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
         type: 2}
       m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
-      m_KeyTypes: 1
+      m_KeyTypes: 2
       m_IsValid: 1
   operationType: 0
---- !u!114 &2740893862059540401
+  value:
+    m_TypeIdentifier: E8395A7D-9589-456D-B72B-9FC99808CC13
+    m_Value: 0
+--- !u!114 &1741956460770142168
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -530,20 +1198,49 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 841fea4ba9b94948b9b5ff847474ea57, type: 3}
-  m_Name: BooleanIsSetDecorator
+  m_Script: {fileID: 11500000, guid: ad6818e4de9846adba80edd01785671e, type: 3}
+  m_Name: EnumOperatorEffector
+  m_EditorClassIdentifier: 
+  m_Subtitle: Effect
+  m_Description: Set ReactionRequired to None.
+  m_AutoApplyOnSuccessfulExecution: 1
+  key:
+    m_Value:
+      m_Key: {fileID: -5975802511102006986, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  operationType: 0
+  value:
+    m_TypeIdentifier: E8395A7D-9589-456D-B72B-9FC99808CC13
+    m_Value: 0
+--- !u!114 &2457128637731905952
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b6d337fe0fa4b269f045171ef4871cd, type: 3}
+  m_Name: IntegerComparisonDecorator
   m_EditorClassIdentifier: 
   m_Subtitle: Target
-  m_Description: DoneIdling must be set.
+  m_Description: Attack must be greater than or equal to 30.
+  m_CheckDuringExecution: 1
   invert: 0
   key:
     m_Value:
-      m_Key: {fileID: -5592424070009532453, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+      m_Key: {fileID: -5922190542980643467, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
         type: 2}
       m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
-      m_KeyTypes: 1
+      m_KeyTypes: 8
       m_IsValid: 1
---- !u!114 &3314110489250736977
+  secondValue: 30
+  comparisonType: 2
+--- !u!114 &2964183110977697156
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -552,13 +1249,110 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c5ebb570bbb4f9384fef65361ab5388, type: 3}
-  m_Name: WaitTaskProvider
+  m_Script: {fileID: 11500000, guid: ad6818e4de9846adba80edd01785671e, type: 3}
+  m_Name: EnumOperatorEffector
   m_EditorClassIdentifier: 
-  m_TickInterval: 1
-  m_Description: Wait for 5 second(s).
-  m_Timer: 5
-  m_RandomDeviation: 0
+  m_Subtitle: Effect
+  m_Description: Set DistanceToEnemy to Melee.
+  m_AutoApplyOnSuccessfulExecution: 1
+  key:
+    m_Value:
+      m_Key: {fileID: 7593340382305187595, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  operationType: 0
+  value:
+    m_TypeIdentifier: 68284474-6A1C-4A1C-8555-6601AC6513C7
+    m_Value: 3
+--- !u!114 &3248004944504920886
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c884b2306cc04a2ea7bb379c81e7aefa, type: 3}
+  m_Name: RunAI
+  m_EditorClassIdentifier: 
+  m_Insistence:
+    m_Insistence:
+    - {fileID: -7532763751317967031}
+  m_Target:
+    m_Target:
+    - {fileID: -7576637491540379925}
+  <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+    type: 2}
+--- !u!114 &3334682685887524275
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f0c, type: 3}
+  m_Name: BaseScoreScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Cost
+  m_Description: +5.
+  score: 5
+--- !u!114 &3431121298872760984
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c664c, type: 3}
+  m_Name: Ultimate
+  m_EditorClassIdentifier: 
+  m_Subtitle: Insistence
+  m_Description: +100. if ScriptingLevel is equal to Ultimate.
+  invert: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 5134172063115121030, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  value:
+    m_TypeIdentifier: 9CD41184-4EF1-4C8A-9387-7BBBB31618B7
+    m_Value: 3
+  score: 100
+--- !u!114 &4007922746392884976
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c664c, type: 3}
+  m_Name: EnumEqualsScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Insistence
+  m_Description: +80. if ReactionRequired is not equal to None.
+  invert: 1
+  key:
+    m_Value:
+      m_Key: {fileID: -5975802511102006986, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  value:
+    m_TypeIdentifier: E8395A7D-9589-456D-B72B-9FC99808CC13
+    m_Value: 0
+  score: 80
 --- !u!114 &4182366708353127162
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -575,7 +1369,7 @@ MonoBehaviour:
   m_Description: Infinitely loops this task provider. Useful for turning off the
     AI and running scripted behaviours.
   m_Result: 0
---- !u!114 &4476191333924456403
+--- !u!114 &4416143287681188617
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -587,10 +1381,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f0c, type: 3}
   m_Name: BaseScoreScoreCalculator
   m_EditorClassIdentifier: 
-  m_Subtitle: Insistence
+  m_Subtitle: Cost
   m_Description: +5.
   score: 5
---- !u!114 &5648232815240633159
+--- !u!114 &4931788871152260388
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -599,17 +1393,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c884b2306cc04a2ea7bb379c81e7aefa, type: 3}
-  m_Name: Idle
+  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c6644, type: 3}
+  m_Name: EnumEqualsDecorator
   m_EditorClassIdentifier: 
-  m_Insistence:
-    m_Insistence:
-    - {fileID: 4476191333924456403}
-  m_Target:
-    m_Target:
-    - {fileID: 2740893862059540401}
-  <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
-    type: 2}
+  m_Subtitle: Precondition
+  m_Description: ReactionRequired must not be equal to None.
+  m_CheckDuringExecution: 1
+  invert: 1
+  key:
+    m_Value:
+      m_Key: {fileID: -5975802511102006986, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  value:
+    m_TypeIdentifier: E8395A7D-9589-456D-B72B-9FC99808CC13
+    m_Value: 0
 --- !u!114 &5784935958961617608
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -620,14 +1420,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ffcba4340a034f9e83fbb967f661bb5d, type: 3}
-  m_Name: Idle
+  m_Name: Patrol
   m_EditorClassIdentifier: 
   m_Action:
     m_Precondition: []
     m_Cost:
     - {fileID: -5312839726840959470}
     m_Effect:
-    - {fileID: 2477372123630046134}
+    - {fileID: -1514218634615487038}
   m_Target:
     m_Target: []
   m_TaskProviders:
@@ -639,6 +1439,88 @@ MonoBehaviour:
   <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
     type: 2}
   <canBeAbstract>k__BackingField: 1
+--- !u!114 &5917858588747002984
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f0c, type: 3}
+  m_Name: BaseScoreScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Cost
+  m_Description: +5.
+  score: 5
+--- !u!114 &6408702191713517234
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b6d337fe0fa4b269f045171ef4871cd, type: 3}
+  m_Name: IntegerComparisonDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Target
+  m_Description: Patrol must be greater than or equal to 30.
+  m_CheckDuringExecution: 1
+  invert: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 7930345514163448524, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 8
+      m_IsValid: 1
+  secondValue: 30
+  comparisonType: 2
+--- !u!114 &6412865065058465362
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcba4340a034f9e83fbb967f661bb5d, type: 3}
+  m_Name: HitReact
+  m_EditorClassIdentifier: 
+  m_Action:
+    m_Precondition:
+    - {fileID: -2578607756894425141}
+    m_Cost:
+    - {fileID: 17159818469200163}
+    m_Effect:
+    - {fileID: 1741956460770142168}
+  m_Target:
+    m_Target: []
+  m_TaskProviders:
+  - {fileID: -2834762033813940530}
+  m_ServiceProviders: []
+  <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+    type: 2}
+  <canBeAbstract>k__BackingField: 0
+--- !u!114 &6519511870814629713
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f0c, type: 3}
+  m_Name: BaseScoreScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Cost
+  m_Description: +5.
+  score: 5
 --- !u!114 &6837671588559697612
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -665,6 +1547,33 @@ MonoBehaviour:
     m_TypeIdentifier: 9CD41184-4EF1-4C8A-9387-7BBBB31618B7
     m_Value: 2
   score: 60
+--- !u!114 &6885789427522365065
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcba4340a034f9e83fbb967f661bb5d, type: 3}
+  m_Name: React
+  m_EditorClassIdentifier: 
+  m_Action:
+    m_Precondition:
+    - {fileID: 4931788871152260388}
+    m_Cost:
+    - {fileID: -8411615076510007760}
+    m_Effect:
+    - {fileID: 7375203999236733957}
+  m_Target:
+    m_Target:
+    - {fileID: -4925661216990964686}
+  m_TaskProviders: []
+  m_ServiceProviders: []
+  <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+    type: 2}
+  <canBeAbstract>k__BackingField: 1
 --- !u!114 &6979095142558618187
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -678,7 +1587,7 @@ MonoBehaviour:
   m_Name: Soft
   m_EditorClassIdentifier: 
   m_Subtitle: Insistence
-  m_Description: +5.5. if ScriptingLevel is equal to Soft.
+  m_Description: +5. if ScriptingLevel is equal to Soft.
   invert: 0
   key:
     m_Value:
@@ -690,7 +1599,7 @@ MonoBehaviour:
   value:
     m_TypeIdentifier: 9CD41184-4EF1-4C8A-9387-7BBBB31618B7
     m_Value: 1
-  score: 5.5
+  score: 5
 --- !u!114 &7341143769011445492
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -706,6 +1615,75 @@ MonoBehaviour:
   m_Subtitle: Cost
   m_Description: +5.
   score: 5
+--- !u!114 &7375203999236733957
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad6818e4de9846adba80edd01785671e, type: 3}
+  m_Name: EnumOperatorEffector
+  m_EditorClassIdentifier: 
+  m_Subtitle: Effect
+  m_Description: Set ReactionRequired to None.
+  m_AutoApplyOnSuccessfulExecution: 0
+  key:
+    m_Value:
+      m_Key: {fileID: -5975802511102006986, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  operationType: 0
+  value:
+    m_TypeIdentifier: E8395A7D-9589-456D-B72B-9FC99808CC13
+    m_Value: 0
+--- !u!114 &7397045144417282247
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ecc27574ca4a030ff85de39d096ccc, type: 3}
+  m_Name: ObjectEqualsScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Cost
+  m_Description: +5. if TargetEnemy is not set to null.
+  invert: 1
+  key:
+    m_Value:
+      m_Key: {fileID: -3407975657028422647, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 16
+      m_IsValid: 1
+  value: {fileID: 0}
+  score: 5
+--- !u!114 &7417535892507885530
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3ea17f14634137b6060baa722c5020, type: 3}
+  m_Name: PlayMontageTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0.2
+  m_Description: Customize this description by overriding UpdateDescription().
+  m_Info:
+    m_Type: 8
+    m_UseExtraParam: 0
+    m_ExtraParam: 1
+    m_Duration: -1
 --- !u!114 &7473313244671864444
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -722,6 +1700,135 @@ MonoBehaviour:
   m_Description: "Wait for 7.5 \xB1 2.5 second(s)."
   m_Timer: 7.5
   m_RandomDeviation: 2.5
+--- !u!114 &7773551223617884357
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f0c, type: 3}
+  m_Name: BaseScoreScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Cost
+  m_Description: +5.
+  score: 5
+--- !u!114 &7785354831537047154
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf5cce8d3ca6458bbcf415de101c99e1, type: 3}
+  m_Name: BooleanIsSetEffector
+  m_EditorClassIdentifier: 
+  m_Subtitle: Effect
+  m_Description: Set HasWeaponEquipped.
+  m_AutoApplyOnSuccessfulExecution: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 7368642876963137112, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 1
+      m_IsValid: 1
+  operationType: 0
+--- !u!114 &8077887338412671899
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c6644, type: 3}
+  m_Name: EnumEqualsDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Precondition
+  m_Description: ReactionRequired must be equal to AvoidHit.
+  m_CheckDuringExecution: 1
+  invert: 0
+  key:
+    m_Value:
+      m_Key: {fileID: -5975802511102006986, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  value:
+    m_TypeIdentifier: E8395A7D-9589-456D-B72B-9FC99808CC13
+    m_Value: 2
+--- !u!114 &8259501710607009054
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c6644, type: 3}
+  m_Name: EnumEqualsDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Precondition
+  m_Description: ReactionRequired must be equal to AvoidHit.
+  m_CheckDuringExecution: 1
+  invert: 0
+  key:
+    m_Value:
+      m_Key: {fileID: -5975802511102006986, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  value:
+    m_TypeIdentifier: E8395A7D-9589-456D-B72B-9FC99808CC13
+    m_Value: 2
+--- !u!114 &8270862033316347954
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ecc27574ca4a030ff85de39d096ccb, type: 3}
+  m_Name: ObjectEqualsDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Precondition
+  m_Description: TargetEnemy must not be set to null.
+  m_CheckDuringExecution: 1
+  invert: 1
+  key:
+    m_Value:
+      m_Key: {fileID: -3407975657028422647, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 16
+      m_IsValid: 1
+  value: {fileID: 0}
+--- !u!114 &8488092803400574296
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f0c, type: 3}
+  m_Name: BaseScoreScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Cost
+  m_Description: +5.
+  score: 5
 --- !u!114 &9028213473762110266
 MonoBehaviour:
   m_ObjectHideFlags: 3

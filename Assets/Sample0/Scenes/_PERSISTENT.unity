@@ -373,6 +373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1770648199}
   - component: {fileID: 1770648200}
+  - component: {fileID: 1770648201}
   m_Layer: 0
   m_Name: '[GameManager]'
   m_TagString: Untagged
@@ -416,3 +417,18 @@ MonoBehaviour:
   m_WeaponGenerator: {fileID: 11400000, guid: 92a376380f0e1b845a1dac26cd22b1c5, type: 2}
   m_CharacterGenerator: {fileID: 11400000, guid: 5de373c8a4d9dfd49a21c409ab85881b,
     type: 2}
+--- !u!114 &1770648201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770648198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 168ac3c6b31b45d494ee3690af6d776a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BlackboardTemplate:
+    m_Value: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+  m_UpdateTime: 0.1

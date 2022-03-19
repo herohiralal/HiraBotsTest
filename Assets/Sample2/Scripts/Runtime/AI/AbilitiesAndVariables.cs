@@ -14,18 +14,19 @@ namespace AIEngineTest
     {
         private struct Base
         {
-            // patrol
+            // equip - set current equipment to owned equipment
+            // unequip - set current equipment to none
+            // patrol - current equipment must be none, earns safety (not really)
             // hit react
         }
 
         private struct Fighter
         {
-            // attack - earns valor, earns rampage, costs stamina
-            // charge - costs rampage, earns valor, cost stamina, has cooldown
-            // shield wall - costs valor, earns rampage, costs stamina, has cooldown
-            // spinarooni - earns valor, costs rampage, costs stamina, has cooldown
-            // shield bash - earns rampage, costs valor, costs stamina, has cooldown
-            // catch breath - earns stamina, costs rampage, costs valor
+            // attack - earns safety (not really), earns rampage (not really), and is expensive when the health is low, is cheaper after shield bashing
+            // charge - relocate to target, must be far away, earns rampage (not really), has cooldown
+            // shield wall - earns safety (not really) and is cheap when the health is low, has cooldown
+            // spinarooni - earns safety (not really), earns rampage (not really), earns rampage (not really), is cheap when surrounded, has cooldown
+            // shield bash - earns rampage (not really), earns enemy weakened, has cooldown
 
             // block react
             // block and counterattack react

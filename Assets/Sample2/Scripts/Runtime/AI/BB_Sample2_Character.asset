@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5592424070009532453
+--- !u!114 &-5975802511102006986
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,8 +9,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b933bed9b3bc407d9a704296b326ab4a, type: 3}
-  m_Name: DoneIdling
+  m_Script: {fileID: 11500000, guid: 2b1a7c660ebb41bcb9617e2114d967cc, type: 3}
+  m_Name: ReactionRequired
+  m_EditorClassIdentifier: 
+  m_InstanceSynced: 0
+  m_EssentialToDecisionMaking: 1
+  m_DefaultValue:
+    m_TypeIdentifier: E8395A7D-9589-456D-B72B-9FC99808CC13
+    m_Value: 0
+--- !u!114 &-5922190542980643467
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79495d4e033741e7b16e042b56250295, type: 3}
+  m_Name: Attack
   m_EditorClassIdentifier: 
   m_InstanceSynced: 0
   m_EssentialToDecisionMaking: 0
@@ -33,7 +50,7 @@ MonoBehaviour:
     x: 0
     y: 0
     z: 0
---- !u!114 &-4551606356962940156
+--- !u!114 &-3407975657028422647
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,12 +59,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 600e7994c3974ba2bd0feed4990690fc, type: 3}
-  m_Name: Stamina
+  m_Script: {fileID: 11500000, guid: 396af9b054994aa3a219df4ec60c2c30, type: 3}
+  m_Name: TargetEnemy
   m_EditorClassIdentifier: 
   m_InstanceSynced: 0
   m_EssentialToDecisionMaking: 0
-  m_DefaultValue: 100
+--- !u!114 &-2013374201838963471
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b1a7c660ebb41bcb9617e2114d967cc, type: 3}
+  m_Name: EnemyRelativePosition
+  m_EditorClassIdentifier: 
+  m_InstanceSynced: 0
+  m_EssentialToDecisionMaking: 0
+  m_DefaultValue:
+    m_TypeIdentifier: EBB79576-3A1A-41B7-9E23-0F4A7E6BDF3D
+    m_Value: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,12 +96,21 @@ MonoBehaviour:
   m_Backends: 1
   m_Parent: {fileID: 0}
   m_Keys:
-  - {fileID: 2613326230545813411}
+  - {fileID: 2146616008163067156}
+  - {fileID: 1763845591122689936}
+  - {fileID: 6235062126746876699}
+  - {fileID: 7368642876963137112}
+  - {fileID: 8310805269065138596}
+  - {fileID: -5975802511102006986}
   - {fileID: 5134172063115121030}
-  - {fileID: -5592424070009532453}
   - {fileID: -5384307435038233828}
-  - {fileID: -4551606356962940156}
---- !u!114 &2613326230545813411
+  - {fileID: 4299253122412169877}
+  - {fileID: 7930345514163448524}
+  - {fileID: -5922190542980643467}
+  - {fileID: -3407975657028422647}
+  - {fileID: 7593340382305187595}
+  - {fileID: -2013374201838963471}
+--- !u!114 &1763845591122689936
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77,11 +119,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b933bed9b3bc407d9a704296b326ab4a, type: 3}
-  m_Name: NeedReaction
+  m_Script: {fileID: 11500000, guid: 2b1a7c660ebb41bcb9617e2114d967cc, type: 3}
+  m_Name: Class
   m_EditorClassIdentifier: 
   m_InstanceSynced: 0
-  m_EssentialToDecisionMaking: 1
+  m_EssentialToDecisionMaking: 0
+  m_DefaultValue:
+    m_TypeIdentifier: 06033E01-71F2-4344-92CB-62889A539B36
+    m_Value: 1
+--- !u!114 &2146616008163067156
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 600e7994c3974ba2bd0feed4990690fc, type: 3}
+  m_Name: GlobalTime
+  m_EditorClassIdentifier: 
+  m_InstanceSynced: 1
+  m_EssentialToDecisionMaking: 0
+  m_DefaultValue: 0
+--- !u!114 &4299253122412169877
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79495d4e033741e7b16e042b56250295, type: 3}
+  m_Name: AIRunning
+  m_EditorClassIdentifier: 
+  m_InstanceSynced: 0
+  m_EssentialToDecisionMaking: 0
   m_DefaultValue: 0
 --- !u!114 &5134172063115121030
 MonoBehaviour:
@@ -100,3 +174,84 @@ MonoBehaviour:
   m_DefaultValue:
     m_TypeIdentifier: 9CD41184-4EF1-4C8A-9387-7BBBB31618B7
     m_Value: 0
+--- !u!114 &6235062126746876699
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b1a7c660ebb41bcb9617e2114d967cc, type: 3}
+  m_Name: OwnedEquipment
+  m_EditorClassIdentifier: 
+  m_InstanceSynced: 0
+  m_EssentialToDecisionMaking: 0
+  m_DefaultValue:
+    m_TypeIdentifier: 24810CDF-70F7-4906-8B1D-FA60DADC1CEA
+    m_Value: 255
+--- !u!114 &7368642876963137112
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b933bed9b3bc407d9a704296b326ab4a, type: 3}
+  m_Name: HasWeaponEquipped
+  m_EditorClassIdentifier: 
+  m_InstanceSynced: 0
+  m_EssentialToDecisionMaking: 0
+  m_DefaultValue: 0
+--- !u!114 &7593340382305187595
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b1a7c660ebb41bcb9617e2114d967cc, type: 3}
+  m_Name: DistanceToEnemy
+  m_EditorClassIdentifier: 
+  m_InstanceSynced: 0
+  m_EssentialToDecisionMaking: 0
+  m_DefaultValue:
+    m_TypeIdentifier: 68284474-6A1C-4A1C-8555-6601AC6513C7
+    m_Value: 0
+--- !u!114 &7930345514163448524
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79495d4e033741e7b16e042b56250295, type: 3}
+  m_Name: Patrol
+  m_EditorClassIdentifier: 
+  m_InstanceSynced: 0
+  m_EssentialToDecisionMaking: 0
+  m_DefaultValue: 0
+--- !u!114 &8310805269065138596
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b1a7c660ebb41bcb9617e2114d967cc, type: 3}
+  m_Name: CurrentEquipment
+  m_EditorClassIdentifier: 
+  m_InstanceSynced: 0
+  m_EssentialToDecisionMaking: 0
+  m_DefaultValue:
+    m_TypeIdentifier: 24810CDF-70F7-4906-8B1D-FA60DADC1CEA
+    m_Value: 255
