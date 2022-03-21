@@ -35,35 +35,22 @@ namespace AIEngineTest.Editor
                 return 21f;
             }
 
-            switch ((MontageType) type.enumValueIndex)
+            return 21f /* duration */ +  (MontageType) type.enumValueIndex switch
             {
-                case MontageType.None:
-                    return 21f + 21f; // 1 extra for error
-                case MontageType.MeleeAttackRight:
-                    return 21f + 21f; // attack type
-                case MontageType.MeleeAttackLeft:
-                    return 21f + 21f; // attack type
-                case MontageType.Unsheathe:
-                    return 21f; // owned equipment is extra param
-                case MontageType.Sheathe:
-                    return 21f; // current equipment is extra param
-                case MontageType.Bow:
-                    return 21f; // no extra param
-                case MontageType.Die:
-                    return 21f + 21f; // duration
-                case MontageType.Hit:
-                    return 21f; // no extra param
-                case MontageType.Block:
-                    return 21f; // no extra param
-                case MontageType.Dodge:
-                    return 21f; // no extra param
-                case MontageType.Cast:
-                    return 21f + 21f + 21f; // cast-type and 
-                case MontageType.DualAttack:
-                    return 21f + 21f; // attack type
-                default:
-                    throw new System.ArgumentOutOfRangeException();
-            }
+                MontageType.None => 21f + 21f, // 1 extra for error
+                MontageType.MeleeAttackRight => 21f + 21f, // attack type
+                MontageType.MeleeAttackLeft => 21f + 21f, // attack type
+                MontageType.Unsheathe => 21f, // owned equipment is extra param
+                MontageType.Sheathe => 21f, // current equipment is extra param
+                MontageType.Bow => 21f, // no extra param
+                MontageType.Die => 21f, // no extra param
+                MontageType.Hit => 21f, // no extra param
+                MontageType.Block => 21f, // no extra param
+                MontageType.Dodge => 21f, // no extra param
+                MontageType.Cast => 21f + 21f, // cast-type
+                MontageType.DualAttack => 21f + 21f, // attack type
+                _ => throw new System.ArgumentOutOfRangeException()
+            };
         }
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
@@ -85,6 +72,7 @@ namespace AIEngineTest.Editor
                 case MontageType.Unsheathe:
                 case MontageType.Sheathe:
                 case MontageType.Bow:
+                case MontageType.Die:
                 case MontageType.Hit:
                 case MontageType.Block:
                 case MontageType.Dodge:
@@ -115,10 +103,6 @@ namespace AIEngineTest.Editor
                     GUI.enabled = enabled;
                     break;
                 }
-                case MontageType.Die:
-                    position.y += 21f;
-                    EditorGUI.PropertyField(position, duration);
-                    break;
                 case MontageType.Cast:
                 {
                     position.y += 21f;
@@ -130,12 +114,12 @@ namespace AIEngineTest.Editor
                         position,
                         c,
                         (SpellcastAnimationType) extraParam.intValue);
-
-                    position.y += 21f;
-                    EditorGUI.PropertyField(position, duration);
                     break;
                 }
             }
+
+            position.y += 21f;
+            EditorGUI.PropertyField(position, duration, true);
         }
     }
 }
