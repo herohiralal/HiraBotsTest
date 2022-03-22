@@ -30,17 +30,22 @@ namespace AIEngineTest
 
         public void Tick(float deltaTime)
         {
+            Run(m_Self, m_Blackboard);
+        }
+
+        public static void Run(IHiraBotArchetype self, BlackboardComponent blackboard)
+        {
             TargetRelativeDistance trd;
             TargetRelativePosition trp;
 
-            if (m_Blackboard.GetObjectValue("TargetEnemy") is not IHiraBotArchetype target)
+            if (blackboard.GetObjectValue("TargetEnemy") is not IHiraBotArchetype target)
             {
                 trp = TargetRelativePosition.Irrelevant;
                 trd = TargetRelativeDistance.Irrelevant;
             }
             else
             {
-                var selfTransform = m_Self.gameObject.transform;
+                var selfTransform = self.gameObject.transform;
                 var otherTransform = target.gameObject.transform;
 
                 var selfPos = selfTransform.position;
@@ -67,13 +72,13 @@ namespace AIEngineTest
                 }
             }
 
-            m_Blackboard.SetEnumValue("DistanceToEnemy", trd);
-            m_Blackboard.SetEnumValue("EnemyRelativePosition", trp);
+            blackboard.SetEnumValue("DistanceToEnemy", trd);
+            blackboard.SetEnumValue("EnemyRelativePosition", trp);
         }
 
         public void Stop()
         {
-            Tick(0f);
+            Run(m_Self, m_Blackboard);
 
             m_Blackboard = default;
             s_Executables.Push(this);
