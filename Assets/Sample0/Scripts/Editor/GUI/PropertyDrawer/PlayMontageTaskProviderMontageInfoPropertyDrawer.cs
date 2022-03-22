@@ -10,18 +10,21 @@ namespace AIEngineTest.Editor
             out SerializedProperty type,
             out SerializedProperty useExtraParam,
             out SerializedProperty extraParam,
-            out SerializedProperty duration)
+            out SerializedProperty duration,
+            out SerializedProperty speed)
         {
             type = property.FindPropertyRelative(nameof(PlayMontageTaskProvider.MontageInfo.m_Type));
             useExtraParam = property.FindPropertyRelative(nameof(PlayMontageTaskProvider.MontageInfo.m_UseExtraParam));
             extraParam = property.FindPropertyRelative(nameof(PlayMontageTaskProvider.MontageInfo.m_ExtraParam));
             duration = property.FindPropertyRelative(nameof(PlayMontageTaskProvider.MontageInfo.m_Duration));
+            speed = property.FindPropertyRelative(nameof(PlayMontageTaskProvider.MontageInfo.m_Speed));
 
             return
                 type is { propertyType: SerializedPropertyType.Enum }
                 && useExtraParam is { propertyType: SerializedPropertyType.Boolean }
                 && extraParam is { propertyType: SerializedPropertyType.Integer }
-                && duration is { propertyType: SerializedPropertyType.Float };
+                && duration is { propertyType: SerializedPropertyType.Float }
+                && speed is { propertyType: SerializedPropertyType.Float };
         }
 
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
@@ -30,12 +33,16 @@ namespace AIEngineTest.Editor
                     out var type,
                     out _,
                     out _,
+                    out _,
                     out _))
             {
                 return 21f;
             }
 
-            return 21f /* duration */ +  (MontageType) type.enumValueIndex switch
+            return 0
+                   + 21f // duration
+                   + 21f // speed
+                   +  (MontageType) type.enumValueIndex switch
             {
                 MontageType.None => 21f + 21f, // 1 extra for error
                 MontageType.MeleeAttackRight => 21f + 21f, // attack type
@@ -59,7 +66,8 @@ namespace AIEngineTest.Editor
                     out var type,
                     out var useExtraParam,
                     out var extraParam,
-                    out var duration))
+                    out var duration,
+                    out var speed))
             {
                 EditorGUI.HelpBox(position, $"Cannot draw {label.text} property.", MessageType.Error);
                 return;
@@ -120,6 +128,9 @@ namespace AIEngineTest.Editor
 
             position.y += 21f;
             EditorGUI.PropertyField(position, duration, true);
+
+            position.y += 21f;
+            EditorGUI.PropertyField(position, speed, true);
         }
     }
 }

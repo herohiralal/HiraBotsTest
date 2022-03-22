@@ -33,8 +33,10 @@ namespace AIEngineTest
         private AnimationStatus m_AnimationStatus;
         private bool m_SucceedOnAnimationCompletion;
         private float? m_Duration;
+        private float m_OriginalSpeed;
+        private float m_Speed;
 
-        public static PlayMontageTask Get(AnimatorHelper animatorHelper, MontageType type, int? integerParam, float duration)
+        public static PlayMontageTask Get(AnimatorHelper animatorHelper, MontageType type, int? integerParam, float duration, float speed)
         {
             var output = s_Executables.Count == 0 ? new PlayMontageTask() : s_Executables.Pop();
             output.m_AnimatorHelper = animatorHelper;
@@ -43,6 +45,7 @@ namespace AIEngineTest
             output.m_SucceedOnAnimationCompletion = true;
             output.m_IntegerParam = integerParam;
             output.m_Duration = duration <= 0f ? null : duration;
+            output.m_Speed = speed;
             return output;
         }
 
@@ -52,6 +55,9 @@ namespace AIEngineTest
         {
             m_AnimatorHelper.stateEnter.AddListener(OnAnimatorStateEnter);
             m_AnimatorHelper.stateExit.AddListener(OnAnimatorStateExit);
+
+            m_OriginalSpeed = m_AnimatorHelper.animatorSpeed;
+            m_AnimatorHelper.animatorSpeed = m_Speed;
 
             switch (m_Type)
             {
@@ -166,6 +172,7 @@ namespace AIEngineTest
 
         private void Recycle()
         {
+            m_AnimatorHelper.animatorSpeed = m_OriginalSpeed;
             m_AnimatorHelper.keepMontageActive = false;
             m_AnimatorHelper.stateEnter.RemoveListener(OnAnimatorStateEnter);
             m_AnimatorHelper.stateExit.RemoveListener(OnAnimatorStateExit);
@@ -219,6 +226,7 @@ namespace AIEngineTest
             public bool m_UseExtraParam;
             public int m_ExtraParam;
             public float m_Duration;
+            public float m_Speed;
         }
 
         [SerializeField] private MontageInfo m_Info = new MontageInfo
@@ -226,7 +234,8 @@ namespace AIEngineTest
             m_Type = MontageType.None,
             m_UseExtraParam = false,
             m_ExtraParam = 1,
-            m_Duration = -1f
+            m_Duration = -1f,
+            m_Speed = 1f,
         };
 
         protected override IHiraBotsTask GetTask(BlackboardComponent blackboard, IHiraBotArchetype archetype)
@@ -237,7 +246,8 @@ namespace AIEngineTest
                     animated.component,
                     m_Info.m_Type,
                     m_Info.m_UseExtraParam ? m_Info.m_ExtraParam : null,
-                    m_Info.m_Duration);
+                    m_Info.m_Duration,
+                    m_Info.m_Speed);
             }
 
             return null;

@@ -30,6 +30,12 @@ namespace AIEngineTest
         public UnityEvent<MontageType> stateEnter => m_OnStateEnter;
         public UnityEvent<MontageType> stateExit => m_OnStateExit;
 
+        public float animatorSpeed
+        {
+            get => m_Animator.speed;
+            set => m_Animator.speed = value;
+        }
+
         private void Reset()
         {
             m_Animator = GetComponent<Animator>();
