@@ -29,6 +29,7 @@ namespace AIEngineTest
 
         public UnityEvent<MontageType> stateEnter => m_OnStateEnter;
         public UnityEvent<MontageType> stateExit => m_OnStateExit;
+        public UnityEvent<EquipmentType> equip => m_OnEquip;
 
         public float animatorSpeed
         {

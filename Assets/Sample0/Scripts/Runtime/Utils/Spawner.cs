@@ -4,57 +4,52 @@ namespace AIEngineTest
 {
     public class Spawner : MonoBehaviour
     {
-        [SerializeField] private BaseArchetype m_Character;
+        private bool m_Locked;
+
+        private static readonly CharacterClass[] s_Classes = (CharacterClass[]) typeof(CharacterClass).GetEnumValues();
+
+        private System.Collections.IEnumerator Spawn(CharacterClass cc)
+        {
+            m_Locked = true;
+
+            var character = GameManager.characterGenerator.Generate(Vector3.zero);
+
+            var equipmentType = cc switch
+            {
+                CharacterClass.Magus => EquipmentType.Sword,
+                CharacterClass.Fighter => EquipmentType.SwordAndShield,
+                CharacterClass.Rogue => EquipmentType.DualDaggers,
+                CharacterClass.Wizard => EquipmentType.Staff,
+                _ => throw new System.ArgumentOutOfRangeException()
+            };
+
+            character.m_AnimatorHelper.InitializeEquipment(equipmentType);
+
+            var brain = character.m_Brain;
+
+            while (!brain.blackboardComponent.isValid)
+            {
+                yield return null;
+            }
+
+            brain.blackboardComponent.SetEnumValue("Class", cc);
+            brain.blackboardComponent.SetEnumValue("OwnedEquipment", equipmentType);
+
+            m_Locked = false;
+        }
 
         private void OnGUI()
         {
-            if (m_Character == null)
+            if (m_Locked)
             {
-                if (GUILayout.Button("Spawn"))
-                {
-                    m_Character = GameManager.characterGenerator.Generate(Vector3.zero);
-                    m_Character.m_AnimatorHelper.InitializeEquipment(EquipmentType.None);
-                }
+                return;
             }
-            else
+
+            foreach (var cc in s_Classes)
             {
-                if (m_Character.m_AnimatorHelper.equipmentType != EquipmentType.None)
+                if (GUILayout.Button(cc.ToString()))
                 {
-                    if (GUILayout.Button("Sheathe"))
-                    {
-                        m_Character.m_AnimatorHelper.PrepareToUnequip();
-                        m_Character.m_AnimatorHelper.currentMontageState = MontageType.Sheathe;
-                    }
-                }
-                else
-                {
-                    EquipmentType? type = null;
-                    if (GUILayout.Button("Sword"))
-                    {
-                        type = EquipmentType.Sword;
-                    }
-
-                    if (GUILayout.Button("SwordAndShield"))
-                    {
-                        type = EquipmentType.SwordAndShield;
-                    }
-
-                    if (GUILayout.Button("DualDaggers"))
-                    {
-                        type = EquipmentType.DualDaggers;
-                    }
-
-                    if (GUILayout.Button("Staff"))
-                    {
-                        type = EquipmentType.Staff;
-                    }
-
-                    if (type.HasValue)
-                    {
-                        m_Character.m_AnimatorHelper.InitializeEquipment(type.Value);
-                        m_Character.m_AnimatorHelper.PrepareToEquip();
-                        m_Character.m_AnimatorHelper.currentMontageState = MontageType.Unsheathe;
-                    }
+                    StartCoroutine(Spawn(cc));
                 }
             }
         }

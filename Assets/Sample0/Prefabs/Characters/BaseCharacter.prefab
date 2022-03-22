@@ -485,7 +485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ArchetypeOverride: {fileID: 6987568033644381725}
-  m_Domain: {fileID: 0}
+  m_Domain: {fileID: 11400000, guid: c8f2a818fc9b2e1438f20a067afe4e93, type: 2}
   m_TickInterval: 0
   m_ExecutableTickIntervalMultiplier: 1
   m_RunPlannerSynchronously: 0
@@ -626,6 +626,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_OnHit:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnCast:
     m_PersistentCalls:
       m_Calls: []
   m_OnStateEnter:

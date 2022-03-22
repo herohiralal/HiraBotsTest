@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9109642957889765779
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c58ae3814f87470ebd76fca156ca98b8, type: 3}
+  m_Name: UpdateSpeedServiceProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0
+  m_Description: Customize this description by overriding UpdateDescription().
 --- !u!114 &-8946397342270897357
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -23,6 +37,26 @@ MonoBehaviour:
       m_KeyTypes: 16
       m_IsValid: 1
   value: {fileID: 0}
+--- !u!114 &-8450334316426616224
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3ea17f14634137b6060baa722c5020, type: 3}
+  m_Name: PlayMontageTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0
+  m_Description: Customize this description by overriding UpdateDescription().
+  m_Info:
+    m_Type: 4
+    m_UseExtraParam: 0
+    m_ExtraParam: 1
+    m_Duration: -1
+    m_Speed: 0.75
 --- !u!114 &-8414934654948752743
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -79,30 +113,6 @@ MonoBehaviour:
   value:
     m_TypeIdentifier: 9CD41184-4EF1-4C8A-9387-7BBBB31618B7
     m_Value: 0
---- !u!114 &-8336632638866848784
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f073722b6c814acdb3f6485ca22b0f0e, type: 3}
-  m_Name: IntegerOperatorEffector
-  m_EditorClassIdentifier: 
-  m_Subtitle: Effect
-  m_Description: Add 10 to AIRunning.
-  m_AutoApplyOnSuccessfulExecution: 0
-  key:
-    m_Value:
-      m_Key: {fileID: 4299253122412169877, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
-        type: 2}
-      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
-      m_KeyTypes: 8
-      m_IsValid: 1
-  operationType: 1
-  value: 10
 --- !u!114 &-8234683613144592825
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -127,6 +137,35 @@ MonoBehaviour:
       m_IsValid: 1
   operationType: 1
   value: 10
+--- !u!114 &-8158310896417938352
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcba4340a034f9e83fbb967f661bb5d, type: 3}
+  m_Name: MoveToShortDistanceFromTargetEnemy
+  m_EditorClassIdentifier: 
+  m_Action:
+    m_Precondition:
+    - {fileID: 6687240437189057303}
+    - {fileID: -1646836106596008159}
+    m_Cost:
+    - {fileID: -5061249910376036616}
+    m_Effect:
+    - {fileID: -2115287137950413888}
+  m_Target:
+    m_Target: []
+  m_TaskProviders:
+  - {fileID: -5790180416448061985}
+  m_ServiceProviders:
+  - {fileID: 4391499565418889593}
+  <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+    type: 2}
+  <canBeAbstract>k__BackingField: 0
 --- !u!114 &-8061847149712786236
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -245,6 +284,50 @@ MonoBehaviour:
     m_TypeIdentifier: 9CD41184-4EF1-4C8A-9387-7BBBB31618B7
     m_Value: 0
   score: -100
+--- !u!114 &-6838607744446292683
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f0c, type: 3}
+  m_Name: BaseScoreScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Cost
+  m_Description: +5.
+  score: 5
+--- !u!114 &-6490930794751893004
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcba4340a034f9e83fbb967f661bb5d, type: 3}
+  m_Name: Attack
+  m_EditorClassIdentifier: 
+  m_Action:
+    m_Precondition:
+    - {fileID: -2381558177161865731}
+    - {fileID: -4771068410571269918}
+    m_Cost:
+    - {fileID: -6838607744446292683}
+    m_Effect:
+    - {fileID: 8257608058652852095}
+  m_Target:
+    m_Target: []
+  m_TaskProviders:
+  - {fileID: 3877562127113609310}
+  m_ServiceProviders:
+  - {fileID: 2398853264762006736}
+  <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+    type: 2}
+  <canBeAbstract>k__BackingField: 0
 --- !u!114 &-6423212864490916542
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -308,6 +391,34 @@ MonoBehaviour:
   m_Description: Infinitely loops this task provider. Useful for turning off the
     AI and running scripted behaviours.
   m_Result: 0
+--- !u!114 &-5915381324029386955
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcba4340a034f9e83fbb967f661bb5d, type: 3}
+  m_Name: Sheathe
+  m_EditorClassIdentifier: 
+  m_Action:
+    m_Precondition:
+    - {fileID: -209927395654035900}
+    m_Cost:
+    - {fileID: -4022095164986201949}
+    m_Effect:
+    - {fileID: 3471862464079091445}
+  m_Target:
+    m_Target: []
+  m_TaskProviders:
+  - {fileID: -8450334316426616224}
+  m_ServiceProviders:
+  - {fileID: 8092423264218645059}
+  <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+    type: 2}
+  <canBeAbstract>k__BackingField: 0
 --- !u!114 &-5869169735386170880
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -350,6 +461,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TickInterval: 0
   m_Description: Customize this description by overriding UpdateDescription().
+--- !u!114 &-5790180416448061985
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24aa5b80e95740efa69e4fca8cbb8db1, type: 3}
+  m_Name: MoveToTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0.1
+  m_Description: Navigate agent to 6 units around TargetEnemy at 4.
+  m_Target:
+    m_Value:
+      m_Key: {fileID: -3407975657028422647, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 80
+      m_IsValid: 1
+  m_TrackMovingTarget: 0
+  m_Tolerance: 6
+  m_Speed: 4
 --- !u!114 &-5653274685697373580
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -444,6 +579,21 @@ MonoBehaviour:
       m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
       m_KeyTypes: 2
       m_IsValid: 1
+--- !u!114 &-5061249910376036616
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f0c, type: 3}
+  m_Name: BaseScoreScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Cost
+  m_Description: +2.5.
+  score: 2.5
 --- !u!114 &-4992515526586492120
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -496,6 +646,88 @@ MonoBehaviour:
   value:
     m_TypeIdentifier: E8395A7D-9589-456D-B72B-9FC99808CC13
     m_Value: 0
+--- !u!114 &-4771068410571269918
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c6644, type: 3}
+  m_Name: EnumEqualsDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Precondition
+  m_Description: CurrentEquipment must not be equal to None.
+  m_CheckDuringExecution: 1
+  invert: 1
+  key:
+    m_Value:
+      m_Key: {fileID: 8310805269065138596, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  value:
+    m_TypeIdentifier: 24810CDF-70F7-4906-8B1D-FA60DADC1CEA
+    m_Value: 255
+--- !u!114 &-4211676218973713910
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3ea17f14634137b6060baa722c5020, type: 3}
+  m_Name: PlayMontageTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0.1
+  m_Description: Customize this description by overriding UpdateDescription().
+  m_Info:
+    m_Type: 3
+    m_UseExtraParam: 0
+    m_ExtraParam: 1
+    m_Duration: -1
+    m_Speed: 0.75
+--- !u!114 &-4142664003705170121
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce134a60a7744ca78200e852bec12839, type: 3}
+  m_Name: TurnTowardsObjectServiceProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0.1
+  m_Description: Customize this description by overriding UpdateDescription().
+  m_Target:
+    m_Value:
+      m_Key: {fileID: -3407975657028422647, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 16
+      m_IsValid: 1
+--- !u!114 &-4022095164986201949
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f0c, type: 3}
+  m_Name: BaseScoreScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Cost
+  m_Description: +2.
+  score: 2
 --- !u!114 &-3825611528863175625
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -541,6 +773,7 @@ MonoBehaviour:
     m_UseExtraParam: 0
     m_ExtraParam: 1
     m_Duration: 150
+    m_Speed: 1
 --- !u!114 &-3601401773832373301
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -588,6 +821,21 @@ MonoBehaviour:
     - {fileID: -780280072915122048}
   <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
     type: 2}
+--- !u!114 &-3231691541699071820
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f0c, type: 3}
+  m_Name: BaseScoreScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Cost
+  m_Description: +5.
+  score: 5
 --- !u!114 &-2834762033813940530
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -607,6 +855,7 @@ MonoBehaviour:
     m_UseExtraParam: 0
     m_ExtraParam: 1
     m_Duration: -1
+    m_Speed: 1
 --- !u!114 &-2814649005857058142
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -648,6 +897,58 @@ MonoBehaviour:
   value:
     m_TypeIdentifier: E8395A7D-9589-456D-B72B-9FC99808CC13
     m_Value: 1
+--- !u!114 &-2381558177161865731
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c6644, type: 3}
+  m_Name: EnumEqualsDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Precondition
+  m_Description: DistanceToEnemy must be equal to Melee.
+  m_CheckDuringExecution: 1
+  invert: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 7593340382305187595, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  value:
+    m_TypeIdentifier: 68284474-6A1C-4A1C-8555-6601AC6513C7
+    m_Value: 3
+--- !u!114 &-2115287137950413888
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad6818e4de9846adba80edd01785671e, type: 3}
+  m_Name: EnumOperatorEffector
+  m_EditorClassIdentifier: 
+  m_Subtitle: Effect
+  m_Description: Set DistanceToEnemy to Short.
+  m_AutoApplyOnSuccessfulExecution: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 7593340382305187595, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  operationType: 0
+  value:
+    m_TypeIdentifier: 68284474-6A1C-4A1C-8555-6601AC6513C7
+    m_Value: 2
 --- !u!114 &-1722824244363640331
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -700,6 +1001,32 @@ MonoBehaviour:
   value:
     m_TypeIdentifier: E8395A7D-9589-456D-B72B-9FC99808CC13
     m_Value: 0
+--- !u!114 &-1646836106596008159
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c6644, type: 3}
+  m_Name: EnumEqualsDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Precondition
+  m_Description: DistanceToEnemy must not be equal to Melee.
+  m_CheckDuringExecution: 1
+  invert: 1
+  key:
+    m_Value:
+      m_Key: {fileID: 7593340382305187595, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  value:
+    m_TypeIdentifier: 68284474-6A1C-4A1C-8555-6601AC6513C7
+    m_Value: 3
 --- !u!114 &-1551265549423917042
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -766,7 +1093,6 @@ MonoBehaviour:
     - {fileID: 7773551223617884357}
     m_Effect:
     - {fileID: 7785354831537047154}
-    - {fileID: -8336632638866848784}
   m_Target:
     m_Target:
     - {fileID: -3825611528863175625}
@@ -776,6 +1102,32 @@ MonoBehaviour:
   <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
     type: 2}
   <canBeAbstract>k__BackingField: 1
+--- !u!114 &-1335262856546618527
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c6644, type: 3}
+  m_Name: EnumEqualsDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Precondition
+  m_Description: OwnedEquipment must not be equal to None.
+  m_CheckDuringExecution: 1
+  invert: 1
+  key:
+    m_Value:
+      m_Key: {fileID: 6235062126746876699, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  value:
+    m_TypeIdentifier: 24810CDF-70F7-4906-8B1D-FA60DADC1CEA
+    m_Value: 255
 --- !u!114 &-1108444200129322972
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -800,6 +1152,32 @@ MonoBehaviour:
       m_KeyTypes: 16
       m_IsValid: 1
   value: {fileID: 0}
+--- !u!114 &-1025363657001508711
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c664c, type: 3}
+  m_Name: EnumEqualsScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Cost
+  m_Description: -1. if CurrentEquipment is equal to None.
+  invert: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 8310805269065138596, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  value:
+    m_TypeIdentifier: 24810CDF-70F7-4906-8B1D-FA60DADC1CEA
+    m_Value: 255
+  score: -1
 --- !u!114 &-815369239994259119
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -876,6 +1254,86 @@ MonoBehaviour:
   value:
     m_TypeIdentifier: 06033E01-71F2-4344-92CB-62889A539B36
     m_Value: 2
+--- !u!114 &-388394892313921800
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2ac20c925934185b7aa261643bc71d0, type: 3}
+  m_Name: DynamicEnumOperatorEffector
+  m_EditorClassIdentifier: 
+  m_Subtitle: Effect
+  m_Description: Set CurrentEquipment to OwnedEquipment.
+  m_AutoApplyOnSuccessfulExecution: 0
+  targetKey:
+    m_Value:
+      m_Key: {fileID: 8310805269065138596, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  operationType: 0
+  operatorKey:
+    m_Value:
+      m_Key: {fileID: 6235062126746876699, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+--- !u!114 &-209927395654035900
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c6644, type: 3}
+  m_Name: EnumEqualsDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Precondition
+  m_Description: CurrentEquipment must not be equal to None.
+  m_CheckDuringExecution: 1
+  invert: 1
+  key:
+    m_Value:
+      m_Key: {fileID: 8310805269065138596, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  value:
+    m_TypeIdentifier: 24810CDF-70F7-4906-8B1D-FA60DADC1CEA
+    m_Value: 255
+--- !u!114 &-177427528532828466
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24aa5b80e95740efa69e4fca8cbb8db1, type: 3}
+  m_Name: MoveToTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0.1
+  m_Description: Navigate agent to 1.5 units around TargetEnemy at 4.
+  m_Target:
+    m_Value:
+      m_Key: {fileID: -3407975657028422647, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 80
+      m_IsValid: 1
+  m_TrackMovingTarget: 1
+  m_Tolerance: 1.5
+  m_Speed: 4
 --- !u!114 &-19367040927133681
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -900,7 +1358,8 @@ MonoBehaviour:
     m_Target: []
   m_TaskProviders:
   - {fileID: 7417535892507885530}
-  m_ServiceProviders: []
+  m_ServiceProviders:
+  - {fileID: 3011800142416952385}
   <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
     type: 2}
   <canBeAbstract>k__BackingField: 0
@@ -944,6 +1403,10 @@ MonoBehaviour:
     - {fileID: -19367040927133681}
     - {fileID: -5869169735386170880}
     - {fileID: 657883503132030861}
+    - {fileID: -8158310896417938352}
+    - {fileID: -6490930794751893004}
+    - {fileID: 1084789007811559061}
+    - {fileID: -5915381324029386955}
     m_MaxPlanSize: 7
 --- !u!114 &17159818469200163
 MonoBehaviour:
@@ -1012,6 +1475,20 @@ MonoBehaviour:
   value:
     m_TypeIdentifier: E8395A7D-9589-456D-B72B-9FC99808CC13
     m_Value: 0
+--- !u!114 &593947496733917743
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02b402696bf24e49bfcd8ba9479bf717, type: 3}
+  m_Name: EquipmentChangeListenerServiceProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 100
+  m_Description: Customize this description by overriding UpdateDescription().
 --- !u!114 &638759620038564881
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1059,8 +1536,10 @@ MonoBehaviour:
     - {fileID: 2964183110977697156}
   m_Target:
     m_Target: []
-  m_TaskProviders: []
-  m_ServiceProviders: []
+  m_TaskProviders:
+  - {fileID: -177427528532828466}
+  m_ServiceProviders:
+  - {fileID: -9109642957889765779}
   <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
     type: 2}
   <canBeAbstract>k__BackingField: 0
@@ -1144,6 +1623,34 @@ MonoBehaviour:
   <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
     type: 2}
   <canBeAbstract>k__BackingField: 1
+--- !u!114 &1084789007811559061
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcba4340a034f9e83fbb967f661bb5d, type: 3}
+  m_Name: Unsheathe
+  m_EditorClassIdentifier: 
+  m_Action:
+    m_Precondition:
+    - {fileID: -1335262856546618527}
+    m_Cost:
+    - {fileID: -3231691541699071820}
+    m_Effect:
+    - {fileID: -388394892313921800}
+  m_Target:
+    m_Target: []
+  m_TaskProviders:
+  - {fileID: -4211676218973713910}
+  m_ServiceProviders:
+  - {fileID: 593947496733917743}
+  <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+    type: 2}
+  <canBeAbstract>k__BackingField: 0
 --- !u!114 &1098963803995560738
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1163,6 +1670,7 @@ MonoBehaviour:
     m_UseExtraParam: 0
     m_ExtraParam: 1
     m_Duration: -1
+    m_Speed: 1
 --- !u!114 &1438488302357981566
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1215,6 +1723,27 @@ MonoBehaviour:
   value:
     m_TypeIdentifier: E8395A7D-9589-456D-B72B-9FC99808CC13
     m_Value: 0
+--- !u!114 &2398853264762006736
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce134a60a7744ca78200e852bec12839, type: 3}
+  m_Name: TurnTowardsObjectServiceProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0.1
+  m_Description: Customize this description by overriding UpdateDescription().
+  m_Target:
+    m_Value:
+      m_Key: {fileID: -3407975657028422647, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 16
+      m_IsValid: 1
 --- !u!114 &2457128637731905952
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1254,7 +1783,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Subtitle: Effect
   m_Description: Set DistanceToEnemy to Melee.
-  m_AutoApplyOnSuccessfulExecution: 1
+  m_AutoApplyOnSuccessfulExecution: 0
   key:
     m_Value:
       m_Key: {fileID: 7593340382305187595, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
@@ -1266,6 +1795,27 @@ MonoBehaviour:
   value:
     m_TypeIdentifier: 68284474-6A1C-4A1C-8555-6601AC6513C7
     m_Value: 3
+--- !u!114 &3011800142416952385
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce134a60a7744ca78200e852bec12839, type: 3}
+  m_Name: TurnTowardsObjectServiceProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0.1
+  m_Description: Customize this description by overriding UpdateDescription().
+  m_Target:
+    m_Value:
+      m_Key: {fileID: -3407975657028422647, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 16
+      m_IsValid: 1
 --- !u!114 &3248004944504920886
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1327,6 +1877,52 @@ MonoBehaviour:
     m_TypeIdentifier: 9CD41184-4EF1-4C8A-9387-7BBBB31618B7
     m_Value: 3
   score: 100
+--- !u!114 &3471862464079091445
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad6818e4de9846adba80edd01785671e, type: 3}
+  m_Name: EnumOperatorEffector
+  m_EditorClassIdentifier: 
+  m_Subtitle: Effect
+  m_Description: Set CurrentEquipment to None.
+  m_AutoApplyOnSuccessfulExecution: 1
+  key:
+    m_Value:
+      m_Key: {fileID: 8310805269065138596, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  operationType: 0
+  value:
+    m_TypeIdentifier: 24810CDF-70F7-4906-8B1D-FA60DADC1CEA
+    m_Value: 255
+--- !u!114 &3877562127113609310
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3ea17f14634137b6060baa722c5020, type: 3}
+  m_Name: PlayMontageTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0.1
+  m_Description: Customize this description by overriding UpdateDescription().
+  m_Info:
+    m_Type: 1
+    m_UseExtraParam: 0
+    m_ExtraParam: 1
+    m_Duration: 1.5
+    m_Speed: 1
 --- !u!114 &4007922746392884976
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1369,6 +1965,20 @@ MonoBehaviour:
   m_Description: Infinitely loops this task provider. Useful for turning off the
     AI and running scripted behaviours.
   m_Result: 0
+--- !u!114 &4391499565418889593
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c58ae3814f87470ebd76fca156ca98b8, type: 3}
+  m_Name: UpdateSpeedServiceProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0.1
+  m_Description: Customize this description by overriding UpdateDescription().
 --- !u!114 &4416143287681188617
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1426,6 +2036,7 @@ MonoBehaviour:
     m_Precondition: []
     m_Cost:
     - {fileID: -5312839726840959470}
+    - {fileID: -1025363657001508711}
     m_Effect:
     - {fileID: -1514218634615487038}
   m_Target:
@@ -1502,7 +2113,8 @@ MonoBehaviour:
     m_Target: []
   m_TaskProviders:
   - {fileID: -2834762033813940530}
-  m_ServiceProviders: []
+  m_ServiceProviders:
+  - {fileID: -4142664003705170121}
   <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
     type: 2}
   <canBeAbstract>k__BackingField: 0
@@ -1521,6 +2133,30 @@ MonoBehaviour:
   m_Subtitle: Cost
   m_Description: +5.
   score: 5
+--- !u!114 &6687240437189057303
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ecc27574ca4a030ff85de39d096ccb, type: 3}
+  m_Name: ObjectEqualsDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Precondition
+  m_Description: TargetEnemy must not be set to null.
+  m_CheckDuringExecution: 1
+  invert: 1
+  key:
+    m_Value:
+      m_Key: {fileID: -3407975657028422647, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 16
+      m_IsValid: 1
+  value: {fileID: 0}
 --- !u!114 &6837671588559697612
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1684,6 +2320,7 @@ MonoBehaviour:
     m_UseExtraParam: 0
     m_ExtraParam: 1
     m_Duration: -1
+    m_Speed: 1
 --- !u!114 &7473313244671864444
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1764,6 +2401,44 @@ MonoBehaviour:
   value:
     m_TypeIdentifier: E8395A7D-9589-456D-B72B-9FC99808CC13
     m_Value: 2
+--- !u!114 &8092423264218645059
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02b402696bf24e49bfcd8ba9479bf717, type: 3}
+  m_Name: EquipmentChangeListenerServiceProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 100
+  m_Description: Customize this description by overriding UpdateDescription().
+--- !u!114 &8257608058652852095
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f073722b6c814acdb3f6485ca22b0f0e, type: 3}
+  m_Name: IntegerOperatorEffector
+  m_EditorClassIdentifier: 
+  m_Subtitle: Effect
+  m_Description: Add 10 to Attack.
+  m_AutoApplyOnSuccessfulExecution: 0
+  key:
+    m_Value:
+      m_Key: {fileID: -5922190542980643467, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 8
+      m_IsValid: 1
+  operationType: 1
+  value: 10
 --- !u!114 &8259501710607009054
 MonoBehaviour:
   m_ObjectHideFlags: 3
