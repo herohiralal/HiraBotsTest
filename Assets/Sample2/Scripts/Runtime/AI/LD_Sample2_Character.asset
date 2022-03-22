@@ -191,7 +191,8 @@ MonoBehaviour:
     m_Target:
     - {fileID: 2457128637731905952}
   m_TaskProviders: []
-  m_ServiceProviders: []
+  m_ServiceProviders:
+  - {fileID: 200131577819732319}
   <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
     type: 2}
   <canBeAbstract>k__BackingField: 1
@@ -1098,7 +1099,8 @@ MonoBehaviour:
     - {fileID: -3825611528863175625}
     - {fileID: -5135393617119792945}
   m_TaskProviders: []
-  m_ServiceProviders: []
+  m_ServiceProviders:
+  - {fileID: 3116837145530887232}
   <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
     type: 2}
   <canBeAbstract>k__BackingField: 1
@@ -1423,6 +1425,20 @@ MonoBehaviour:
   m_Subtitle: Cost
   m_Description: +5.
   score: 5
+--- !u!114 &200131577819732319
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0de5a334b30142f4b4ef8cd551834fc0, type: 3}
+  m_Name: CurrentEnemyTrackerServiceProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0.1
+  m_Description: 
 --- !u!114 &362668811841449970
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1816,6 +1832,34 @@ MonoBehaviour:
       m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
       m_KeyTypes: 16
       m_IsValid: 1
+--- !u!114 &3095383495587324987
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0de5a334b30142f4b4ef8cd551834fc0, type: 3}
+  m_Name: CurrentEnemyTrackerServiceProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0.1
+  m_Description: Customize this description by overriding UpdateDescription().
+--- !u!114 &3116837145530887232
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0de5a334b30142f4b4ef8cd551834fc0, type: 3}
+  m_Name: CurrentEnemyTrackerServiceProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0.1
+  m_Description: Customize this description by overriding UpdateDescription().
 --- !u!114 &3248004944504920886
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -2206,7 +2250,8 @@ MonoBehaviour:
     m_Target:
     - {fileID: -4925661216990964686}
   m_TaskProviders: []
-  m_ServiceProviders: []
+  m_ServiceProviders:
+  - {fileID: 3095383495587324987}
   <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
     type: 2}
   <canBeAbstract>k__BackingField: 1
