@@ -38,7 +38,7 @@ namespace AIEngineTest
 
         public void Stop()
         {
-            // no op
+            s_Executables.Push(this);
         }
     }
 

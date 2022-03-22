@@ -39,6 +39,8 @@ namespace AIEngineTest
             m_Animator.equip.RemoveListener(OnEquipmentChange);
             m_Blackboard = default;
             m_Animator = null;
+
+            s_Executables.Push(this);
         }
 
         public void Tick(float deltaTime)
