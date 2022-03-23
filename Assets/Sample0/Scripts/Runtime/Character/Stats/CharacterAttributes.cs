@@ -315,6 +315,8 @@ namespace AIEngineTest
 
         #region Defence
 
+        public int armourClass => GetArmourClass(m_Class, m_Dexterity);
+
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int GetArmourBonus(CharacterClass cc) => cc switch
         {

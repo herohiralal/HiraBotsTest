@@ -27,6 +27,7 @@ namespace AIEngineTest
         [SerializeField] private UnityEvent<MontageType> m_OnStateExit;
         [SerializeField] private UnityEvent<EquipmentType> m_OnEquip;
 
+        public UnityEvent hit => m_OnHit;
         public UnityEvent<MontageType> stateEnter => m_OnStateEnter;
         public UnityEvent<MontageType> stateExit => m_OnStateExit;
         public UnityEvent<EquipmentType> equip => m_OnEquip;
