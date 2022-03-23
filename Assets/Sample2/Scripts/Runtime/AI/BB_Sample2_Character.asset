@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Name: TargetEnemy
   m_EditorClassIdentifier: 
   m_InstanceSynced: 0
-  m_EssentialToDecisionMaking: 0
+  m_EssentialToDecisionMaking: 1
 --- !u!114 &-2013374201838963471
 MonoBehaviour:
   m_ObjectHideFlags: 3

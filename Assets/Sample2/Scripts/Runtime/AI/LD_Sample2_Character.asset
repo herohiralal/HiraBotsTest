@@ -1406,9 +1406,9 @@ MonoBehaviour:
     - {fileID: -5869169735386170880}
     - {fileID: 657883503132030861}
     - {fileID: -8158310896417938352}
-    - {fileID: -6490930794751893004}
     - {fileID: 1084789007811559061}
     - {fileID: -5915381324029386955}
+    - {fileID: -6490930794751893004}
     m_MaxPlanSize: 7
 --- !u!114 &17159818469200163
 MonoBehaviour:
@@ -1438,7 +1438,7 @@ MonoBehaviour:
   m_Name: CurrentEnemyTrackerServiceProvider
   m_EditorClassIdentifier: 
   m_TickInterval: 0.1
-  m_Description: 
+  m_Description: Customize this description by overriding UpdateDescription().
 --- !u!114 &362668811841449970
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1965,8 +1965,8 @@ MonoBehaviour:
     m_Type: 1
     m_UseExtraParam: 0
     m_ExtraParam: 1
-    m_Duration: 1.5
-    m_Speed: 1
+    m_Duration: 2
+    m_Speed: 0.75
 --- !u!114 &4007922746392884976
 MonoBehaviour:
   m_ObjectHideFlags: 3
