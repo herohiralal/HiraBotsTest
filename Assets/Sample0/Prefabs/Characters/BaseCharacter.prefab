@@ -379,6 +379,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6987568033644381722}
+  - component: {fileID: 3106946120226006752}
   - component: {fileID: 6987568033644381724}
   - component: {fileID: 6987568033644381723}
   - component: {fileID: 6987568033644381725}
@@ -410,6 +411,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3106946120226006752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6987568033644381721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38cdf5958b274f0abd70c6ff96bbfb69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!195 &6987568033644381724
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -465,6 +478,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Animator: {fileID: 6987568034024766483}
   m_AnimatorHelper: {fileID: 6987568034024766484}
+  m_CharacterAttributes: {fileID: 3106946120226006752}
   m_CharacterMeshWeaponSocketProvider: {fileID: 6987568034024766482}
   m_SkinnedMeshRenderer: {fileID: 6987568032731841514}
   m_NavMeshAgent: {fileID: 6987568033644381724}

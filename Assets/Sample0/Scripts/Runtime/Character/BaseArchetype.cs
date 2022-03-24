@@ -6,6 +6,7 @@ namespace AIEngineTest
     public class BaseArchetype : MonoBehaviour,
         IHiraBotArchetype<Animator>,
         IHiraBotArchetype<AnimatorHelper>,
+        IHiraBotArchetype<CharacterAttributes>,
         IHiraBotArchetype<CharacterMeshWeaponSocketProvider>,
         IHiraBotArchetype<SkinnedMeshRenderer>,
         IHiraBotArchetype<NavMeshAgent>,
@@ -16,6 +17,7 @@ namespace AIEngineTest
     {
         [SerializeField] public Animator m_Animator = null;
         [SerializeField] public AnimatorHelper m_AnimatorHelper = null;
+        [SerializeField] public CharacterAttributes m_CharacterAttributes = null;
         [SerializeField] public CharacterMeshWeaponSocketProvider m_CharacterMeshWeaponSocketProvider = null;
         [SerializeField] public SkinnedMeshRenderer m_SkinnedMeshRenderer = null;
         [SerializeField] public NavMeshAgent m_NavMeshAgent = null;
@@ -26,6 +28,7 @@ namespace AIEngineTest
 
         Animator IHiraBotArchetype<Animator>.component => m_Animator;
         AnimatorHelper IHiraBotArchetype<AnimatorHelper>.component => m_AnimatorHelper;
+        CharacterAttributes IHiraBotArchetype<CharacterAttributes>.component => m_CharacterAttributes;
         CharacterMeshWeaponSocketProvider IHiraBotArchetype<CharacterMeshWeaponSocketProvider>.component => m_CharacterMeshWeaponSocketProvider;
         SkinnedMeshRenderer IHiraBotArchetype<SkinnedMeshRenderer>.component => m_SkinnedMeshRenderer;
         NavMeshAgent IHiraBotArchetype<NavMeshAgent>.component => m_NavMeshAgent;
