@@ -4,15 +4,14 @@ namespace AIEngineTest
 {
     public class Spawner : MonoBehaviour
     {
-        private bool m_Locked;
-
+        private int m_MinLevel = 10, m_MaxLevel = 14;
         private static readonly CharacterClass[] s_Classes = (CharacterClass[]) typeof(CharacterClass).GetEnumValues();
 
-        private System.Collections.IEnumerator Spawn(CharacterClass cc)
+        private static void Spawn(CharacterClass cc, int lvl)
         {
-            m_Locked = true;
-
             var character = GameManager.characterGenerator.Generate(Vector3.zero);
+
+            character.m_CharacterAttributes.Initialize(cc, lvl);
 
             var equipmentType = cc switch
             {
@@ -27,31 +26,41 @@ namespace AIEngineTest
 
             var brain = character.m_Brain;
 
-            while (!brain.blackboardComponent.isValid)
-            {
-                yield return null;
-            }
-
             brain.blackboardComponent.SetEnumValue("Class", cc);
             brain.blackboardComponent.SetEnumValue("OwnedEquipment", equipmentType);
-
-            m_Locked = false;
         }
 
         private void OnGUI()
         {
-            if (m_Locked)
-            {
-                return;
-            }
+            GUILayout.BeginHorizontal();
+
+            GUILayout.Space(30);
+
+            GUILayout.BeginVertical();
+
+            GUILayout.Space(100);
+
+            GUILayout.Label($"MinLevel: {m_MinLevel} ");
+            m_MinLevel = Mathf.Clamp((int) GUILayout.HorizontalSlider(m_MinLevel, 1, 20), 1, 20);
+
+            GUILayout.Space(10);
+
+            GUILayout.Label($"MaxLevel: {m_MaxLevel} ");
+            m_MaxLevel = Mathf.Clamp((int) GUILayout.HorizontalSlider(m_MaxLevel, 1, 20), m_MinLevel, 20);
+
+            GUILayout.Space(10);
 
             foreach (var cc in s_Classes)
             {
                 if (GUILayout.Button(cc.ToString()))
                 {
-                    StartCoroutine(Spawn(cc));
+                    Spawn(cc, Random.Range(m_MinLevel, m_MaxLevel + 1));
                 }
             }
+
+            GUILayout.EndVertical();
+
+            GUILayout.EndHorizontal();
         }
     }
 }

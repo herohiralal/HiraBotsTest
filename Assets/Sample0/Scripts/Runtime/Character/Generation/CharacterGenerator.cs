@@ -18,15 +18,18 @@ namespace AIEngineTest
             m_Archetypes.Clear();
         }
 
-        private BaseArchetype GetArchetype()
+        private BaseArchetype GetArchetype(Vector3 position, Quaternion rotation)
         {
             if (m_Archetypes.TryPop(out var pooled))
             {
                 pooled.gameObject.SetActive(true);
+                var t = pooled.transform;
+                t.position = position;
+                t.rotation = rotation;
                 return pooled;
             }
 
-            return Instantiate(m_BaseArchetypePrefab, Vector3.zero, Quaternion.identity);
+            return Instantiate(m_BaseArchetypePrefab, position, rotation);
         }
 
         public void Discard(BaseArchetype arch)
@@ -43,7 +46,7 @@ namespace AIEngineTest
 
         public BaseArchetype Generate(Vector3 position, Quaternion rotation)
         {
-            var arch = GetArchetype();
+            var arch = GetArchetype(position, rotation);
             arch.m_SkinnedMeshRenderer.sharedMesh = m_MeshCollection.GetRandom();
             arch.m_SkinnedMeshRenderer.sharedMaterial = m_MaterialCollection.GetRandom();
             return arch;
