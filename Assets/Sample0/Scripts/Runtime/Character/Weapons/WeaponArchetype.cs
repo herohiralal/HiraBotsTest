@@ -6,5 +6,6 @@ namespace AIEngineTest
     {
         [SerializeField] public MeshFilter m_MeshFilter;
         [SerializeField] public MeshRenderer m_MeshRenderer;
+        [SerializeField] public BoxCollider m_Collider;
     }
 }

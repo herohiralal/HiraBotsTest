@@ -35,6 +35,8 @@ namespace AIEngineTest
         {
             weapon.m_MeshFilter.sharedMesh = null;
             weapon.m_MeshRenderer.sharedMaterial = null;
+            weapon.m_Collider.center = Vector3.zero;
+            weapon.m_Collider.size = Vector3.zero;
             weapon.transform.SetParent(null);
             weapon.gameObject.SetActive(false);
             m_WeaponArchetypes.Push(weapon);
@@ -43,8 +45,17 @@ namespace AIEngineTest
         private WeaponArchetype GenerateWeapon(MeshCollection meshCollection)
         {
             var output = GetWeapon();
-            output.m_MeshFilter.sharedMesh = meshCollection.GetRandom();
-            output.m_MeshRenderer.sharedMaterial = m_MaterialCollection.GetRandom();
+
+            var mesh = meshCollection.GetRandom();
+            var material = m_MaterialCollection.GetRandom();
+
+            output.m_MeshFilter.sharedMesh = mesh;
+            output.m_MeshRenderer.sharedMaterial = material;
+
+            var rendererBounds = output.m_MeshRenderer.localBounds;
+            output.m_Collider.center = rendererBounds.center;
+            output.m_Collider.size = rendererBounds.size;
+
             return output;
         }
 
