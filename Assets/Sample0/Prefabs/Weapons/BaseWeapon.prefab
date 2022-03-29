@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1129607628420554514}
   - component: {fileID: 1129607628420554515}
   - component: {fileID: 1129607628420554512}
+  - component: {fileID: 6882365344843323368}
   m_Layer: 0
   m_Name: BaseWeapon
   m_TagString: Untagged
@@ -48,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MeshFilter: {fileID: 1129607628420554515}
   m_MeshRenderer: {fileID: 1129607628420554512}
+  m_Collider: {fileID: 6882365344843323368}
 --- !u!33 &1129607628420554515
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -98,3 +100,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6882365344843323368
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129607628420554518}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.04161889, y: 1.5435537, z: 0.29967636}
+  m_Center: {x: 0.00000007264317, y: 0.57822317, z: 0}

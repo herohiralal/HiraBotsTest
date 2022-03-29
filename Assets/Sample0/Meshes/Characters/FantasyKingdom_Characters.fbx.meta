@@ -592,7 +592,7 @@ ModelImporter:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
-    optimizeGameObjects: 1
+    optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
@@ -613,6 +613,20 @@ ModelImporter:
     - Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_R/Shoulder_R/Elbow_R/Hand_R
     - Root/Hips
     - Root/Hips/Spine_01/Spine_02
+    - Root/Hips/Spine_01
+    - Root/Hips/Spine_01/Spine_02/Spine_03
+    - Root/Hips/Spine_01/Spine_02/Spine_03/Neck
+    - Root/Hips/Spine_01/Spine_02/Spine_03/Neck/Head
+    - Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_L/Shoulder_L
+    - Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_L/Shoulder_L/Elbow_L
+    - Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_R/Shoulder_R
+    - Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_R/Shoulder_R/Elbow_R
+    - Root/Hips/UpperLeg_R
+    - Root/Hips/UpperLeg_R/LowerLeg_R
+    - Root/Hips/UpperLeg_R/LowerLeg_R/Ankle_R
+    - Root/Hips/UpperLeg_L
+    - Root/Hips/UpperLeg_L/LowerLeg_L
+    - Root/Hips/UpperLeg_L/LowerLeg_L/Ankle_L
     extraUserProperties: []
     clipAnimations: []
     isReadable: 0
