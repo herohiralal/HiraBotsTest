@@ -1,9 +1,9 @@
 {
   "dependencies": {
     "com.rohanjadav.hirabots": {
-      "version": "file:D:/_Projects/Unity/AIEngine.2019.4/Packages/com.rohanjadav.hirabots",
+      "version": "file:com.rohanjadav.hirabots",
       "depth": 0,
-      "source": "local",
+      "source": "embedded",
       "dependencies": {
         "com.unity.burst": "1.5.5",
         "com.unity.mathematics": "1.2.1"
@@ -33,7 +33,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.rider": {
-      "version": "3.0.10",
+      "version": "3.0.13",
       "depth": 0,
       "source": "registry",
       "dependencies": {
