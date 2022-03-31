@@ -78,6 +78,7 @@ namespace AIEngineTest.Editor
                 var indent = EditorGUI.indentLevel;
                 EditorGUI.indentLevel++;
 
+                socketProperty.m_Socket.isExpanded = EditorGUILayout.Toggle("Show Gizmo", socketProperty.m_Socket.isExpanded);
                 EditorGUILayout.PropertyField(socketProperty.m_PositionOffset);
                 EditorGUILayout.PropertyField(socketProperty.m_RotationOffset);
 
@@ -99,6 +100,11 @@ namespace AIEngineTest.Editor
 
         private static void DrawSceneGUI(SocketProperty property)
         {
+            if (!property.m_Socket.isExpanded)
+            {
+                return;
+            }
+
             var socket = property.m_Socket.objectReferenceValue as Transform;
             if (socket == null)
             {
