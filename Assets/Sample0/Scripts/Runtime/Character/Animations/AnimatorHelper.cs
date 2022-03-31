@@ -16,6 +16,7 @@ namespace AIEngineTest
         private static readonly int s_ActionNum = Animator.StringToHash("ActionNum");
         private static readonly int s_KeepMontageActive = Animator.StringToHash("KeepMontageActive");
         private static readonly int s_Direction = Animator.StringToHash("Direction");
+        private static readonly int s_GetUpFromRagdoll = Animator.StringToHash("GetUpFromRagdoll");
 
         [SerializeField] private Animator m_Animator;
         [SerializeField] private CharacterMeshWeaponSocketProvider m_CharacterMeshWeaponSocketProvider;
@@ -26,11 +27,14 @@ namespace AIEngineTest
         [SerializeField] private UnityEvent<MontageType> m_OnStateEnter;
         [SerializeField] private UnityEvent<MontageType> m_OnStateExit;
         [SerializeField] private UnityEvent<EquipmentType> m_OnEquip;
+        [SerializeField] private UnityEvent m_OnGetUpFromRagdoll;
+        [SerializeField] private Collider[] m_RagdollColliders;
 
         public UnityEvent hit => m_OnHit;
         public UnityEvent<MontageType> stateEnter => m_OnStateEnter;
         public UnityEvent<MontageType> stateExit => m_OnStateExit;
         public UnityEvent<EquipmentType> equip => m_OnEquip;
+        public UnityEvent getUpFromRagdoll => m_OnGetUpFromRagdoll;
 
         public float animatorSpeed
         {
@@ -264,6 +268,51 @@ namespace AIEngineTest
         {
             get => m_Animator.GetFloat(s_Speed) * GetMaxSpeedForCurrentWeaponType(m_CurrentEquipmentType);
             set => m_Animator.SetFloat(s_Speed, value / GetMaxSpeedForCurrentWeaponType(m_CurrentEquipmentType));
+        }
+
+        #endregion
+
+        #region Ragdoll
+
+        private bool ragdollCollidersEnabled
+        {
+            get => !m_RagdollColliders[0].isTrigger;
+            set
+            {
+                foreach (var col in m_RagdollColliders)
+                {
+                    col.isTrigger = !value;
+
+                    var rb = col.attachedRigidbody;
+                    rb.useGravity = value;
+                    rb.isKinematic = !value;
+                }
+            }
+        }
+
+        public void TriggerRagdollOn()
+        {
+            m_Animator.enabled = false;
+
+            if (m_CurrentMontageState != MontageType.None)
+            {
+                OnStateExit(m_CurrentMontageState);
+            }
+
+            ragdollCollidersEnabled = true;
+        }
+
+        public void TriggerRagdollOff()
+        {
+            m_Animator.enabled = true;
+            m_Animator.SetTrigger(s_GetUpFromRagdoll);
+
+            ragdollCollidersEnabled = false;
+        }
+
+        public void GetUpFromRagdoll()
+        {
+            m_OnGetUpFromRagdoll.Invoke();
         }
 
         #endregion

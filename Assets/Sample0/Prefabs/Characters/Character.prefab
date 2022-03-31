@@ -571,6 +571,20 @@ MonoBehaviour:
   m_OnEquip:
     m_PersistentCalls:
       m_Calls: []
+  m_RagdollColliders:
+  - {fileID: 5043045957569445614}
+  - {fileID: 5043045957569445632}
+  - {fileID: 5043045957569445584}
+  - {fileID: 5043045957569445520}
+  - {fileID: 5043045957569445602}
+  - {fileID: 5043045957569445587}
+  - {fileID: 5043045957569445518}
+  - {fileID: 8441075059161662973}
+  - {fileID: 5043045957569445616}
+  - {fileID: 5043045957569445646}
+  - {fileID: 5043045957569445578}
+  - {fileID: 5043045957569445658}
+  - {fileID: 5043045957569445576}
 --- !u!114 &5043045957562010958
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,6 +14,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TickInterval: 0
   m_Description: Customize this description by overriding UpdateDescription().
+--- !u!114 &-9059979147507413874
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcba4340a034f9e83fbb967f661bb5d, type: 3}
+  m_Name: StopRagdoll
+  m_EditorClassIdentifier: 
+  m_Action:
+    m_Precondition:
+    - {fileID: -2869817904699074055}
+    m_Cost:
+    - {fileID: -8688063079454394885}
+    m_Effect:
+    - {fileID: -3526829027848760602}
+  m_Target:
+    m_Target: []
+  m_TaskProviders:
+  - {fileID: -2214953617202864881}
+  m_ServiceProviders: []
+  <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+    type: 2}
+  <canBeAbstract>k__BackingField: 1
 --- !u!114 &-8946397342270897357
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -37,6 +64,21 @@ MonoBehaviour:
       m_KeyTypes: 16
       m_IsValid: 1
   value: {fileID: 0}
+--- !u!114 &-8688063079454394885
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f0c, type: 3}
+  m_Name: BaseScoreScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Cost
+  m_Description: +5.
+  score: 5
 --- !u!114 &-8450334316426616224
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -180,6 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Action:
     m_Precondition:
+    - {fileID: 9091932376135648486}
     - {fileID: -5329224797433534400}
     - {fileID: -1108444200129322972}
     m_Cost:
@@ -376,6 +419,29 @@ MonoBehaviour:
       m_IsValid: 1
   operationType: 1
   value: 10
+--- !u!114 &-6195360897291450559
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841fea4ba9b94948b9b5ff847474ea57, type: 3}
+  m_Name: BooleanIsSetDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Precondition
+  m_Description: Ragdoll must not be set.
+  m_CheckDuringExecution: 1
+  invert: 1
+  key:
+    m_Value:
+      m_Key: {fileID: 3665370147347724419, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 1
+      m_IsValid: 1
 --- !u!114 &-6130501275500744730
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -512,6 +578,21 @@ MonoBehaviour:
   value:
     m_TypeIdentifier: 9CD41184-4EF1-4C8A-9387-7BBBB31618B7
     m_Value: 0
+--- !u!114 &-5499486655036493784
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88371d2dafc44604aee17d7062a33f0c, type: 3}
+  m_Name: BaseScoreScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Cost
+  m_Description: +5.
+  score: 5
 --- !u!114 &-5329224797433534400
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -729,6 +810,20 @@ MonoBehaviour:
   m_Subtitle: Cost
   m_Description: +2.
   score: 2
+--- !u!114 &-3902778159895174960
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11daa2ca70b4442c9e2a44313a4b4d5c, type: 3}
+  m_Name: StartRagdollTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0
+  m_Description: Customize this description by overriding UpdateDescription().
 --- !u!114 &-3825611528863175625
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -802,6 +897,29 @@ MonoBehaviour:
   <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
     type: 2}
   <canBeAbstract>k__BackingField: 0
+--- !u!114 &-3526829027848760602
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf5cce8d3ca6458bbcf415de101c99e1, type: 3}
+  m_Name: BooleanIsSetEffector
+  m_EditorClassIdentifier: 
+  m_Subtitle: Effect
+  m_Description: Unset Ragdoll.
+  m_AutoApplyOnSuccessfulExecution: 1
+  key:
+    m_Value:
+      m_Key: {fileID: 3665370147347724419, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 1
+      m_IsValid: 1
+  operationType: 1
 --- !u!114 &-3391396670579932900
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -837,6 +955,52 @@ MonoBehaviour:
   m_Subtitle: Cost
   m_Description: +5.
   score: 5
+--- !u!114 &-3148438647718436225
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf5cce8d3ca6458bbcf415de101c99e1, type: 3}
+  m_Name: BooleanIsSetEffector
+  m_EditorClassIdentifier: 
+  m_Subtitle: Effect
+  m_Description: Set Ragdoll.
+  m_AutoApplyOnSuccessfulExecution: 1
+  key:
+    m_Value:
+      m_Key: {fileID: 3665370147347724419, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 1
+      m_IsValid: 1
+  operationType: 0
+--- !u!114 &-2869817904699074055
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841fea4ba9b94948b9b5ff847474ea57, type: 3}
+  m_Name: BooleanIsSetDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Precondition
+  m_Description: Ragdoll must be set.
+  m_CheckDuringExecution: 1
+  invert: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 3665370147347724419, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 1
+      m_IsValid: 1
 --- !u!114 &-2834762033813940530
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -924,6 +1088,20 @@ MonoBehaviour:
   value:
     m_TypeIdentifier: 68284474-6A1C-4A1C-8555-6601AC6513C7
     m_Value: 3
+--- !u!114 &-2214953617202864881
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492234c7f5cf464db268b50f58174da6, type: 3}
+  m_Name: GetUpFromRagdollTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0
+  m_Description: Customize this description by overriding UpdateDescription().
 --- !u!114 &-2115287137950413888
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -950,6 +1128,33 @@ MonoBehaviour:
   value:
     m_TypeIdentifier: 68284474-6A1C-4A1C-8555-6601AC6513C7
     m_Value: 2
+--- !u!114 &-1926976051334973120
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcba4340a034f9e83fbb967f661bb5d, type: 3}
+  m_Name: StartRagdoll
+  m_EditorClassIdentifier: 
+  m_Action:
+    m_Precondition:
+    - {fileID: -6195360897291450559}
+    m_Cost:
+    - {fileID: -5499486655036493784}
+    m_Effect:
+    - {fileID: -3148438647718436225}
+  m_Target:
+    m_Target: []
+  m_TaskProviders:
+  - {fileID: -3902778159895174960}
+  m_ServiceProviders: []
+  <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+    type: 2}
+  <canBeAbstract>k__BackingField: 1
 --- !u!114 &-1722824244363640331
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1089,6 +1294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Action:
     m_Precondition:
+    - {fileID: 7123856435987613388}
     - {fileID: -7639520243572987633}
     m_Cost:
     - {fileID: 7773551223617884357}
@@ -1180,6 +1386,29 @@ MonoBehaviour:
     m_TypeIdentifier: 24810CDF-70F7-4906-8B1D-FA60DADC1CEA
     m_Value: 255
   score: -1
+--- !u!114 &-995675742393934659
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841fea4ba9b94948b9b5ff847474ea5c, type: 3}
+  m_Name: BooleanIsSetScoreCalculator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Insistence
+  m_Description: +50. if WantRagdoll is set.
+  invert: 0
+  key:
+    m_Value:
+      m_Key: {fileID: -4813028934581627417, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 1
+      m_IsValid: 1
+  score: 50
 --- !u!114 &-815369239994259119
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1385,6 +1614,7 @@ MonoBehaviour:
     - {fileID: -1551265549423917042}
     - {fileID: -3391396670579932900}
     - {fileID: 3248004944504920886}
+    - {fileID: 3892370788254630204}
     m_MaxPlanSize: 1
   m_IntermediateLayers:
   - m_FallbackPlan: 0000
@@ -1394,6 +1624,8 @@ MonoBehaviour:
     - {fileID: 961934873488494227}
     - {fileID: -1390175553324034011}
     - {fileID: -8061847149712786236}
+    - {fileID: -1926976051334973120}
+    - {fileID: -9059979147507413874}
     m_MaxPlanSize: 5
   m_BottomLayer:
     m_FallbackPlan: 0000
@@ -1625,7 +1857,8 @@ MonoBehaviour:
   m_Name: Patrol
   m_EditorClassIdentifier: 
   m_Action:
-    m_Precondition: []
+    m_Precondition:
+    - {fileID: 1994390868321491036}
     m_Cost:
     - {fileID: 5917858588747002984}
     - {fileID: 7397045144417282247}
@@ -1739,6 +1972,29 @@ MonoBehaviour:
   value:
     m_TypeIdentifier: E8395A7D-9589-456D-B72B-9FC99808CC13
     m_Value: 0
+--- !u!114 &1994390868321491036
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841fea4ba9b94948b9b5ff847474ea57, type: 3}
+  m_Name: BooleanIsSetDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Precondition
+  m_Description: Ragdoll must not be set.
+  m_CheckDuringExecution: 1
+  invert: 1
+  key:
+    m_Value:
+      m_Key: {fileID: 3665370147347724419, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 1
+      m_IsValid: 1
 --- !u!114 &2398853264762006736
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1967,6 +2223,26 @@ MonoBehaviour:
     m_ExtraParam: 1
     m_Duration: 2
     m_Speed: 0.75
+--- !u!114 &3892370788254630204
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c884b2306cc04a2ea7bb379c81e7aefa, type: 3}
+  m_Name: Ragdoll
+  m_EditorClassIdentifier: 
+  m_Insistence:
+    m_Insistence:
+    - {fileID: -995675742393934659}
+  m_Target:
+    m_Target:
+    - {fileID: 6833086851286494731}
+  <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+    type: 2}
 --- !u!114 &4007922746392884976
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -2201,6 +2477,29 @@ MonoBehaviour:
       m_KeyTypes: 16
       m_IsValid: 1
   value: {fileID: 0}
+--- !u!114 &6833086851286494731
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841fea4ba9b94948b9b5ff847474ea57, type: 3}
+  m_Name: BooleanIsSetDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Target
+  m_Description: Ragdoll must be set.
+  m_CheckDuringExecution: 1
+  invert: 0
+  key:
+    m_Value:
+      m_Key: {fileID: 3665370147347724419, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 1
+      m_IsValid: 1
 --- !u!114 &6837671588559697612
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -2281,6 +2580,29 @@ MonoBehaviour:
     m_TypeIdentifier: 9CD41184-4EF1-4C8A-9387-7BBBB31618B7
     m_Value: 1
   score: 5
+--- !u!114 &7123856435987613388
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841fea4ba9b94948b9b5ff847474ea57, type: 3}
+  m_Name: BooleanIsSetDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Precondition
+  m_Description: Ragdoll must not be set.
+  m_CheckDuringExecution: 1
+  invert: 1
+  key:
+    m_Value:
+      m_Key: {fileID: 3665370147347724419, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 1
+      m_IsValid: 1
 --- !u!114 &7341143769011445492
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -2576,3 +2898,26 @@ MonoBehaviour:
   <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
     type: 2}
   <canBeAbstract>k__BackingField: 1
+--- !u!114 &9091932376135648486
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841fea4ba9b94948b9b5ff847474ea57, type: 3}
+  m_Name: BooleanIsSetDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Precondition
+  m_Description: Ragdoll must not be set.
+  m_CheckDuringExecution: 1
+  invert: 1
+  key:
+    m_Value:
+      m_Key: {fileID: 3665370147347724419, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 1
+      m_IsValid: 1

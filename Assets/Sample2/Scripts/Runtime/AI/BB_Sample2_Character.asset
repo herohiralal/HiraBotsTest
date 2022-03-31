@@ -50,6 +50,21 @@ MonoBehaviour:
     x: 0
     y: 0
     z: 0
+--- !u!114 &-4813028934581627417
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b933bed9b3bc407d9a704296b326ab4a, type: 3}
+  m_Name: WantRagdoll
+  m_EditorClassIdentifier: 
+  m_InstanceSynced: 0
+  m_EssentialToDecisionMaking: 1
+  m_DefaultValue: 0
 --- !u!114 &-3407975657028422647
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -110,6 +125,8 @@ MonoBehaviour:
   - {fileID: -3407975657028422647}
   - {fileID: 7593340382305187595}
   - {fileID: -2013374201838963471}
+  - {fileID: 3665370147347724419}
+  - {fileID: -4813028934581627417}
 --- !u!114 &1763845591122689936
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -140,6 +157,21 @@ MonoBehaviour:
   m_Name: GlobalTime
   m_EditorClassIdentifier: 
   m_InstanceSynced: 1
+  m_EssentialToDecisionMaking: 0
+  m_DefaultValue: 0
+--- !u!114 &3665370147347724419
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b933bed9b3bc407d9a704296b326ab4a, type: 3}
+  m_Name: Ragdoll
+  m_EditorClassIdentifier: 
+  m_InstanceSynced: 0
   m_EssentialToDecisionMaking: 0
   m_DefaultValue: 0
 --- !u!114 &4299253122412169877
