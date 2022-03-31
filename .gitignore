@@ -28,6 +28,7 @@
 
 # Rider cache directory
 .idea/
+[Pp]rojectSettings/RiderScriptEditorPersistedState.asset
 
 # Gradle cache directory
 .gradle/
