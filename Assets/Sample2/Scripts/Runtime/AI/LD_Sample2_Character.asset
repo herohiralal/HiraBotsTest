@@ -824,6 +824,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TickInterval: 0
   m_Description: Customize this description by overriding UpdateDescription().
+  m_GroundLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &-3825611528863175625
 MonoBehaviour:
   m_ObjectHideFlags: 3

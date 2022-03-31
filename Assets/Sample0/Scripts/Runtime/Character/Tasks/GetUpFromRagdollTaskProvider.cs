@@ -27,6 +27,7 @@ namespace AIEngineTest
         public void Begin()
         {
             m_AnimatorHelper.TriggerRagdollOff();
+            m_AnimatorHelper.applyRootMotion = true;
             m_Blackboard.SetBooleanValue("Ragdoll", false, true);
             m_AnimatorHelper.getUpFromRagdoll.AddListener(GetUpFromRagdoll);
         }
@@ -53,6 +54,7 @@ namespace AIEngineTest
 
         private void Recycle()
         {
+            m_AnimatorHelper.applyRootMotion = false;
             m_AnimatorHelper.getUpFromRagdoll.RemoveListener(GetUpFromRagdoll);
             m_Blackboard = default;
             m_AnimatorHelper = null;

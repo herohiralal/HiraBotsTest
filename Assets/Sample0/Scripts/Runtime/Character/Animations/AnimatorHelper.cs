@@ -17,6 +17,7 @@ namespace AIEngineTest
         private static readonly int s_KeepMontageActive = Animator.StringToHash("KeepMontageActive");
         private static readonly int s_Direction = Animator.StringToHash("Direction");
         private static readonly int s_GetUpFromRagdoll = Animator.StringToHash("GetUpFromRagdoll");
+        private static readonly int s_FacingUp = Animator.StringToHash("FacingUp");
 
         [SerializeField] private Animator m_Animator;
         [SerializeField] private CharacterMeshWeaponSocketProvider m_CharacterMeshWeaponSocketProvider;
@@ -29,12 +30,28 @@ namespace AIEngineTest
         [SerializeField] private UnityEvent<EquipmentType> m_OnEquip;
         [SerializeField] private UnityEvent m_OnGetUpFromRagdoll;
         [SerializeField] private Collider[] m_RagdollColliders;
+        [SerializeField] private Transform m_HipPivot;
+        [SerializeField] private Transform m_NeckPivot;
 
         public UnityEvent hit => m_OnHit;
         public UnityEvent<MontageType> stateEnter => m_OnStateEnter;
         public UnityEvent<MontageType> stateExit => m_OnStateExit;
         public UnityEvent<EquipmentType> equip => m_OnEquip;
         public UnityEvent getUpFromRagdoll => m_OnGetUpFromRagdoll;
+        public Transform hipPivot => m_HipPivot;
+        public Transform neckPivot => m_NeckPivot;
+
+        public AnimatorUpdateMode updateMode
+        {
+            get => m_Animator.updateMode;
+            set => m_Animator.updateMode = value;
+        }
+
+        public bool applyRootMotion
+        {
+            get => m_Animator.applyRootMotion;
+            set => m_Animator.applyRootMotion = value;
+        }
 
         public float animatorSpeed
         {
@@ -274,9 +291,10 @@ namespace AIEngineTest
 
         #region Ragdoll
 
+        public Collider ragdollRoot => m_RagdollColliders[0];
+
         private bool ragdollCollidersEnabled
         {
-            get => !m_RagdollColliders[0].isTrigger;
             set
             {
                 foreach (var col in m_RagdollColliders)
@@ -306,6 +324,7 @@ namespace AIEngineTest
         {
             m_Animator.enabled = true;
             m_Animator.SetTrigger(s_GetUpFromRagdoll);
+            m_Animator.SetBool(s_FacingUp, Vector3.Dot(m_HipPivot.forward, Vector3.up) >= 0);
 
             ragdollCollidersEnabled = false;
         }
