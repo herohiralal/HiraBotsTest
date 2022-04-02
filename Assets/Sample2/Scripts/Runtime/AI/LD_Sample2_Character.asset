@@ -1980,8 +1980,8 @@ MonoBehaviour:
   m_Name: MeleeAttackResponseServiceProvider
   m_EditorClassIdentifier: 
   m_TickInterval: 10000
-  m_Description: 'Response type: OnlyStats.'
-  m_ResponseType: 2
+  m_Description: 'Response type: Normal.'
+  m_ResponseType: 0
 --- !u!114 &1392258767472578104
 MonoBehaviour:
   m_ObjectHideFlags: 3
