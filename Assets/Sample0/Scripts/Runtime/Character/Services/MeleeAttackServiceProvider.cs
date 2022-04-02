@@ -90,6 +90,12 @@ namespace AIEngineTest
 
         private void OnAttack(BaseArchetype target)
         {
+            // don't damage self
+            if (target.m_CharacterAttributes == m_Attributes)
+            {
+                return;
+            }
+
             target.m_Brain.Message<MeleeAttackStimulus>(new MeleeAttackStimulus
             {
                 m_InstigatorAttributes = m_Attributes
