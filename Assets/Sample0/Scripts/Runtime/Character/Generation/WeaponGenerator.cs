@@ -56,6 +56,9 @@ namespace AIEngineTest
             output.m_Collider.center = rendererBounds.center;
             output.m_Collider.size = rendererBounds.size;
 
+            output.m_AttackCollisionHelper.enabled = false;
+            output.m_IdleCollisionHelper.enabled = true;
+
             return output;
         }
 

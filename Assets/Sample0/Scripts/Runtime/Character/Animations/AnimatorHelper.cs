@@ -23,7 +23,10 @@ namespace AIEngineTest
         [SerializeField] private CharacterMeshWeaponSocketProvider m_CharacterMeshWeaponSocketProvider;
         [SerializeField] private UnityEvent m_OnFootL;
         [SerializeField] private UnityEvent m_OnFootR;
-        [SerializeField] private UnityEvent m_OnHit;
+        [SerializeField] private UnityEvent m_OnHitRStart;
+        [SerializeField] private UnityEvent m_OnHitRStop;
+        [SerializeField] private UnityEvent m_OnHitLStart;
+        [SerializeField] private UnityEvent m_OnHitLStop;
         [SerializeField] private UnityEvent m_OnCast;
         [SerializeField] private UnityEvent<MontageType> m_OnStateEnter;
         [SerializeField] private UnityEvent<MontageType> m_OnStateExit;
@@ -33,7 +36,11 @@ namespace AIEngineTest
         [SerializeField] private Transform m_HipPivot;
         [SerializeField] private Transform m_NeckPivot;
 
-        public UnityEvent hit => m_OnHit;
+        public UnityEvent hitRStart => m_OnHitRStart;
+        public UnityEvent hitRStop => m_OnHitRStop;
+
+        public UnityEvent hitLStart => m_OnHitLStart;
+        public UnityEvent hitLStop => m_OnHitLStop;
         public UnityEvent<MontageType> stateEnter => m_OnStateEnter;
         public UnityEvent<MontageType> stateExit => m_OnStateExit;
         public UnityEvent<EquipmentType> equip => m_OnEquip;
@@ -293,21 +300,6 @@ namespace AIEngineTest
 
         public Collider ragdollRoot => m_RagdollColliders[0];
 
-        private bool ragdollCollidersEnabled
-        {
-            set
-            {
-                foreach (var col in m_RagdollColliders)
-                {
-                    col.isTrigger = !value;
-
-                    var rb = col.attachedRigidbody;
-                    rb.useGravity = value;
-                    rb.isKinematic = !value;
-                }
-            }
-        }
-
         public void TriggerRagdollOn()
         {
             m_Animator.enabled = false;
@@ -316,8 +308,6 @@ namespace AIEngineTest
             {
                 OnStateExit(m_CurrentMontageState);
             }
-
-            ragdollCollidersEnabled = true;
         }
 
         public void TriggerRagdollOff()
@@ -325,8 +315,6 @@ namespace AIEngineTest
             m_Animator.enabled = true;
             m_Animator.SetTrigger(s_GetUpFromRagdoll);
             m_Animator.SetBool(s_FacingUp, Vector3.Dot(m_HipPivot.forward, Vector3.up) >= 0);
-
-            ragdollCollidersEnabled = false;
         }
 
         public void GetUpFromRagdoll()
@@ -349,9 +337,27 @@ namespace AIEngineTest
         }
 
         [Preserve]
-        public void Hit()
+        public void HitRStart()
         {
-            m_OnHit.Invoke();
+            m_OnHitRStart.Invoke();
+        }
+
+        [Preserve]
+        public void HitRStop()
+        {
+            m_OnHitRStop.Invoke();
+        }
+
+        [Preserve]
+        public void HitLStart()
+        {
+            m_OnHitLStart.Invoke();
+        }
+
+        [Preserve]
+        public void HitLStop()
+        {
+            m_OnHitLStop.Invoke();
         }
 
         [Preserve]

@@ -94,7 +94,7 @@ namespace AIEngineTest
                     switch (m_ResponseType)
                     {
                         case MeleeAttackResponseType.Normal:
-                            m_Blackboard.SetEnumValue("ReactionRequired", ReactionType.AvoidHit);
+                            // m_Blackboard.SetEnumValue("ReactionRequired", ReactionType.AvoidHit);
                             break;
                         case MeleeAttackResponseType.OnlyStats:
                             break;
@@ -110,7 +110,7 @@ namespace AIEngineTest
     {
         public MeleeAttackResponseServiceProvider()
         {
-            tickInterval = 1000f;
+            tickInterval = 10000f;
         }
 
         [SerializeField] private MeleeAttackResponseType m_ResponseType = MeleeAttackResponseType.Normal;
@@ -120,6 +120,11 @@ namespace AIEngineTest
             return archetype is IHiraBotArchetype<CharacterAttributes> attributes
                 ? MeleeAttackResponseService.Get(attributes.component, blackboard, m_ResponseType)
                 : null;
+        }
+
+        protected override void UpdateDescription(out string staticDescription)
+        {
+            staticDescription = $"Response type: {m_ResponseType}.";
         }
     }
 }

@@ -205,6 +205,7 @@ MonoBehaviour:
   - {fileID: -5790180416448061985}
   m_ServiceProviders:
   - {fileID: 4391499565418889593}
+  - {fileID: 1392258767472578104}
   <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
     type: 2}
   <canBeAbstract>k__BackingField: 0
@@ -369,6 +370,8 @@ MonoBehaviour:
   - {fileID: 3877562127113609310}
   m_ServiceProviders:
   - {fileID: 2398853264762006736}
+  - {fileID: 3411927154139633550}
+  - {fileID: 1170280518253950567}
   <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
     type: 2}
   <canBeAbstract>k__BackingField: 0
@@ -483,6 +486,7 @@ MonoBehaviour:
   - {fileID: -8450334316426616224}
   m_ServiceProviders:
   - {fileID: 8092423264218645059}
+  - {fileID: 8240866715486747596}
   <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
     type: 2}
   <canBeAbstract>k__BackingField: 0
@@ -510,7 +514,8 @@ MonoBehaviour:
     m_Target: []
   m_TaskProviders:
   - {fileID: 1098963803995560738}
-  m_ServiceProviders: []
+  m_ServiceProviders:
+  - {fileID: -5249872843727923056}
   <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
     type: 2}
   <canBeAbstract>k__BackingField: 0
@@ -593,6 +598,23 @@ MonoBehaviour:
   m_Subtitle: Cost
   m_Description: +5.
   score: 5
+--- !u!114 &-5345666608481922460
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11daa2ca70b4442c9e2a44313a4b4d5c, type: 3}
+  m_Name: StartRagdollTaskProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 0.05
+  m_Description: Customize this description by overriding UpdateDescription().
+  m_GroundLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &-5329224797433534400
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -631,6 +653,21 @@ MonoBehaviour:
   m_Subtitle: Cost
   m_Description: +5.
   score: 5
+--- !u!114 &-5249872843727923056
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7b3ca9941548f48af6320058fd0b92, type: 3}
+  m_Name: MeleeAttackResponseServiceProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 10000
+  m_Description: 'Response type: Normal.'
+  m_ResponseType: 0
 --- !u!114 &-5135393617119792945
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -774,27 +811,6 @@ MonoBehaviour:
     m_ExtraParam: 1
     m_Duration: -1
     m_Speed: 0.75
---- !u!114 &-4142664003705170121
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce134a60a7744ca78200e852bec12839, type: 3}
-  m_Name: TurnTowardsObjectServiceProvider
-  m_EditorClassIdentifier: 
-  m_TickInterval: 0.1
-  m_Description: Customize this description by overriding UpdateDescription().
-  m_Target:
-    m_Value:
-      m_Key: {fileID: -3407975657028422647, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
-        type: 2}
-      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
-      m_KeyTypes: 16
-      m_IsValid: 1
 --- !u!114 &-4022095164986201949
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -853,26 +869,6 @@ MonoBehaviour:
   value:
     m_TypeIdentifier: 24810CDF-70F7-4906-8B1D-FA60DADC1CEA
     m_Value: 255
---- !u!114 &-3800108734435143394
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a3ea17f14634137b6060baa722c5020, type: 3}
-  m_Name: PlayMontageTaskProvider
-  m_EditorClassIdentifier: 
-  m_TickInterval: 0.2
-  m_Description: Customize this description by overriding UpdateDescription().
-  m_Info:
-    m_Type: 6
-    m_UseExtraParam: 0
-    m_ExtraParam: 1
-    m_Duration: 150
-    m_Speed: 1
 --- !u!114 &-3601401773832373301
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -895,7 +891,7 @@ MonoBehaviour:
   m_Target:
     m_Target: []
   m_TaskProviders:
-  - {fileID: -3800108734435143394}
+  - {fileID: -5345666608481922460}
   m_ServiceProviders: []
   <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
     type: 2}
@@ -1039,6 +1035,21 @@ MonoBehaviour:
   m_Subtitle: Cost
   m_Description: +5.
   score: 5
+--- !u!114 &-2595717441320541723
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7b3ca9941548f48af6320058fd0b92, type: 3}
+  m_Name: MeleeAttackResponseServiceProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 10000
+  m_Description: 'Response type: Normal.'
+  m_ResponseType: 0
 --- !u!114 &-2578607756894425141
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1412,6 +1423,21 @@ MonoBehaviour:
       m_KeyTypes: 1
       m_IsValid: 1
   score: 50
+--- !u!114 &-818829434979224388
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7b3ca9941548f48af6320058fd0b92, type: 3}
+  m_Name: MeleeAttackResponseServiceProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 10000
+  m_Description: 'Response type: Normal.'
+  m_ResponseType: 0
 --- !u!114 &-815369239994259119
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1568,6 +1594,21 @@ MonoBehaviour:
   m_TrackMovingTarget: 1
   m_Tolerance: 1.5
   m_Speed: 4
+--- !u!114 &-143300047219132843
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7b3ca9941548f48af6320058fd0b92, type: 3}
+  m_Name: MeleeAttackResponseServiceProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 10000
+  m_Description: 'Response type: Normal.'
+  m_ResponseType: 0
 --- !u!114 &-19367040927133681
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1594,6 +1635,7 @@ MonoBehaviour:
   - {fileID: 7417535892507885530}
   m_ServiceProviders:
   - {fileID: 3011800142416952385}
+  - {fileID: -818829434979224388}
   <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
     type: 2}
   <canBeAbstract>k__BackingField: 0
@@ -1791,6 +1833,7 @@ MonoBehaviour:
   - {fileID: -177427528532828466}
   m_ServiceProviders:
   - {fileID: -9109642957889765779}
+  - {fileID: 5465755789638460398}
   <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
     type: 2}
   <canBeAbstract>k__BackingField: 0
@@ -1900,6 +1943,7 @@ MonoBehaviour:
   - {fileID: -4211676218973713910}
   m_ServiceProviders:
   - {fileID: 593947496733917743}
+  - {fileID: -2595717441320541723}
   <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
     type: 2}
   <canBeAbstract>k__BackingField: 0
@@ -1923,6 +1967,36 @@ MonoBehaviour:
     m_ExtraParam: 1
     m_Duration: -1
     m_Speed: 1
+--- !u!114 &1170280518253950567
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7b3ca9941548f48af6320058fd0b92, type: 3}
+  m_Name: MeleeAttackResponseServiceProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 10000
+  m_Description: 'Response type: OnlyStats.'
+  m_ResponseType: 2
+--- !u!114 &1392258767472578104
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7b3ca9941548f48af6320058fd0b92, type: 3}
+  m_Name: MeleeAttackResponseServiceProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 10000
+  m_Description: 'Response type: Normal.'
+  m_ResponseType: 0
 --- !u!114 &1438488302357981566
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -2044,6 +2118,21 @@ MonoBehaviour:
       m_IsValid: 1
   secondValue: 30
   comparisonType: 2
+--- !u!114 &2576262239229941557
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7b3ca9941548f48af6320058fd0b92, type: 3}
+  m_Name: MeleeAttackResponseServiceProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 10000
+  m_Description: 'Response type: OnlyStats.'
+  m_ResponseType: 2
 --- !u!114 &2964183110977697156
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -2154,6 +2243,20 @@ MonoBehaviour:
   m_Subtitle: Cost
   m_Description: +5.
   score: 5
+--- !u!114 &3411927154139633550
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63b092fe0d644ba2b1374b22a20694c4, type: 3}
+  m_Name: MeleeAttackServiceProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 10000
+  m_Description: Customize this description by overriding UpdateDescription().
 --- !u!114 &3431121298872760984
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -2343,6 +2446,21 @@ MonoBehaviour:
   value:
     m_TypeIdentifier: E8395A7D-9589-456D-B72B-9FC99808CC13
     m_Value: 0
+--- !u!114 &5465755789638460398
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7b3ca9941548f48af6320058fd0b92, type: 3}
+  m_Name: MeleeAttackResponseServiceProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 10000
+  m_Description: 'Response type: Normal.'
+  m_ResponseType: 0
 --- !u!114 &5784935958961617608
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -2370,6 +2488,7 @@ MonoBehaviour:
   - {fileID: 7473313244671864444}
   m_ServiceProviders:
   - {fileID: -5852278631290763677}
+  - {fileID: -143300047219132843}
   <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
     type: 2}
   <canBeAbstract>k__BackingField: 1
@@ -2437,7 +2556,7 @@ MonoBehaviour:
   m_TaskProviders:
   - {fileID: -2834762033813940530}
   m_ServiceProviders:
-  - {fileID: -4142664003705170121}
+  - {fileID: 2576262239229941557}
   <blackboard>k__BackingField: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
     type: 2}
   <canBeAbstract>k__BackingField: 0
@@ -2785,6 +2904,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TickInterval: 100
   m_Description: Customize this description by overriding UpdateDescription().
+--- !u!114 &8240866715486747596
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7b3ca9941548f48af6320058fd0b92, type: 3}
+  m_Name: MeleeAttackResponseServiceProvider
+  m_EditorClassIdentifier: 
+  m_TickInterval: 10000
+  m_Description: 'Response type: Normal.'
+  m_ResponseType: 0
 --- !u!114 &8257608058652852095
 MonoBehaviour:
   m_ObjectHideFlags: 3
