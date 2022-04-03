@@ -110,6 +110,7 @@ namespace AIEngineTest
                     throw new System.ArgumentOutOfRangeException();
             }
 
+            m_AnimatorHelper.applyRootMotion = true;
             m_AnimatorHelper.currentMontageState = m_Type;
         }
 
@@ -172,6 +173,7 @@ namespace AIEngineTest
 
         private void Recycle()
         {
+            m_AnimatorHelper.applyRootMotion = false;
             m_AnimatorHelper.animatorSpeed = m_OriginalSpeed;
             m_AnimatorHelper.keepMontageActive = false;
             m_AnimatorHelper.stateEnter.RemoveListener(OnAnimatorStateEnter);
