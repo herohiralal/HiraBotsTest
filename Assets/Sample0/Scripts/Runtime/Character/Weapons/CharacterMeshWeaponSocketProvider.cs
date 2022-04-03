@@ -90,13 +90,13 @@ namespace AIEngineTest
 
             if (m_DaggerRSockets.m_Equipped)
             {
-                weaponArchetype = m_SwordSockets.m_EquippedSocket.currentlyAttached;
+                weaponArchetype = m_DaggerRSockets.m_EquippedSocket.currentlyAttached;
                 return true;
             }
 
             if (m_StaffSockets.m_Equipped)
             {
-                weaponArchetype = m_SwordSockets.m_EquippedSocket.currentlyAttached;
+                weaponArchetype = m_StaffSockets.m_EquippedSocket.currentlyAttached;
                 return true;
             }
 
@@ -109,6 +109,12 @@ namespace AIEngineTest
             if (m_DaggerLSockets.m_Equipped)
             {
                 weaponArchetype = m_DaggerLSockets.m_EquippedSocket.currentlyAttached;
+                return true;
+            }
+
+            if (m_ShieldSockets.m_Equipped)
+            {
+                weaponArchetype = m_ShieldSockets.m_EquippedSocket.currentlyAttached;
                 return true;
             }
 
