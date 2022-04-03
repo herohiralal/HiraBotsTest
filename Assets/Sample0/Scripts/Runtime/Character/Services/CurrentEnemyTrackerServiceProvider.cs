@@ -38,37 +38,48 @@ namespace AIEngineTest
             TargetRelativeDistance trd;
             TargetRelativePosition trp;
 
-            if (blackboard.GetObjectValue("TargetEnemy") is not IHiraBotArchetype target)
+            if (blackboard.GetObjectValue("TargetEnemy") is not
+                (IHiraBotArchetype target
+                and IHiraBotArchetype<CharacterAttributes> character))
             {
                 trp = TargetRelativePosition.Irrelevant;
                 trd = TargetRelativeDistance.Irrelevant;
             }
             else
             {
-                var selfTransform = self.gameObject.transform;
-                var otherTransform = target.gameObject.transform;
-
-                var selfPos = selfTransform.position;
-                var otherPos = otherTransform.position;
-
+                if ((Object) target == null || character.component.hitPoints.current == 0)
                 {
-                    var dist = Vector3.Distance(selfPos, otherPos);
-                    trd = dist switch
-                    {
-                        <= 2.0f => TargetRelativeDistance.Melee,
-                        <= 7.5f => TargetRelativeDistance.Short,
-                        _ => TargetRelativeDistance.Long
-                    };
+                    blackboard.SetObjectValue("TargetEnemy", null);
+                    trd = TargetRelativeDistance.Irrelevant;
+                    trp = TargetRelativePosition.Irrelevant;
                 }
-
+                else
                 {
-                    var dot = Vector3.Dot(otherTransform.forward, (selfPos - otherPos).normalized);
-                    trp = dot switch
+                    var selfTransform = self.gameObject.transform;
+                    var otherTransform = target.gameObject.transform;
+
+                    var selfPos = selfTransform.position;
+                    var otherPos = otherTransform.position;
+
                     {
-                        >= 0.5f => TargetRelativePosition.InFront,
-                        >= -0.5f => TargetRelativePosition.Flanking,
-                        _ => TargetRelativePosition.Sneaking
-                    };
+                        var dist = Vector3.Distance(selfPos, otherPos);
+                        trd = dist switch
+                        {
+                            <= 2.0f => TargetRelativeDistance.Melee,
+                            <= 7.5f => TargetRelativeDistance.Short,
+                            _ => TargetRelativeDistance.Long
+                        };
+                    }
+
+                    {
+                        var dot = Vector3.Dot(otherTransform.forward, (selfPos - otherPos).normalized);
+                        trp = dot switch
+                        {
+                            >= 0.5f => TargetRelativePosition.InFront,
+                            >= -0.5f => TargetRelativePosition.Flanking,
+                            _ => TargetRelativePosition.Sneaking
+                        };
+                    }
                 }
             }
 
@@ -78,8 +89,6 @@ namespace AIEngineTest
 
         public void Stop()
         {
-            Run(m_Self, m_Blackboard);
-
             m_Blackboard = default;
             s_Executables.Push(this);
         }

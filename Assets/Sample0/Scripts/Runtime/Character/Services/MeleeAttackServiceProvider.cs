@@ -6,12 +6,13 @@ namespace AIEngineTest
 {
     public class MeleeAttackService : IHiraBotsService
     {
-        public static MeleeAttackService Get(CharacterAttributes attributes, AnimatorHelper animator, CharacterMeshWeaponSocketProvider socketProvider)
+        public static MeleeAttackService Get(CharacterAttributes attributes, AnimatorHelper animator, CharacterMeshWeaponSocketProvider socketProvider, BlackboardComponent blackboard)
         {
             var output = s_Executables.Count > 0 ? s_Executables.Pop() : new MeleeAttackService();
             output.m_Attributes = attributes;
             output.m_Animator = animator;
             output.m_SocketProvider = socketProvider;
+            output.m_Blackboard = blackboard;
             return output;
         }
 
@@ -22,6 +23,7 @@ namespace AIEngineTest
         private CharacterAttributes m_Attributes;
         private AnimatorHelper m_Animator;
         private CharacterMeshWeaponSocketProvider m_SocketProvider;
+        private BlackboardComponent m_Blackboard;
 
         private static readonly Stack<MeleeAttackService> s_Executables = new Stack<MeleeAttackService>();
 
@@ -87,9 +89,10 @@ namespace AIEngineTest
             m_Attributes = null;
             m_Animator = null;
             m_SocketProvider = null;
+            m_Blackboard = default;
         }
 
-        private void OnAttack(BaseArchetype target, Vector3 contactPoint)
+        private unsafe void OnAttack(BaseArchetype target, Vector3 contactPoint)
         {
             // don't damage self
             if (target.m_CharacterAttributes == m_Attributes)
@@ -97,11 +100,18 @@ namespace AIEngineTest
                 return;
             }
 
+            MeleeAttackResult result = default;
             target.m_Brain.Message<MeleeAttackStimulus>(new MeleeAttackStimulus
             {
                 m_InstigatorAttributes = m_Attributes,
-                m_ContactPoint = contactPoint
+                m_ContactPoint = contactPoint,
+                m_Result = &result
             });
+
+            if ((result.m_Flags & MeleeAttackResultFlags.VictimDead) != 0)
+            {
+                m_Blackboard.SetObjectValue("TargetEnemy", null);
+            }
         }
     }
 
@@ -118,7 +128,7 @@ namespace AIEngineTest
                 IHiraBotArchetype<CharacterAttributes> attributes
                 and IHiraBotArchetype<AnimatorHelper> animator
                 and IHiraBotArchetype<CharacterMeshWeaponSocketProvider> socketProvider
-                ? MeleeAttackService.Get(attributes.component, animator.component, socketProvider.component)
+                ? MeleeAttackService.Get(attributes.component, animator.component, socketProvider.component, blackboard)
                 : null;
         }
     }

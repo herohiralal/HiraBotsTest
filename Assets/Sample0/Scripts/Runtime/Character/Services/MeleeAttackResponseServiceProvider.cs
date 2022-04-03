@@ -12,10 +12,23 @@ namespace AIEngineTest
         OnlyStats,
     }
 
-    public struct MeleeAttackStimulus
+    public unsafe struct MeleeAttackStimulus
     {
         public CharacterAttributes m_InstigatorAttributes;
         public Vector3 m_ContactPoint;
+        public MeleeAttackResult* m_Result;
+    }
+
+    [System.Flags]
+    public enum MeleeAttackResultFlags : byte
+    {
+        Successful = 1 << 0,
+        VictimDead = 1 << 1,
+    }
+
+    public struct MeleeAttackResult
+    {
+        public MeleeAttackResultFlags m_Flags;
     }
 
     public class MeleeAttackResponseService : IHiraBotsService, IMessageListener<MeleeAttackStimulus>
@@ -56,7 +69,7 @@ namespace AIEngineTest
             m_ResponseType = MeleeAttackResponseType.Ignore;
         }
 
-        public void OnMessageReceived(MeleeAttackStimulus message)
+        public unsafe void OnMessageReceived(MeleeAttackStimulus message)
         {
             if (m_ResponseType != MeleeAttackResponseType.Ignore)
             {
@@ -73,6 +86,8 @@ namespace AIEngineTest
 
                 if (success)
                 {
+                    message.m_Result->m_Flags |= MeleeAttackResultFlags.Successful;
+
                     var (damageMin, damageMax, damageType) = otherAttributes.equippedWeaponDamageRange;
                     var damageVal = Random.Range(damageMin, damageMax + 1);
 
@@ -95,6 +110,11 @@ namespace AIEngineTest
                     if (ParticleFXPoolManager.TryGet(poolName, out var pool))
                     {
                         pool.Get(message.m_ContactPoint);
+                    }
+
+                    if (newHitPoints == 0)
+                    {
+                        message.m_Result->m_Flags |= MeleeAttackResultFlags.VictimDead;
                     }
 
                     switch (m_ResponseType)
