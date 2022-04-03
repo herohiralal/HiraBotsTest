@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.AI;
 
 namespace AIEngineTest
@@ -88,7 +89,7 @@ namespace AIEngineTest
             m_SocketProvider = null;
         }
 
-        private void OnAttack(BaseArchetype target)
+        private void OnAttack(BaseArchetype target, Vector3 contactPoint)
         {
             // don't damage self
             if (target.m_CharacterAttributes == m_Attributes)
@@ -98,7 +99,8 @@ namespace AIEngineTest
 
             target.m_Brain.Message<MeleeAttackStimulus>(new MeleeAttackStimulus
             {
-                m_InstigatorAttributes = m_Attributes
+                m_InstigatorAttributes = m_Attributes,
+                m_ContactPoint = contactPoint
             });
         }
     }

@@ -15,14 +15,16 @@ namespace AIEngineTest
     public struct MeleeAttackStimulus
     {
         public CharacterAttributes m_InstigatorAttributes;
+        public Vector3 m_ContactPoint;
     }
 
     public class MeleeAttackResponseService : IHiraBotsService, IMessageListener<MeleeAttackStimulus>
     {
-        public static MeleeAttackResponseService Get(CharacterAttributes selfAttributes, BlackboardComponent blackboard, MeleeAttackResponseType responseType)
+        public static MeleeAttackResponseService Get(CharacterAttributes selfAttributes, AnimatorHelper animator, BlackboardComponent blackboard, MeleeAttackResponseType responseType)
         {
             var output = s_Executables.Count > 0 ? s_Executables.Pop() : new MeleeAttackResponseService();
             output.m_SelfAttributes = selfAttributes;
+            output.m_Animator = animator;
             output.m_Blackboard = blackboard;
             output.m_ResponseType = responseType;
             return output;
@@ -33,6 +35,7 @@ namespace AIEngineTest
         }
 
         private CharacterAttributes m_SelfAttributes;
+        private AnimatorHelper m_Animator;
         private BlackboardComponent m_Blackboard;
         private MeleeAttackResponseType m_ResponseType;
 
@@ -47,6 +50,10 @@ namespace AIEngineTest
 
         public void Stop()
         {
+            m_SelfAttributes = null;
+            m_Animator = null;
+            m_Blackboard = default;
+            m_ResponseType = MeleeAttackResponseType.Ignore;
         }
 
         public void OnMessageReceived(MeleeAttackStimulus message)
@@ -57,13 +64,15 @@ namespace AIEngineTest
                 var otherAttributes = message.m_InstigatorAttributes;
 
                 var attackRoll = Random.Range(1, 21);
-                var attackModifier = attackRoll + otherAttributes.attackModifier;
+                var attackModifier = otherAttributes.attackModifier;
                 var armourClass = selfAttributes.armourClass;
 
-                if (attackModifier >= armourClass)
-                {
-                    Debug.Log($"{otherAttributes.gameObject.name} ({attackRoll} (1d20) + {attackModifier}) beat {selfAttributes.gameObject.name}'s armour class ({armourClass}).");
+                var success = attackRoll == 20 || (attackRoll != 1 && (attackRoll + attackModifier) >= armourClass);
 
+                Debug.Log($"{otherAttributes.gameObject.name} ({attackRoll} (1d20) + {attackModifier}) {(success ? "beat" : "did not beat")} {selfAttributes.gameObject.name}'s armour class ({armourClass}).");
+
+                if (success)
+                {
                     var (damageMin, damageMax, damageType) = otherAttributes.equippedWeaponDamageRange;
                     var damageVal = Random.Range(damageMin, damageMax + 1);
 
@@ -75,12 +84,26 @@ namespace AIEngineTest
                     selfAttributes.hitPoints = (newHitPoints, maxHitPoints);
                     // todo: particle fx here
 
+                    var poolName = damageType switch
+                    {
+                        DamageType.Slashing => "BloodSplatterSpiky",
+                        DamageType.Piercing => "BloodSplatterSpiky",
+                        DamageType.Bludgeoning => "BloodSplatterSpiky",
+                        _ => ""
+                    };
+
+                    if (ParticleFXPoolManager.TryGet(poolName, out var pool))
+                    {
+                        pool.Get(message.m_ContactPoint);
+                    }
+
                     switch (m_ResponseType)
                     {
                         case MeleeAttackResponseType.OnlyStats when newHitPoints > 0:
                             break;
                         case MeleeAttackResponseType.Normal:
                         case MeleeAttackResponseType.OnlyStats when newHitPoints == 0:
+                            m_Animator.damageOrigin = otherAttributes.transform.position;
                             m_Blackboard.SetEnumValue("ReactionRequired", newHitPoints > 0 ? ReactionType.Hit : ReactionType.Die);
                             break;
                         default:
@@ -117,8 +140,8 @@ namespace AIEngineTest
 
         protected override IHiraBotsService GetService(BlackboardComponent blackboard, IHiraBotArchetype archetype)
         {
-            return archetype is IHiraBotArchetype<CharacterAttributes> attributes
-                ? MeleeAttackResponseService.Get(attributes.component, blackboard, m_ResponseType)
+            return archetype is IHiraBotArchetype<CharacterAttributes> attributes and IHiraBotArchetype<AnimatorHelper> animator
+                ? MeleeAttackResponseService.Get(attributes.component, animator.component, blackboard, m_ResponseType)
                 : null;
         }
 

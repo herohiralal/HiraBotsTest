@@ -9,8 +9,8 @@ namespace AIEngineTest
         [SerializeField] private Collider m_Collider;
         [SerializeField] private Rigidbody m_Rigidbody;
 
-        [SerializeField] private UnityEvent<BaseArchetype> m_OnHit;
-        public UnityEvent<BaseArchetype> hit => m_OnHit;
+        [SerializeField] private UnityEvent<BaseArchetype, Vector3> m_OnHit;
+        public UnityEvent<BaseArchetype, Vector3> hit => m_OnHit;
 
         private readonly HashSet<GameObject> m_AttackedGameObjects = new HashSet<GameObject>();
 
@@ -52,7 +52,7 @@ namespace AIEngineTest
 
             if (other.TryGetComponent<BaseArchetype>(out var otherArchetype))
             {
-                m_OnHit.Invoke(otherArchetype);
+                m_OnHit.Invoke(otherArchetype, collision.GetContact(0).point);
             }
         }
     }

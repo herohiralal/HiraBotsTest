@@ -15,7 +15,7 @@ namespace AIEngineTest
         private static readonly int s_InterruptMontage = Animator.StringToHash("InterruptMontage");
         private static readonly int s_ActionNum = Animator.StringToHash("ActionNum");
         private static readonly int s_KeepMontageActive = Animator.StringToHash("KeepMontageActive");
-        private static readonly int s_Direction = Animator.StringToHash("Direction");
+        private static readonly int s_DamageDirection = Animator.StringToHash("DamageDirection");
         private static readonly int s_GetUpFromRagdoll = Animator.StringToHash("GetUpFromRagdoll");
         private static readonly int s_FacingUp = Animator.StringToHash("FacingUp");
 
@@ -74,13 +74,16 @@ namespace AIEngineTest
 
         #region Reactions
 
-        public void CalculateDirection(Vector3 otherPosition)
+        public Vector3 damageOrigin
         {
-            var t = transform;
-            var dir = (otherPosition - t.position).normalized;
-            var ang = Vector3.SignedAngle(t.forward, dir, t.up) % 360;
-            ang += ang < 0 ? 360 : 0;
-            m_Animator.SetFloat(s_Direction, ang);
+            set
+            {
+                var t = transform;
+                var dir = (value - t.position).normalized;
+                var ang = Vector3.SignedAngle(t.forward, dir, t.up) % 360;
+                ang += ang < 0 ? 360 : 0;
+                m_Animator.SetFloat(s_DamageDirection, ang);
+            }
         }
 
         #endregion
