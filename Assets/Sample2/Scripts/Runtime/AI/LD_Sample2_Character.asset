@@ -359,7 +359,7 @@ MonoBehaviour:
   m_Action:
     m_Precondition:
     - {fileID: -2381558177161865731}
-    - {fileID: -4771068410571269918}
+    - {fileID: -3411053725966584895}
     m_Cost:
     - {fileID: -6838607744446292683}
     m_Effect:
@@ -765,32 +765,6 @@ MonoBehaviour:
   value:
     m_TypeIdentifier: E8395A7D-9589-456D-B72B-9FC99808CC13
     m_Value: 0
---- !u!114 &-4771068410571269918
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76cf91d3f677494e89e4545c520c6644, type: 3}
-  m_Name: EnumEqualsDecorator
-  m_EditorClassIdentifier: 
-  m_Subtitle: Precondition
-  m_Description: CurrentEquipment must not be equal to None.
-  m_CheckDuringExecution: 1
-  invert: 1
-  key:
-    m_Value:
-      m_Key: {fileID: 8310805269065138596, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
-        type: 2}
-      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
-      m_KeyTypes: 2
-      m_IsValid: 1
-  value:
-    m_TypeIdentifier: 24810CDF-70F7-4906-8B1D-FA60DADC1CEA
-    m_Value: 255
 --- !u!114 &-4211676218973713910
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -919,6 +893,36 @@ MonoBehaviour:
       m_KeyTypes: 1
       m_IsValid: 1
   operationType: 1
+--- !u!114 &-3411053725966584895
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c89e5910ec04893b329539512e8c1b7, type: 3}
+  m_Name: DynamicEnumEqualsDecorator
+  m_EditorClassIdentifier: 
+  m_Subtitle: Precondition
+  m_Description: CurrentEquipment must be equal to OwnedEquipment.
+  m_CheckDuringExecution: 1
+  invert: 0
+  targetKey:
+    m_Value:
+      m_Key: {fileID: 8310805269065138596, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
+  operatorKey:
+    m_Value:
+      m_Key: {fileID: 6235062126746876699, guid: b3fe7bbf61ffe7f44a2241120c4e06f5,
+        type: 2}
+      m_Template: {fileID: 11400000, guid: b3fe7bbf61ffe7f44a2241120c4e06f5, type: 2}
+      m_KeyTypes: 2
+      m_IsValid: 1
 --- !u!114 &-3391396670579932900
 MonoBehaviour:
   m_ObjectHideFlags: 3
